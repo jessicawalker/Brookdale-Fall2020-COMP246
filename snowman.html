@@ -17,18 +17,39 @@
             Submit snowman.html to Canvas.
         -->
         
-        <canvas id="myCanvas" width="400" height="300" style="border:0px solid black;"></canvas>
+        <canvas id="myCanvas" width="400" height="600" style="border:0px solid black;"></canvas>
 
         <script>
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
 
             //color the entire canvas light blue
+            ctx.fillStyle = "lightblue";
+            ctx.fillRect(0, 0, 400, 600);
 
+            // draw filled white circles (body)
 
-            //draw filled white circles (body)
+            //// head
+            ctx.beginPath();
+            ctx.arc(200, 200, 75, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.closePath();
+            ctx.fill();
 
-
+            //// middle
+            ctx.beginPath();
+            ctx.arc(200, 350, 100, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.closePath();
+            ctx.fill();
+            
+            //// bottom
+            ctx.beginPath();
+            ctx.arc(200, 550, 150, 0, 2 * Math.PI);
+            ctx.fillStyle = "white";
+            ctx.closePath();
+            ctx.fill();
+            
             //draw filled black rectangles (hat)
 
 
