@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Canvas Graphics</title>
+</head>
+
+<body>
+
+  <h1>Draw a Circle</h1>
+  <p>Draw a circle with the arc() method.</p>
+
+  <canvas id="myCanvas" width="400" height="300" style="border:0px solid black;"></canvas>  
+
+  <script>
+  //get the canvas element
+  var canvas = document.getElementById("myCanvas");
+  
+  //get the context
+  var ctx = canvas.getContext("2d");
+
+  //Draw a circle
+  //ctx.arc parameters: x,y,radius,start,end
+  //x,y of center of circle
+  //radius
+  //start angle in radians (0 is at 3:00 position, PI/2 is 6:00, PI is 9:00, PI*1.5 is 12:00, PI*2 is full 360 around)
+  //end angle in radians
+  ctx.arc(100, 100, 75, 0, 2 * Math.PI); 
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+  
+  </script>
+  
+</body>
+
+</html>

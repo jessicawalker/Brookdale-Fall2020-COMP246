@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Canvas Graphics</title>
+</head>
+
+<body>
+
+  <h1>Moonlight</h1>
+
+  <canvas id="myCanvas" width="400" height="300" style="border:0px solid black;"></canvas>  
+
+  <script>
+  //get the canvas element
+  var canvas = document.getElementById("myCanvas");
+  
+  //get the context
+  var ctx = canvas.getContext("2d");
+  
+  //set canvas to a black background (use the canvas properties for width and height)
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  //Draw a half circle (e.g., half moon)
+  ctx.arc(100, 100, 75,Math.PI/2,Math.PI*1.5); 
+  ctx.fillStyle = "white";
+  ctx.fill();
+  
+  </script>
+  
+</body>
+
+</html>

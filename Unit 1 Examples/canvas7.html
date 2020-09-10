@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Canvas Graphics</title>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="600" height="300" style="border:0px solid black;"></canvas>  
+
+  <script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  
+  //color the canvas lightgrey
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(0, 0, 600, 300);
+  
+  //Draw text on the canvas
+  ctx.fillStyle = "blue"; //font color
+  ctx.font = "75px Arial"; //font size type
+  ctx.fillText("Bandersnatch", 70, 170);  //text , x, y
+    
+  </script>
+  
+</body>
+
+</html>

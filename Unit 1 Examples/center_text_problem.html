@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Center Text</title>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="600" height="300" style="border:0px solid black;"></canvas>  
+
+  <script>
+    //Question: Can you center the text on the Canvas, using code? What if the text and font (size/type) changes?
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    //color the canvas yellow
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    //Draw text on the canvas
+    ctx.fillStyle = "blue";
+    ctx.font = "75px Arial, Helvetica, sans-serif" //font size type
+    ctx.fillText("Center this text", 10,60);  //text , x, y
+  </script>
+  
+</body>
+
+</html>
