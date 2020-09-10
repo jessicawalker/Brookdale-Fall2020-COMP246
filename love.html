@@ -55,11 +55,11 @@
             ctx.fill();
 
             //// quarter-circle outline
+            ctx.lineWidth = 5;
             ctx.beginPath();
-            ctx.arc(467, 150, 75, 0, Math.PI, "true");
+            ctx.arc(467, 150, 75, Math.PI, 0.5 * Math.PI, "true");
             ctx.strokeStyle = "green";
-            ctx.closePath();
-            ctx.fill();
+            ctx.stroke();
 
         </script>
 
