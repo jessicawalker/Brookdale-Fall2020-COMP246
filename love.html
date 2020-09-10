@@ -22,20 +22,44 @@
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
 
-            //color the entire canvas aqua
+            // color the entire canvas aqua
+            ctx.fillStyle = "aqua";
+            ctx.fillRect(0, 0, 575, 250);
 
+            // draw a filled blue rectangle ("L")
+            ctx.fillStyle = "blue";
+            ctx.fillRect(25, 25, 100, 200);
 
-            //draw a filled blue rectangle ("L")
+            // draw a filled yellow circle rectangle ("O")
+            ctx.beginPath();
+            ctx.arc(205, 150, 75, 0, 2 * Math.PI);
+            ctx.fillStyle = "yellow";
+            ctx.closePath();
+            ctx.fill();
 
+            // draw a filled red triangle ("V")
+            ctx.beginPath();
+            ctx.fillStyle = "red";
+            ctx.moveTo(260,75);
+            ctx.lineTo(410,75);
+            ctx.lineTo(335,225);
+            ctx.closePath();
+            ctx.fill();
 
-            //draw a filled yellow circle rectangle ("O")
+            // draw a filled green semicircle and green quarter-circle outline ("E")
+            //// semicircle
+            ctx.beginPath();
+            ctx.arc(465, 150, 75, 0, Math.PI, "true");
+            ctx.fillStyle = "green";
+            ctx.closePath();
+            ctx.fill();
 
-
-            //draw a filled red triangle ("V")
-
-
-            //draw a filled green semicircle and green quarter-circle outline ("E")
-
+            //// quarter-circle outline
+            ctx.beginPath();
+            ctx.arc(467, 150, 75, 0, Math.PI, "true");
+            ctx.strokeStyle = "green";
+            ctx.closePath();
+            ctx.fill();
 
         </script>
 
