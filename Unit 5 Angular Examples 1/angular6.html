@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AngularJS Controllers</title>
+  
+  <!-- Include Angular.js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- Another way to perform intialization in Angular.js is a controller. -->
+  <!-- Angular.js controllers are preferred over the data-ng-init directive. -->
+  
+  <!-- data-ng-app initializes this Angular.js application with a name -->
+  <!-- data-ng-controller defines the controller for this Angular.js application -->
+  <div data-ng-app="MyApp" data-ng-controller="MyController">
+    
+    <!-- The {{ and }} block is an Angular.js expression.  -->
+    <p>2 + 2 = {{ 2 + 2 }} </p>
+    <p>a + 2 = {{ a + 2 }} </p>
+    <p>c ^ b = {{ Math.pow(c,b) }} </p>
+    
+  </div>
+  
+  <script>
+    
+    //declare my app
+    var myapp = angular.module("MyApp", []);
+    
+    //declare the controller for my app
+    myapp.controller("MyController", function ($scope) {
+      $scope.a = 5;
+      $scope.b = 6;
+      $scope.c = 9;
+      $scope.Math = window.Math; //needed for Math.pow() above
+    });
+  </script>
+
+</body>
+</html>

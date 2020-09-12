@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AngularJS: ng-model</title>
+  
+  <!-- Include Angular.js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- This is like angular1.html, but it uses an Angular.js expression to output the
+  input text value to the p tag. -->
+  <div data-ng-app="">
+    
+    <p>Type something: <input type="text" data-ng-model="name"></p>
+    
+    You typed: <p> {{ name }} </p>
+    
+  </div>
+  
+</body>
+
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bouncy</title>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="1000" height="500" style="border:1px solid black;"></canvas><br>
+  Initial velocity: <input type="text" id="velocity" value="90.5">
+  Angle: <input type="text" id="angle" value="80.3">
+  <button onclick="go()">Go!</button>
+  
+  <script>
+  var velocity_obj = document.getElementById("velocity");
+  var angle_obj = document.getElementById("angle");    
+
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#33FF93";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);    
+  
+  //range of projectile data
+  var g = 9.80;                //acceleration due to gravity in meters per second squared
+  var t = 0.0;                 //time in seconds
+  var offset = 0;
+  var factor = 0;
+  var id; //interval timer ID
+
+  //make the lower left corner 0,0
+  ctx.translate(0, canvas.height);
+  ctx.scale(1, -1);
+    
+  //points will be black
+  ctx.fillStyle = "black";  
+    
+  function nextPoint() {
+    velocity = velocity_obj.value / Math.pow(2,factor);
+    ar = angle_obj.value * Math.PI/180.0;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#33FF93";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);  
+    landing_distance = ( Math.pow(velocity,2) * Math.sin(2 * ar) ) / g;
+    ctx.beginPath();
+    x = Math.floor(velocity * t * Math.cos(ar)) + offset;
+    y = Math.floor(velocity * t * Math.sin(ar) - 0.5 * g * Math.pow(t, 2) ) + 30;
+
+    //draw ball
+    ctx.font = "36px Arial"; //font size type
+    ctx.fillText('\u{26BD}', x, y);  //text , x, y     
+    ctx.closePath();
+
+    t = t + 0.10; //move ahead in time
+    if (x < 0 || y < 30) { //increase y, so the ball doesn't disappear below
+      if (t < 5) {
+        clearInterval(id);
+        console.log('done.');
+        t=0.0;
+        offset=0;
+        factor=0;       
+        return;
+      }
+      offset = offset + landing_distance;
+      factor += 0.5;
+      t = 0.0;
+    }
+
+  }
+
+  function go() {
+    clearInterval(id);
+    t=0.0;
+    offset = 0;
+    factor = 0;    
+    //call nextPoint every 10 ms
+    id = setInterval( function() { nextPoint(); } , 10);  
+  }  
+    
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Angular Directives (ng-app)</title>
+  
+  <!-- Include Angular.js - You need to include this JavaScript file to use Angular.js in your web pages. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+
+<body>
+
+  <!-- 
+  Angular.js directives enable and execute Angular.js commands in your code.
+  An Angular.js directive start with "data-ng-"  
+  -->
+  
+  <!-- this directive enables Angular.js for the div tag -->
+  <div data-ng-app="">
+    
+    <!-- This data-ng-model directive binds the value of the input text to the variable "name". -->
+    <p>Type something: <input type="text" data-ng-model="name"></p>
+    
+    <!-- This data-ng-bind directive binds the innerHTML of the <p> element to the model property "name". -->
+    You typed: <p data-ng-bind="name"></p>
+    
+  </div>
+
+</body>
+
+
+</html>

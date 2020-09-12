@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Repetition - BREAK and CONTINUE</title>
+</head>
+
+<body>
+
+  <h1>Repetition - BREAK and CONTINUE</h1>
+  <p>The BREAK statement forces a loop to immediately exit.</p>
+  <p>The CONTINUE statement forces a loop to immediately go to the next iteration.</p>
+  
+  <script>
+    //Although the loop index goes to 9, the BREAK statement causes an
+    //immediate exit when i is 5
+    for (var i=0; i < 10; i++) {
+      if (i > 4)
+        break;
+      console.log("Break Example Loop: " + i);
+    }
+	
+    //This loop prints even numbers only. When i is odd, the CONTINUE
+    //statement forces the loop to skip the statements following it and go
+    //back to the top
+    for (var i=0; i < 10; i++) {
+      if (i % 2 != 0)
+        continue;
+      console.log("Continue Example Loop: " + i);
+    }
+  </script>
+  
+  
+</body>
+
+
+</html>

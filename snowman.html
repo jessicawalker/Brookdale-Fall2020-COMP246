@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Unit 1: Snowman</title>
+        <title>Unit 1: Snowman | Jessica Walker</title>
         <meta charset="utf-8">
     </head>
     <body>
@@ -23,9 +23,27 @@
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
 
-            //color the entire canvas light blue
+            // color the entire canvas light blue
             ctx.fillStyle = "lightblue";
             ctx.fillRect(0, 0, 400, 600);
+
+            // draw arm sticks
+
+            //// arm on left
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.moveTo(110,320);
+            ctx.lineTo(50,200);
+            ctx.strokeStyle = "brown";
+            ctx.stroke();
+
+            //// arm on right
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.moveTo(290,320);
+            ctx.lineTo(350,200);
+            ctx.strokeStyle = "brown";
+            ctx.stroke();
 
             // draw filled white circles (body)
 
@@ -49,16 +67,84 @@
             ctx.fillStyle = "white";
             ctx.closePath();
             ctx.fill();
-            
-            //draw filled black rectangles (hat)
 
+            // draw coal eyes
 
-            //draw an orange triangle (nose)
+            //// eye on left
+            ctx.beginPath();
+            ctx.arc(170, 180, 10, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.closePath();
+            ctx.fill();
 
+            //// eye on right
+            ctx.beginPath();
+            ctx.arc(240, 180, 10, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.closePath();
+            ctx.fill();
 
-            //draw ... (other features to come)
+            // draw filled black rectangles (hat)
 
-            
+            //// bottom of hat
+            ctx.fillStyle = "black";
+            ctx.fillRect(120, 150, 160, 5);
+
+            //// top of hat
+            ctx.fillStyle = "black";
+            ctx.fillRect(140, 80, 120, 70);
+            ctx.fillStyle = "gray";
+            ctx.fillRect(160, 80, 30, 70);
+            ctx.fillStyle = "red";
+            ctx.fillRect(140, 135, 120, 15);
+
+            // draw an orange triangle (nose)
+            ctx.beginPath();
+            ctx.fillStyle = "orange";
+            ctx.moveTo(205,195);
+            ctx.lineTo(300,200);
+            ctx.lineTo(205,210);
+            ctx.closePath();
+            ctx.fill();
+
+            //// brown nose outline
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(205,195);
+            ctx.lineTo(300,200);
+            ctx.lineTo(205,210);
+            ctx.strokeStyle = "brown";
+            ctx.stroke();
+
+            // draw mouth
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(205, 215, 35, 0.9 * Math.PI, 2.1 * Math.PI, "true");
+            ctx.strokeStyle = "gray";
+            ctx.stroke();
+
+            // draw buttons
+
+            //// top button
+            ctx.beginPath();
+            ctx.arc(220, 300, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.closePath();
+            ctx.fill();
+
+            //// middle button
+            ctx.beginPath();
+            ctx.arc(230, 340, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.closePath();
+            ctx.fill();
+
+            //// bottom button
+            ctx.beginPath();
+            ctx.arc(220, 380, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.closePath();
+            ctx.fill();
         </script>
 
     </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>dynamicpage4</title>
+</head>
+
+<body>
+
+  <h1>Modify a DIV Element</h1>
+  <div>This example shows how to use JavaScript to change the contents of a DIV element.</div>
+  
+  <div id="mymsg" style="font-size:100px;color:blue">Hello Dave!</div>
+
+  <script>
+    //first, get the DIV element
+    var elem = document.getElementById("mymsg");
+    
+    //Capture origianal HTML value and Print original message to Console
+	var initMessage = elem.innerHTML;
+	console.log(initMessage);
+	
+    //now change its inner HTML
+    elem.innerHTML = "Hello World!";
+
+    //Capture new HTML values and Print new message to Console
+	var newMessage = elem.innerHTML;
+	console.log(newMessage);
+	
+  </script>
+  
+</body>
+
+
+</html>

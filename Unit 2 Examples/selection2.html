@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Selection - SWITCH</title>
+</head>
+
+<body>
+
+  <h1>Selection - SWITCH</h1>
+  The SWITCH statement implements selection in JavaScript. This statement executes a statement or block of statements if its variable matches a particular value.
+  
+  <script>
+    var response = prompt("Do you like apples?");
+    switch (response) {
+      case "yes":
+        console.log("How 'bout 'dem apples!");
+        break;
+      case "no":
+        console.log("Sorry to hear that. Apples are good for you.");
+        break;
+      case "maybe":
+        console.log("Oh make up your mind!");
+        break;
+      default:    //Executes if no other case is found
+        console.log("Sorry, I don't understand your response.");
+        break;
+    }
+    
+  </script>
+  
+  
+</body>
+
+
+</html>

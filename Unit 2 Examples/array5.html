@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Arrays</title>
+</head>
+
+<body>
+
+  <h1>Copy a 2D Array</h1>
+
+Open the browser console to see the JavaScript output.<br><br>
+  
+  <script>
+
+    //create the first 2D array (arr1)
+    var arr1 = [
+      ['a','b','c'],
+      ['d','e','f']
+    ];
+    
+    //copy arr1 to arr2
+    var arr2 = [];
+    for (row=0; row < arr1.length; row++) {
+      arrtemp = [];
+      for (col=0; col < arr1[row].length; col++) {
+        arrtemp.push(arr1[row][col]);
+      }
+      arr2.push(arrtemp);
+    }
+    
+    //print out arr2
+    s = '';
+    for (row=0; row < arr2.length; row++) {
+      for (col=0; col < arr2[row].length; col++) {
+        s += arr2[row][col];
+      }
+      s += '\n';
+    }
+    console.log(s);
+    
+    //copy 2D array (shortcut)
+    arr3 = JSON.parse(JSON.stringify(arr1));
+    console.log(arr3);
+
+    //copy 2D array with map() and slice()
+    //get each element a (which is an array), take a full slice(), then put it in the new array arr4
+    arr4 = arr1.map(a => a.slice());
+    console.log(arr4);
+
+  </script>
+  
+  
+</body>
+
+
+</html>

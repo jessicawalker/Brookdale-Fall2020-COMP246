@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Furious Frogs</title>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="1000" height="500" style="border:1px solid black;"></canvas><br>
+  
+  <script>
+    
+  //create the canvas
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  
+  //color the canvas white
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);    
+  
+  //range of projectile data
+  var velocity = 90.5;         //initial velocity m/s
+  var a = 80.3;                //angle of initial velocity in degrees
+  var ar = a * Math.PI/180.0;  //convert degrees to radians
+  var g = 9.80;                //acceleration due to gravity in meters per second squared
+  var t = 0.0;                 //time in seconds 
+    
+  function nextPoint() {
+    //points will be black
+    ctx.fillStyle = "black"; 
+    ctx.beginPath();
+    x = Math.floor(velocity * t * Math.cos(ar));
+    y = Math.floor(velocity * t * Math.sin(ar) - 0.5 * g * Math.pow(t, 2) );
+    
+    //to make 0,0 be bottom left corner, use (canvas.height-y) instead of y when drawing
+    ctx.arc(x, canvas.height-y, 2, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    t = t + 0.10; //move ahead in time
+    if (x < 0 || y < 0) {
+      console.log('done.');
+      clearInterval(id);
+      return;
+    }
+
+  }
+
+  //call nextPoint every 20 ms
+  var id = setInterval( function() { nextPoint(); } , 20);
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Telegram</title>
+  
+  <!-- bootstrap style button -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+  <p>Old telegrams were primitive. They had extra spaces and no punctuation. Instead of a period(.), they used the word "STOP". Make there is only one space between words. Replace the word "STOP" with ". "</p>
+  <textarea rows="5" cols="50" id="msg" style="font-size:40px;font-family:courier"></textarea>
+
+  <br>
+  <br>
+  
+  <button type="button" class="btn btn-primary" onclick="go();">Go</button>
+  
+  <script>
+    
+    var div_obj = document.getElementById("msg");
+    var msg = "MR  GOWER     CABLES   YOU    NEED CASH STOP MY  OFFICE  INSTRUCTED TO ADVANCE YOU UP TO TWENTY  FIVE     THOUSAND DOLLARS     STOP  HEEHAW AND   MERRY   CHRISTMAS        SAM   WAINWRIGHT";
+    var id; //interval ID
+    div_obj.value = msg;
+    
+    function go() {
+      orig_len = msg.length;
+      
+      msg = msg.replace("  "," "); //replace two spaces with one space
+      msg = msg.replace("STOP",". "); //replace "STOP" with ". "
+      msg = msg.replace(" .",".");
+      
+      div_obj.value = msg; //display the new msg
+      
+      new_len = msg.length;
+      
+      //exit condition
+      if (orig_len == new_len) {
+        console.log('we are done!');
+        return;
+      }
+  
+    }
+ 
+  </script>
+  
+  
+</body>
+
+
+</html>

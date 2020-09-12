@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Let's Make a Deal</title>
+  <style>
+  table, th, td {
+    text-align:center;
+    border: 0px solid black;
+    width: 300px;
+  }
+  </style>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+</head>
+
+<body style='font-family: courier new'>
+  <div id='msg' style='font-size:30px'>Pick a door:</div>
+  <table id='mytable'></table>
+
+
+  
+  <br>
+  <button id='opendoor' onclick="openDoor()">Open Door</button>
+    <button id='revealdoor' onclick="reveal()">Reveal</button>
+  <br><br>
+  <div id ='result'  style='font-size:30px'></div>
+  <script>
+    var max_doors = 100; //HOW MANY DOORS??
+    var user_index, car_index;
+    var iconsz = 40;
+    
+    //create  two-dimensional array; intialize all elements to ' '
+    doors = [];
+    
+    //create the array and put goats behind all doors
+    for (i=0; i < max_doors; i++) {
+      doors[i] = 'g';
+    }
+    
+    //place the car
+    car_index = Math.floor( Math.random() * max_doors );
+    doors[car_index] = 'c';
+    
+    console.log(doors); //let's see the array
+    
+    document.getElementById("revealdoor").disabled = true;
+    printDoors(doors);
+
+
+    function openDoor() {
+      //user selects door with radio button
+      user_index = -1;
+      for (i=0; i < max_doors; i++) {
+        if (document.getElementById("r"+i).checked) {
+          user_index = i;
+          break;
+        }
+      }
+      if (user_index == -1) return;
+      document.getElementById("msg").innerHTML = 'Wanna switch?';
+      document.getElementById("opendoor").disabled = true;
+      document.getElementById("revealdoor").disabled = false;
+            
+      var hidden_index = -1;
+      if (user_index == car_index) {
+        for (i=0; i < doors.length; i++) {
+          if (i != user_index) {
+            hidden_index = i;
+            break;
+          }
+        }
+      } else {
+        hidden_index = car_index;
+      }
+
+      
+      //open doors
+      s = "";
+      s = s +"<tr>";
+      doors_count = 0;
+      for (j=0; j < doors.length; j++) {
+        checked_s = '';
+        if (j == user_index)
+          checked_s = ' checked ';        
+        
+        if (j != hidden_index && j != user_index)
+          s = s + '<td><i class="fas fa-horse" style="font-size:'+iconsz+'px;color:orange"></i><input type="radio" id="r' + j +'" name="r" value="' + j + '" ' + checked_s + '></td>';
+        else
+          s = s + '<td><i class="fas fa-door-closed" style="font-size:'+iconsz+'px;color:grey"></i><input type="radio" id="r' + j +'" name="r" value="' + j + '" ' + checked_s + '></td>';
+        doors_count++;
+        if (doors_count == 10) {
+          doors_count = 0;
+          s += '</tr><tr>';
+        }
+      }
+      s = s + '</tr>';
+      document.getElementById("mytable").innerHTML = s;
+    }
+    
+    function reveal() {
+      //get user's final choice
+      for (i=0; i < max_doors; i++) {
+        if (document.getElementById("r"+i).checked) {
+          user_index = i;
+          break;
+        }
+      }    
+      
+      document.getElementById("revealdoor").disabled = true;
+      s = "";
+      s = s +"<tr>";
+      doors_count = 0;
+      for (j=0; j < doors.length; j++) {
+        checked_s = '';
+        if (j == user_index)
+          checked_s = ' checked ';
+        
+        if (doors[j] == 'g')
+          s = s + '<td><i class="fas fa-horse" style="font-size:'+iconsz+'px;color:orange"></i><input type="radio" id="r"' + j +' name="r" value="' + j + '" ' + checked_s + '></td>';
+        else
+          s = s + '<td><i class="fa fa-car" style="font-size:'+iconsz+'px;color:blue"></i><input type="radio" id="r"' + j +' name="r" value="' + j + '" ' + checked_s + '></td>';    
+        doors_count++;
+        if (doors_count == 10) {
+          doors_count = 0;
+          s += '</tr><tr>';
+        }
+      }
+      s = s + '</tr>';
+     
+      document.getElementById("mytable").innerHTML = s;
+      
+      if (user_index == car_index)
+        document.getElementById("result").innerHTML = 'You won the car!';
+      else
+        document.getElementById("result").innerHTML = 'Sorry. You got the goat.';
+    }
+
+    function printDoors(doors) {
+      s = "";
+      s = s +"<tr>";
+      door_count = 0;
+      for (j=0; j < doors.length; j++) {
+        s = s + '<td><i class="fas fa-door-closed" style="font-size:'+iconsz+'px;color:grey"></i><input type="radio" id="r' + j +'" name="r" value="'+  j +'" ></td>';
+        door_count++;
+        if (door_count == 10) {
+          door_count =0;
+          s += '</tr><tr>';
+        }
+      }
+      s = s + '</tr>';
+      document.getElementById("mytable").innerHTML = s;
+    }
+    
+  </script>
+  
+  
+</body>
+</html>

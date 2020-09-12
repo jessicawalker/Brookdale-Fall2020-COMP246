@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Operators</title>
+</head>
+
+<body>
+
+  <h1>Operators</h1>
+  <p>Declaring and using operators in JavaScript.</p>
+
+  <script>
+    var a = 9; //the assignment operator: =
+    var b = 2;
+    var answer;
+    
+    //Math operators (Note: two lines of code written on one line ";" separated)
+    answer = a + b; console.log(answer);   //Addition
+    answer = a - b; console.log(answer);   //Subtration
+    answer = a * b; console.log(answer);   //Multiplication
+    answer = a / b; console.log(answer);   //Division
+    answer = a % b; console.log(answer);   //Modulus (remainder)
+    answer = a**b;  console.log(answer);   //Exponentiaion
+    answer = a++;   console.log(answer);   //post-increment
+    answer = ++a;   console.log(answer);   //pre-increment
+    
+    //assignment operators
+    var a = 9; //assignment
+    a += 1; console.log(a);
+    a -= 1; console.log(a);
+    a *= 2; console.log(a);
+    a /= 2; console.log(a);
+    a %= 2; console.log(a);
+    
+    //string operators
+    var str = "Hello";
+    str = str + " World!";   //Concatenation
+    console.log(str);
+    
+    //comparison operators
+    var x = 9;
+    var y = 8;
+    console.log(x == y);   //equal to
+    console.log(x === y);  //equal value and type
+    console.log(x != y);   //not equal to
+    console.log(x !== y);  //not equal value or not equal type
+    console.log(x > y);    //greater than
+    console.log(x < y);    //less than
+    console.log(x >= y);   //greater than or equal
+    console.log(x <= y);   //Less than or equal
+    
+    //logical operators
+    var b1 = true;            //Boolean
+    var b2 = false;
+    console.log(b1 && b2);    //Output: false
+    console.log(b1 || b2);    //Output: true
+    console.log(!b1);         //"!" is the "not" operator -  Output: false (since it says "not" true)
+    
+    //typeOf operators
+    console.log(typeof(b1)); //boolean
+    console.log(typeof(x));  //number
+
+    
+  </script>
+  
+</body>
+
+
+</html>

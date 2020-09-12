@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Repetition</title>
+</head>
+
+<body>
+
+  <h1>Dynamic Page (bits)</h1>
+  <p>JavaScript may output HTML directly. Here is a table with random 1s and 0s:</p>
+
+  
+  <script>
+    document.write("<table>");
+    
+    for (var row=0; row < 8; row++) {
+      document.write("<tr>");
+      for (var col=0; col < 8; col++) {
+        document.write("<td>");
+        var bit = Math.floor(Math.random()*2);
+        document.write(bit);
+        document.write("</td>");
+      }
+      document.write("</tr>");
+    }
+    
+    document.write("</table>");
+  </script>
+  
+  <h3>Refresh the page to see a new table!</h3>
+  
+</body>
+
+
+</html>

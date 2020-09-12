@@ -1,0 +1,17 @@
+{
+  "name": "example9",
+  "version": "1.0.0",
+  "description": "This Node.js web server serves up _dynamic_ web pages. In other words, a Node.js program creates HTML content on the fly and returns it",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "mongodb": "^3.1.10"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Random Numbers</title>
+</head>
+
+<body style='font-family: courier new'>
+
+  <!-- div tag to display the numbers -->
+  <div id='mynumbers'  style="font-size:150px"></div>
+  
+  <script>
+  var grid = []; //the 3x5 grid
+  var cols = 5;
+  var rows = 3;
+  var t=0; //iterations
+
+  /* this function creates a String representation of the 2D grid,
+     then sets it to the DIV tag above */
+  function printGrid(arr) {
+    s = "";
+    for (i=0; i < arr.length; i++) {
+      for (j=0; j < arr[i].length; j++)
+        s = s + arr[i][j];
+      s = s + '<br>';
+    }
+    s = s + '<br>';
+    document.getElementById("mynumbers").innerHTML = s;
+  }
+  
+  /* the tick() function executes once for each iteration */
+  function tick(arr) {
+    arr = []; //clear the 2d grid
+    
+    //add random numbers to the 2d grid
+    for (r=0; r < rows; r++) {
+      temprow = [];
+      for (c=0; c < cols; c++) {
+        random_number = Math.trunc(Math.random() * 10);
+        temprow.push(random_number);
+      }
+      arr.push(temprow);
+    }
+    
+    t++; //update the number of iterations
+    
+    printGrid(arr); //print the grid at each iteration (i.e., state)
+    
+    if (t > 100) clearInterval(id);  //stop interval timer after 100 iterations
+  }
+
+  //start an interval timer to repeat the tick function every 50 ms
+  var id = setInterval(tick, 50);
+
+  </script>
+  
+  
+</body>
+</html>

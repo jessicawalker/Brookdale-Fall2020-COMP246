@@ -1,0 +1,19 @@
+
+.whiteball{
+    width:108px;
+    height:108px;
+    font-size:50px;
+    font-weight:normal;
+    text-align:center;
+    line-height:100px;
+    background: transparent url("../images/whiteball108.png") center no-repeat;
+}
+.orangeball{
+    width:114px;
+    height:114px;
+    font-size:50px;
+    font-weight:normal;
+    text-align:center;
+    line-height:100px;
+    background: transparent url("../images/orangeball114.png") center no-repeat;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Faces</title>
+  <style>
+  div {font-size:100px;display:inline;}
+  </style>
+</head>
+
+<body>
+
+  <div id="msg"></div>
+
+  <script>
+  
+  //array of HTML smileys
+  var faces = ["&#9785;","&#9786;"];
+  
+  //array of colors
+  var colors = ["red","orange","yellow","green","blue","purple"];
+  
+  //random number for face
+  var fnum = Math.floor(Math.random()*2);
+  
+  //random number for color
+  var cnum = Math.floor(Math.random()*7);
+  
+  //get the DIV element
+  var obj = document.getElementById("msg");
+  
+  //set the random face
+  obj.innerHTML = faces[fnum];
+  
+  //set the random color
+  obj.style.color = colors[cnum];
+
+  </script>
+  
+  
+</body>
+
+
+</html>

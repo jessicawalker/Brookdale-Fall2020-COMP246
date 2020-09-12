@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pac-Man</title>
+  <style>
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+</head>
+
+<body>
+  <h3>Pac-Man</h3>
+  <textarea rows="50" cols="100" id="msg" style="font-size:10px;font-family:courier"></textarea>
+  
+  <script>
+    var ROWS = 50;
+    var COLS = 100;
+    var arr = [];
+    
+    //create a 2D array of '.' chars
+    for (row=0; row < ROWS; row++) {
+      temp = [];
+      for (col=0; col < COLS; col++) {
+        temp.push('.');
+      }
+      arr.push(temp);
+    }
+    
+    //put the '@' character in the middle of the array
+    r = ROWS/2;
+    c = COLS/2;
+    arr[r][c] = '@';
+
+    //write a chomp function that moves one space up, down, left, or right, while removing the '.'
+    function chomp() {
+      //move up, down, left, right
+      i = Math.floor(Math.random()*4);
+      newr = r;
+      newc = c;
+      switch(i) {
+        case 0:
+          //up
+          newr = newr - 1;
+          break;
+        case 1:
+          //down
+          newr = newr + 1;
+          break;
+        case 2:
+          //left
+          newc = newc - 1;
+          break;
+        case 3:
+          //right
+          newc = newc + 1;
+          break;
+        default:
+          console.log('should not get here');
+      }
+      
+      if (newr >= 0 && newc >= 0 && newr < ROWS && newc < COLS) {
+        //move
+        arr[r][c] = ' '; //make my previous location a space
+        arr[newr][newc] = '@'; //make new location me (@)
+        r = newr;
+        c = newc;
+        
+        //draw
+        str = '';
+        for (row=0; row < ROWS; row++) {
+          for (col=0; col < COLS; col++) {
+            str += arr[row][col];
+          }
+          str += '\n';
+        }
+        $("#msg").val(str);
+      }      
+    }
+
+    //when document is ready
+    $(document).ready(function(){
+      
+      //let's chomp(move) 5 times
+      chomp();
+      chomp();
+      chomp();
+      chomp();
+      chomp();
+      
+    });
+
+
+    
+  </script>
+  
+  
+</body>
+
+
+</html>

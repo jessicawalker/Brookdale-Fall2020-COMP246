@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AngularJS Directive: ng-change</title>
+
+  <!-- Use Angular.js to draw a dynamic circle. -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- the data-ng-change directive calls the function when the element changes -->
+
+  <div data-ng-app="MyApp" data-ng-controller="MyController">
+    <h3>Dynamic Circles</h3>
+    
+    <!-- when the value in the input text box changes, Angular.js will call redraw() --> 
+    <p>Enter a color: <input type="text" data-ng-model="myColor" data-ng-change="redraw()" ></p>
+    
+    <!-- when the value in the input text box changes, Angular.js will call redraw() -->
+    <p>Enter a radius: <input type="number" data-ng-model="myRadius" data-ng-change="redraw()" ></p>
+  
+    <!-- here is the HTML canvas element -->
+    <canvas id="myCanvas" width="1000" height="1000" style="border:0px;">
+    
+  </div>
+  
+  
+  <script>
+  
+    //get the canvas context
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    //declare my app
+    var myapp = angular.module("MyApp", []);
+    
+    //declare the controller for my app
+    myapp.controller("MyController", function ($scope) {
+      $scope.myColor = 'blue';
+      $scope.myRadius = 20;
+      $scope.redraw = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); //clear the canvas
+        ctx.beginPath();
+        ctx.arc($scope.myRadius,$scope.myRadius,$scope.myRadius, 0, 2 * Math.PI); //x,y,radius,arc
+        ctx.closePath();
+        ctx.fillStyle = $scope.myColor;
+        ctx.fill();
+      };
+      
+      $scope.redraw(); //call it manually the first time
+      
+    });
+
+  </script>  
+  
+</body>
+</html>

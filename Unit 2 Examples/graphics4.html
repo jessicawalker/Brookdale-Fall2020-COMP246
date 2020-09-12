@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Graphics Fun</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400" style="border:1px solid ;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+//get the canvas element
+var c = document.getElementById("myCanvas");
+
+//get the graphics context from the canvas element  
+var ctx = c.getContext("2d");
+
+//set the canvas background to grey using a hex color
+ctx.fillStyle="#BDBEC3";
+ctx.fillRect(0,0,400,400);
+
+//draw a filled, navy star; use unicode character 2605
+ctx.fillStyle="#09275A";
+ctx.font = "300px Arial";
+ctx.fillText(String.fromCharCode(parseInt(2605, 16)),50,300);
+
+//draw a white, line star
+ctx.strokeStyle="#FFFFFF";
+ctx.lineWidth=6;
+ctx.font = "240px Arial";
+ctx.strokeText(String.fromCharCode(parseInt(2605, 16)),80,280);
+  
+</script> 
+
+</body>
+</html>

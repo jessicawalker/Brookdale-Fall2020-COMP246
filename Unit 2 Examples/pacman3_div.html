@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pac-Man</title>
+</head>
+
+<body>
+  <p>Waka, waka, waka...</p>
+  <div id='myboard' style='font-size:12px;font-family: courier new'></div>
+  <script>
+    var ROWS = 50;
+    var COLS = 100;
+    var num_eaten = 0;
+    var arr = [];
+    var DOT = '#';
+
+    //create a 2D array of DOT chars
+    for (row=0; row < ROWS; row++) {
+      temp = [];
+      for (col=0; col < COLS; col++) {
+        temp.push(DOT);
+      }
+      arr.push(temp);
+    }
+
+    //put the '@' character in the middle
+    r = ROWS/2;
+    c = COLS/2;
+    arr[r][c] = '@';
+
+    //function to print the array to the board (DIV)
+    function printBoard(arr) {
+      s = "";
+      for (i=0; i < arr.length; i++) {
+        for (j=0; j < arr[i].length; j++)
+          s = s + arr[i][j];
+        s = s + '<br>';
+      }
+      s = s + '<br>';
+      document.getElementById("myboard").innerHTML = s;
+    }
+    
+    //function to move/chomp
+    function chomp() {
+      //move up, down, left, right
+      i = Math.floor(Math.random()*4);
+      newr = r;
+      newc = c;
+      switch(i) {
+        case 0:
+          //up
+          newr = newr - 1;
+          break;
+        case 1:
+          //down
+          newr = newr + 1;
+          break;
+        case 2:
+          //left
+          newc = newc - 1;
+          break;
+        case 3:
+          //right
+          newc = newc + 1;
+          break;
+        default:
+          console.log('should not get here');
+      }
+      
+      //if the move is valid, then chomp away
+      if (newr >= 0 && newc >= 0 && newr < ROWS && newc < COLS) {
+        //move
+        arr[r][c] = '&nbsp;'; //NEW: MUST use HTML code for space, since we're populating a DIV tag
+        
+        //count each time we eat a dot
+        if (arr[newr][newc] == DOT)
+          num_eaten++;
+        
+        arr[newr][newc] = '@'; //make new location me (@)
+        r = newr;
+        c = newc;
+        
+        printBoard(arr);
+      }
+      
+            //if we've eaten 25% of the dots, then quit
+      if (num_eaten >= (ROWS*COLS)/4.0) {
+        clearInterval(id);
+        console.log('done.');
+        return;
+      }
+
+    }
+    
+    var id = setInterval( function() {chomp(); } , 10);
+ 
+  </script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Timer & Canvas Example</title>
+</head>
+
+<body>
+  <p>Draw ONE random rectangle, ONE time, 5 seconds from now, then stop.</p>
+  <canvas id="myCanvas" width="0" height="0" style="border:0px solid black;"></canvas> 
+  <script>
+  
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var width=600;
+    var height=600;
+    
+    canvas.width = width;
+    canvas.height = height;
+
+    //color the canvas
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, width, height);
+
+    function drawRectangle() {
+      //clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      //draw a random rectangle at a random position
+      x = Math.trunc(Math.random() * width);
+      y = Math.trunc(Math.random() * height);
+      rw = Math.trunc(Math.random() * 100) + 200; //rectangle width is 200-300
+      rh = Math.trunc(Math.random() * 100) + 200; //rectangle height is 200-300
+      ctx.beginPath();
+      ctx.rect(x,y,rw,rh); //x,y,width,height
+      ctx.fillStyle = "blue";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    //create a ONE-TIME timer that calls drawRectangle() once, in 5 seconds
+    var id = setTimeout( function() { drawRectangle(); } , 5000);
+
+  </script>
+  
+  
+</body>
+
+
+</html>

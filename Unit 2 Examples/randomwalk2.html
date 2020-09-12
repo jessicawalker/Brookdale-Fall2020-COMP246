@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Random Walk</title>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="800" height="800" style="border:1px solid black;"></canvas>  
+
+  <script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+
+  //color canvas white
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  //do the random walk
+  ctx.fillStyle = "black";
+  x = canvas.width / 2; //start in the middle
+  y = canvas.height / 2;
+
+  function walk() {
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    m = Math.floor(Math.random() * 4);
+    newx = x;
+    newy = y;
+    switch(m) {
+      case 0:
+        //up
+        newy = newy - 10;
+        break;
+      case 1:
+        newy = newy + 10;
+        //down
+        break;
+      case 2:
+        //left
+        newx = newx - 10;
+        break;
+      case 3:
+        //right
+        newx = newx + 10;
+        break;
+      default:
+        console.log('should not happen');
+    }
+    ctx.lineTo(newx,newy);
+    ctx.stroke();
+    x = newx;
+    y = newy;
+    ctx.closePath();
+  }
+    
+  //NEW - randomly walk 10,000 times
+  for (i=0; i < 10000; i++)
+    walk();
+    
+    
+  </script>
+  
+</body>
+
+</html>

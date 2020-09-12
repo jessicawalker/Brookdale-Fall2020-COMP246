@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tutorial 2</title>
+
+  <!-- Use Angular.js to draw FizzBuzz in a <pre> tag. -->
+
+  <!-- STEP 1: Include the Angular library. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- STEP2: Define a div tag as our Angular application named "MyApp". -->
+  <!-- STEP3: Also here, specify that we will use an Angular controller named "MyController". -->
+  <div data-ng-app="MyApp" data-ng-controller="MyController">
+
+    <!-- STEP 4: Define <pre> element to hold the result. Our result is the Angular variable answer, as an Angular expression. -->
+    <pre>{{ answer }}</pre>
+    
+  </div>
+
+  <script>
+
+    //STEP 5: Define the Angular controller 'MyController'
+    var myapp = angular.module("MyApp", []);
+    myapp.controller("MyController", function ($scope) {
+
+      //STEP 6: do the FizzBuzz logic 
+      var s = '';
+      for (var i=1; i < 99; i++) {
+
+        if (i % 3 == 0 && i % 5 == 0)
+          s += "FizzBuzz";
+        else if (i % 3 == 0)
+          s += "Fizz";
+        else if (i % 5 == 0)
+          s += "Buzz";
+        else
+          s += i;
+        
+        s += '\n';
+      }
+
+      //STEP 8: put the final string in the answer variable, so it will appear in the <pre> tag
+      $scope.answer = s;
+    });
+
+  </script>  
+  
+</body>
+
+
+</html>

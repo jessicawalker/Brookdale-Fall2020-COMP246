@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Small</title>
+  <style>
+    div {font-size:20px;color:red;display:inline;}
+  </style>
+</head>
+
+<body>
+
+  <button type="button" onclick="bigger();">Bigger</button>
+  <button type="button" onclick="smaller();">Smaller</button>
+  <br><br>
+  <div id="msg">Hello</div>
+
+  
+  <script>
+    var sz = 20;
+    
+    function bigger() {
+      var obj = document.getElementById("msg");
+      sz = sz + 10;
+      obj.style["font-size"] = sz+"px";
+    }
+  
+    function smaller() {
+      var obj = document.getElementById("msg");
+      sz = sz - 10;
+      if (sz < 0)
+          sz = 0;
+      obj.style["font-size"] = sz+"px";
+    }
+    
+  </script>
+  
+  
+</body>
+
+
+</html>

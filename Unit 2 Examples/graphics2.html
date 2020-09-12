@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Graphics Fun</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid ;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+//get the canvas element
+var c = document.getElementById("myCanvas");
+
+//get the graphics context from the canvas element  
+var ctx = c.getContext("2d");
+
+//set the canvas background to red
+ctx.fillStyle="red";
+ctx.fillRect(0,0,300,300); //x, y, width, height
+
+//draw a black semi-circle
+ctx.beginPath();
+ctx.arc(150, 150, 150, 0.5*Math.PI, 1.5*Math.PI);
+ctx.fillStyle = "black";
+ctx.fill();
+ctx.closePath();
+
+//draw a white semi-circle
+ctx.beginPath();
+ctx.arc(150, 150, 150, 1.5*Math.PI, 0.5*Math.PI);
+ctx.fillStyle = "white";
+ctx.fill();
+ctx.closePath();
+  
+//draw a black semi-circle
+ctx.beginPath();
+ctx.arc(150, 75, 75, 1.5*Math.PI, 0.5*Math.PI);
+ctx.fillStyle = "black";
+ctx.fill();
+ctx.closePath();
+
+//draw a white semi-circle
+ctx.beginPath();
+ctx.arc(150, 225, 75, 0.5*Math.PI, 1.5*Math.PI);
+ctx.fillStyle = "white";
+ctx.fill();
+ctx.closePath();
+  
+//draw a white circle
+ctx.beginPath();
+ctx.arc(150, 75, 18,  0, 2 * Math.PI);
+ctx.fillStyle = "white";
+ctx.fill(); 
+ctx.closePath();
+  
+//draw a black circle
+ctx.beginPath();
+ctx.arc(150, 225, 18,  0, 2 * Math.PI);
+ctx.fillStyle = "black";
+ctx.fill();
+ctx.closePath();
+  
+</script> 
+
+</body>
+</html>

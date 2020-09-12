@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Angular Expressions Redux</title>
+
+  <!-- You can use Angular.js expressions in element properties too. 
+  Try typing different colors in the input text box
+  -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- initialize a variable myColor to 'green' -->
+  <div data-ng-app="" data-ng-init="myColor='green'">
+
+    <p>Enter a color: <input type="text" data-ng-model="myColor"></p>
+  
+    <!-- Use an Angular.js expression to set the color property -->
+    <span style="font-size:50px ; color:{{ myColor }}">A calm and modest life brings more happiness than the pursuit of success combined with constant restlessness.</span>
+  
+  </div>
+  
+</body>
+
+
+</html>

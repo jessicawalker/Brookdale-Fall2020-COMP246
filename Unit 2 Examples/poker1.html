@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>poker1</title>
+</head>
+
+<body style="background-color:#339966;">
+
+  <script>
+
+    //an array of suit characters
+    var suits = [ "&spades;", "&clubs;", "&diams;", "&hearts;" ];
+    var str = "";
+    var cols = 30;
+    var count = 0;
+  
+    //get a random number from 0-3 (inclusive)
+    for (var i = 0; i < 1000; i++) {
+      var index = Math.floor(Math.random() * 4);
+
+      var color = "black";
+      if (index > 1)
+        color = "red";
+
+      count++;
+      str += "<div style='display: inline;font-size: 100px;color:" + color + "'>" + suits[index] + "</div>";
+      if (count === cols) {
+        str += "<br>";
+        count = 0;
+      }
+    }
+
+    document.write(str);
+  </script>
+  
+  
+</body>
+
+
+</html>
