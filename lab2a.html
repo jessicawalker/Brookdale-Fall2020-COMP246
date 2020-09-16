@@ -3,28 +3,24 @@
     <head>
         <title>Unit 1, Lab 2a: Shape my name, shape my name | Jessica Walker</title>
         <meta charset="utf-8">
+        <style>
+            canvas {
+                border:2px solid black;
+                animation: mymove 5s infinite;
+            }
+            @keyframes mymove {
+                from {transform: rotate(0);}
+                to {transform: rotate(360deg);}
+              }
+        </style>
     </head>
     <body>
 
         <!--
-            Draw big shapes to cover an HTML Canvas. Then write your name in the center.
-            Here are detailed instructions:
-
-            Create an HTML file named `lab2.html`.
-            Add an 800w x 600h HTML Canvas, with a `2px black` border.
-            Draw a solid blue rectangle at x,y `0,0` with dimensions `500w` x `400h`.
-            Draw a solid green circle at x,y `700,175` with radius `280`.
-            Draw a solid red triangle with x,y coordinates `0,100` `600,600` `0,600`.
-            Draw a solid yellow square at x,y `200,300` with dimensions `600w` x `300h`.
-            Write your name on the canvas:
-            * Font color: _white_
-            * Font size: _big enough so name touches all colors_
-            * Font type: `Courier`
-            * Font text: _your name_
-            * X,Y: _centered on the Canvas_
+            Modify Lab 2.html by adding CSS styling to enable the Canvas to rotate.
         -->
 
-        <canvas id="myCanvas" width="800" height="600" style="border:2px solid black;"></canvas>
+        <canvas id="myCanvas" width="800" height="600"></canvas>
 
         <script>
             var canvas = document.getElementById("myCanvas");
