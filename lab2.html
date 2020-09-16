@@ -53,6 +53,14 @@
             // Draw a solid yellow square at x,y `200,300` with dimensions `600w` x `300h`.
             ctx.fillStyle = "yellow";
             ctx.fillRect(200, 300, 600, 300);
+
+            // Write your name on the canvas: 
+            // Font color: _white_, Font size: _big enough so name touches all colors_
+            // Font type: `Courier`, Font text: _your name_, X,Y: _centered on the Canvas_
+            ctx.font = "84px Courier";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.fillText("Jessica Walker", canvas.width/2, canvas.height/2);
         </script>
     </body>
 </html>
