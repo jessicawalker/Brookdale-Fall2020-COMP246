@@ -29,6 +29,30 @@
         <script>
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
+
+            // Draw a solid blue rectangle at x,y `0,0` with dimensions `500w` x `400h`.
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0, 0, 500, 400);
+
+            // Draw a solid green circle at x,y `700,175` with radius `280`.
+            ctx.beginPath();
+            ctx.arc(700, 175, 280, 0, 2 * Math.PI);
+            ctx.fillStyle = "green";
+            ctx.closePath();
+            ctx.fill();
+
+            // Draw a solid red triangle with x,y coordinates `0,100` `600,600` `0,600`.
+            ctx.beginPath();
+            ctx.fillStyle = "red";
+            ctx.moveTo(0,100);
+            ctx.lineTo(600,600);
+            ctx.lineTo(0,600);
+            ctx.closePath();
+            ctx.fill();
+
+            // Draw a solid yellow square at x,y `200,300` with dimensions `600w` x `300h`.
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(200, 300, 600, 300);
         </script>
     </body>
 </html>
