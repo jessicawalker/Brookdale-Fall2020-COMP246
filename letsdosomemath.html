@@ -1,0 +1,171 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Lets Do Some Math</title>
+        <meta charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <style>
+            .radioButtonSection {
+                float: left;
+                clear: right;
+                margin: 20px;
+                border: 3px solid black;
+                padding: 20px;
+                font-size: 24px;
+                }
+
+            .radioButton { margin-left: 20px; }
+
+            .inputSection {
+                float: left;
+                clear: left;
+                margin: 20px 0 40px 50px;
+            }
+
+            .inputNumber {
+                float: left;
+                clear: left;
+                margin-bottom: 5px;
+                margin-left: 20px;
+                color: blue;
+                font-size: 24px;
+            }
+
+            .buttonSection {
+                float; left;
+                clear: left;
+                margin: 20px 20px 30px 20px;
+            }
+
+            #submitJavaScript { margin-right: 20px; }
+
+            .btn { float: left; font-size: 24px; }
+
+            #result {
+                float: left;
+                clear: left;
+                font-size: 32px;
+                color: red;
+                margin-left: 80px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="radioButtonSection">
+            <input class="radioButton" type="radio" id="add" name="opType" value="add" checked>
+            <label for="add">Add</label>
+
+            <input class="radioButton" type="radio" id="multiply" name="opType" value="multiply">
+            <label for="multiply">Multiply</label>
+
+            <input class="radioButton" type="radio" id="divide" name="opType" value="divide">
+            <label for="divide">Divide</label>
+
+            <input class="radioButton" type="radio" id="modulus" name="opType" value="modulus">
+            <label for="modulus">Modulus</label>
+        </div>
+
+        <div class="inputSection">
+            <div class="inputNumber">
+                <label for="num1">Enter Number 1:</label>
+                <input id="num1" type="text">
+            </div>
+
+            <div class="inputNumber">
+                <label for="num2">Enter Number 2:</label>
+                <input id="num2" type="text">
+            </div>
+        </div>
+
+        <div class="buttonSection">
+            <button id="submitJavaScript" class="btn" type="button">Calc with JavaScript</button>
+            <button id="submitjQuery" class="btn" type="button">Calc with jQuery</button>
+        </div>
+
+        <div id="result"></div>
+
+        <script>
+            // JavaScript
+            var btnJavaScript = document.getElementById("submitJavaScript");
+            btnJavaScript.onclick = function() {
+                var choiceAdd = document.getElementById("add");
+                var choiceMultiply = document.getElementById("multiply");
+                var choiceDivide = document.getElementById("divide");
+                var choiceModulus = document.getElementById("modulus");
+
+                var number1Element = document.getElementById("num1");
+                var number2Element = document.getElementById("num2");
+                
+                var resultDisplay = document.getElementById("result");
+
+                var number1 = Number(number1Element.value);
+                var number2 = Number(number2Element.value);
+
+                var operationResult;
+                var operationType;
+
+                if (choiceAdd.checked) {
+                    operationResult = number1 + number2;
+                    operationType = "added to";
+                } else if (choiceMultiply.checked) {
+                    operationResult = number1 * number2;
+                    operationType = "multiplied by";
+                } else if (choiceDivide.checked) {
+                    operationResult = number1 / number2;
+                    operationType = "divided by";
+                } else if (choiceModulus.checked) {
+                    operationResult = number1 % number2;
+                    operationType = "modulus";
+                }
+
+                resultDisplay.innerHTML = number1 + " " + operationType + " " + number2 + " equals: " + operationResult;
+                alert(number1 + " " + operationType + " " + number2 + " equals: " + operationResult);
+                console.log(number1 + " " + operationType + " " + number2 + " equals: " + operationResult);
+            };
+
+            // =======================================================================================================
+            // jQuery
+
+            $('#submitjQuery').click(function () {
+                var number1 = Number($('#num1').val());
+                var number2 = Number($('#num2').val());
+
+                var operationResult;
+                var operationType;
+
+                var radioButtonSelected = $("input[name='opType']:checked").val();
+
+                switch(radioButtonSelected) {
+                    case "add":
+                        operationResult = number1 + number2;
+                        operationType = "added to";
+                        break;
+                    case "multiply":
+                        operationResult = number1 * number2;
+                        operationType = "multiplied by";
+                        break;
+                    case "divide":
+                        operationResult = number1 / number2;
+                        operationType = "divided by";
+                        break;
+                    case "modulus":
+                        operationResult = number1 % number2;
+                        operationType = "modulus";
+                        break;
+                }
+
+                $('#result').html(number1 + " " + operationType + " " + number2 + " equals: " + operationResult);
+                alert(number1 + " " + operationType + " " + number2 + " equals: " + operationResult);
+                console.log(number1 + " " + operationType + " " + number2 + " equals: " + operationResult);
+            });
+
+        </script>
+
+    </body>
+</html>

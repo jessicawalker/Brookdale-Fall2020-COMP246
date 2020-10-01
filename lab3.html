@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lab #3</title>
+  <style>
+  div, table {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 30px;
+  }
+
+  td {
+    padding: 5px;
+  }
+  </style>
+</head>
+
+<body>
+  <h3>Lab #3 - Fives, fives, and fives</h3>
+  <div id="msg">capital letters are cool!!</div>
+  <div id="fives"></div>
+  <table id="fives_table"></table>
+  <table id="fives_table_color"></table>
+  
+  <script>
+    // Execute a JavaScript statement to change the text of the DIV element from `capital letters are cool!!` to `CAPITAL LETTERS ARE COOL!!`.
+
+    msg.innerHTML = document.getElementById("msg").innerText.toUpperCase();
+
+
+    // Execute JavaScript statements to displays all of the numbers from 1 to 1,000 that are multiples of 5 on the page.
+
+    var i;
+    var j = 0;
+    var numbers = [];
+    for (i = 1; i <= 1000; i++) {
+      if (i % 5 == 0) {
+        numbers[j] = i;
+        document.getElementById("fives").innerHTML += numbers[j] + " ";
+        j++;
+      }
+    }
+
+
+    // Execute JavaScript statements to displays all of the numbers from 1 to 1,000 that are multiples of 5 on the page in an HTML table.
+
+    var tableStr = "";
+    var colCount = "20";
+
+    for (i = 0; i < numbers.length; i++) {
+      if (i % colCount == 0) {
+        tableStr += "<tr><td>" + numbers[i] + "</td>"
+      } else if (i % colCount == colCount - 1) {
+        tableStr += "<td>" + numbers[i] + "</td></tr>"
+      } else {
+        tableStr += "<td>" + numbers[i] + "</td>"
+      }
+    }
+    
+    document.getElementById("fives_table").innerHTML = tableStr;
+
+
+    // Execute JavaScript statements to displays all of the numbers from 1 to 1,000 that are multiples of 5 on the page in an HTML table, 
+    // color odd numbers red and even numbers blue.
+
+    document.getElementById("fives_table_color").innerHTML = tableStr;
+    var cell = document.getElementById("fives_table_color").getElementsByTagName("td");
+
+    for (i = 0; i < cell.length; i++) {
+      if (cell[i].innerText % 2 == 0) {
+        cell[i].style.color = "blue";
+      } else {
+        cell[i].style.color = "red";
+      }
+    }
+
+  
+  </script>
+  
+</body>
+
+</html>
