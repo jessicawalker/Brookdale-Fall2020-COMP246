@@ -1,19 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Lab #5 - Dice</title>
+  <title>Lab #5 - Dice | Jessica Walker</title>
 </head>
 
 <body>
   <h3>Lab #5 - Dice</h3>
 
-  
-  <script>
-    //Your JavaScript Code goes here
+  <canvas id="myCanvas" width="400" height="400" style="border:2px solid;border-radius:25px">
+    Your browser does not support the HTML5 canvas tag.</canvas>
     
-  
-  
-  </script>
+    <script>
+    
+    //generate random number from 1 - 6 for die side pip count 
+    var pipCount = Math.ceil(Math.random() * 6);
+    
+    //get the canvas element
+    var c = document.getElementById("myCanvas");
+    
+    //get the graphics context from the canvas element  
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "black";
+    
+    //draw "pipCount" number of pips
+    ctx.beginPath();
+    
+    switch(pipCount) {
+      case 1:
+        ctx.arc(200, 200, 30, 0, 2 * Math.PI); //center
+        break;
+
+      case 2:
+        ctx.arc(80, 80, 30, 0, 2 * Math.PI); //top left
+        ctx.arc(320, 320, 30, 0, 2 * Math.PI); //bottom right
+        break;
+
+      case 3:
+        ctx.arc(80, 80, 30, 0, 2 * Math.PI); //top left
+        ctx.arc(200, 200, 30, 0, 2 * Math.PI); //center
+        ctx.arc(320, 320, 30, 0, 2 * Math.PI); //bottom right
+        break;
+
+      case 4:
+        ctx.arc(80, 80, 30, 0, 2 * Math.PI); //top left
+        ctx.arc(320, 80, 30, 0, 2 * Math.PI); //top right
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(80, 320, 30, 0, 2 * Math.PI); //bottom left
+        ctx.arc(320, 320, 30, 0, 2 * Math.PI); //bottom right
+        break;
+
+      case 5:
+        ctx.arc(80, 80, 30, 0, 2 * Math.PI); //top left
+        ctx.arc(320, 80, 30, 0, 2 * Math.PI); //top right
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(200, 200, 30, 0, 2 * Math.PI); //center
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(80, 320, 30, 0, 2 * Math.PI); //bottom left
+        ctx.arc(320, 320, 30, 0, 2 * Math.PI); //bottom right
+        break;
+
+      case 6:
+        ctx.arc(80, 80, 30, 0, 2 * Math.PI); //top left
+        ctx.arc(200, 80, 30, 0, 2 * Math.PI); //top center
+        ctx.arc(320, 80, 30, 0, 2 * Math.PI); //top right
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(80, 320, 30, 0, 2 * Math.PI); //bottom left
+        ctx.arc(200, 320, 30, 0, 2 * Math.PI); //bottom center
+        ctx.arc(320, 320, 30, 0, 2 * Math.PI); //bottom right
+        break;
+
+      default:
+        break;
+    }
+
+    ctx.closePath();
+    ctx.fill();
+      
+    </script> 
   
 
 </body>
