@@ -1,7 +1,0 @@
-{
-  "dbname": "comp246",
-  "dbuser": "user1",
-  "dbpass": "password1",
-  "dbhost": "ds123456.mlab.com",
-  "dbport": 27017
-}
