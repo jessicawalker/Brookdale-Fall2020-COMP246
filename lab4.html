@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Lab #4</title>
+  <title>Lab #4 | Jessica Walker</title>
   <style>
   div {font-size:100px;color:blue;font-family:Comic Sans MS;display:inline;}
   </style>
@@ -10,11 +10,41 @@
 <body>
   <h3>Lab #4 - Random Letters</h3>
 
+  <div id="letters"></div>
+
+  <div id="letters_reverse"></div>
+
+  <div id="letters_alpha"></div>
+
   
   <script>
     //Your JavaScript Code goes here
+
+    // Generate array of all capital letters using unicode values
+
+    var uniqueAlphas = 10;
+    var alphaAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    var alpha10 = [];
+    var alphaRandom;
+    var pickedAlpha;
+
+
+    // Generate array of 10 capital letters from the alphaAll array
     
-  
+    for (var i = 0; i < uniqueAlphas; i++) {
+      alphaRandom = Math.floor(Math.random() * alphaAll.length);
+      pickedAlpha = alphaAll.splice(alphaRandom, 1)
+      alpha10.push(pickedAlpha);
+    }
+    document.getElementById("letters").innerHTML = alpha10;
+
+    // Display the letters in reverse
+
+    document.getElementById("letters_reverse").innerHTML = alpha10.reverse();
+
+    // Display the letters in alphabetical order
+
+    document.getElementById("letters_alpha").innerHTML = alpha10.sort();
   
   </script>
   
