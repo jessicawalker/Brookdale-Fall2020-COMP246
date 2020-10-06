@@ -9,9 +9,14 @@
 <body>
     <h3>Homework #3 - Marbles</h3>
   
-		<canvas id="myCanvas" width="1850" height="750" style="border:2px solid;border-radius:25px;float:left;">
+		<!--<canvas id="myCanvas" width="1850" height="750" style="border:2px solid;border-radius:25px;float:left;">
 			Your browser does not support the HTML5 canvas tag.
-		</canvas>
+    </canvas>-->
+    
+    <div id="newMarbles"><p>Generate new set of marbles with this many marbles: </p>
+    <input id="userMarbles" type="text"></div>
+    <div id="tester"></div>
+    <div id="count"></div>
 
     <br><br>
     
@@ -19,6 +24,164 @@
 
     <script>
 
+      var display = document.getElementById("tester");
+      var count = document.getElementById("count");
+      var interval;
+      var marbleAlpha = "RrOoYyGgBbIiVv";
+      var newMarbleCount = Number(userMarbles.value);
+
+      var mar = "RRbbGgBBRrBrb";
+      var starterSet = "rrooyyggbbiivvRrRrBggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyvIiGggGOOrRrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbyrRYBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGrryyyYyYyyyyyrRYyyGogGoOgrrrryyyYyYyyyyyOOOoobiivvRrorRyYrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggYYyYyYGGOOooYbiivvvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggOogGoOgrrrryyyYyYyyyyyrRYyyGRrrogbYYyyroroRORbiivvRrORRoorrvRrORRoorrBBBBbbbbBbggGgGgGGvRrORRoorrBBBByrRYbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyryrRYRYyyGOogGoOgrrrryyyYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoOOOoOoOoRrOROYGBIVroygbivBbBbBbOoOoOoRrRrbbBBggGGGGGgggbbbbbBbRrRrRrOrRYyyGOogGoOgrrrryyyYyYyyyyyOOOooRrOoRrGbiivvRrGOGggOgbiivvRrgRrrrGgYyYyyygYyrgYYbBbbb";
+      display.innerText = starterSet;
+      display.style.wordWrap = "break-word";
+      count.innerText = "There are ";
+
+      function startGame() {
+        interval = setInterval(reduceMarbles, 10);
+        count.innerText = "There are " + countMarbles();
+      }
+
+      function reduceMarbles() {
+
+        if (starterSet.includes("Rr")) {
+          starterSet = starterSet.replace("Rr", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("rR")) {
+          starterSet = starterSet.replace("rR", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Oo")) {
+          starterSet = starterSet.replace("Oo", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("oO")) {
+          starterSet = starterSet.replace("oO", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Yy")) {
+          starterSet = starterSet.replace("Yy", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("yY")) {
+          starterSet = starterSet.replace("yY", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Gg")) {
+          starterSet = starterSet.replace("Gg", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("gG")) {
+          starterSet = starterSet.replace("gG", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Bb")) {
+          starterSet = starterSet.replace("Bb", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("bB")) {
+          starterSet = starterSet.replace("bB", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Ii")) {
+          starterSet = starterSet.replace("Ii", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("iI")) {
+          starterSet = starterSet.replace("iI", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("Vv")) {
+          starterSet = starterSet.replace("Vv", "");
+          return display.innerHTML = starterSet;
+        }
+        else if (starterSet.includes("vV")) {
+          starterSet = starterSet.replace("vV", "");
+          return display.innerHTML = starterSet;
+        }
+        else {
+          return display.innerHTML = starterSet;
+        }
+
+        function countMarbles() {
+          var alphaCount = ["R", "O", "Y", "G", "B", "I", "V"][0, 0, 0, 0, 0, 0, 0];
+          var k = 0;
+
+          for (var i = 0; i < starterSet.length; i++) {
+            for (var j = 0; j < alphaCount[i].length; j++) {
+              if (alphaCount[j] == starterSet[i].toUpperCase) {
+                alphaCount[j][k] += 1;
+              }
+            }
+          }
+          return alphaCount;
+        }
+
+        /*
+        for (var i = 0; i < starterSet.length; i++) {
+
+          if (starterSet[i] + starterSet[i+1] == "Rr") {
+            starterSet = starterSet.replace("Rr", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "rR") {
+            starterSet = starterSet.replace("rR", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Oo") {
+            starterSet = starterSet.replace("Oo", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "oO") {
+            starterSet = starterSet.replace("oO", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Yy") {
+            starterSet = starterSet.replace("Yy", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "yY") {
+            starterSet = starterSet.replace("yY", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Gg") {
+            starterSet = starterSet.replace("Gg", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "gG") {
+            starterSet = starterSet.replace("gG", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Bb") {
+            starterSet = starterSet.replace("Bb", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "bB") {
+            starterSet = starterSet.replace("bB", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Ii") {
+            starterSet = starterSet.replace("Ii", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "iI") {
+            starterSet = starterSet.replace("iI", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "Vv") {
+            starterSet = starterSet.replace("Vv", "");
+            return display.innerHTML = starterSet;
+          }
+          else if (starterSet[i] + starterSet[i+1] == "vV") {
+            starterSet = starterSet.replace("vV", "");
+            return display.innerHTML = starterSet;
+          }
+          else {
+            return display.innerHTML = starterSet;
+          }
+        }*/
+      }
+/*
         // List of marbles
         var marbles = "rrooyyggbbiivvRrRrBggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyvIiGggGOOrRrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbyrRYBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGrryyyYyYyyyyyrRYyyGogGoOgrrrryyyYyYyyyyyOOOoobiivvRrorRyYrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggYYyYyYGGOOooYbiivvvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyrRYyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggOogGoOgrrrryyyYyYyyyyyrRYyyGRrrogbYYyyroroRORbiivvRrORRoorrvRrORRoorrBBBBbbbbBbggGgGgGGvRrORRoorrBBBByrRYbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRggbbiivvRrRrBvIiGggGOOrRYyyGOvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrvRrORRoorrBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyryrRYRYyyGOogGoOgrrrryyyYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGBBBBbbbbBbggGgGgGGgoYYoyYoYIIIIiiIiIiBigBigBbIrrRYyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoyGOogGoOgrrrryyyYyYyyyyyrRYyyGOogGoOgrrrryyyYyYyyyyyOOOoOOOoOoOoRrOROYGBIVroygbivBbBbBbOoOoOoRrRrbbBBggGGGGGgggbbbbbBbRrRrRrOrRYyyGOogGoOgrrrryyyYyYyyyyyOOOooRrOoRrGbiivvRrGOGggOgbiivvRrgRrrrGgYyYyyygYyrgYYbBbbb";
 
@@ -170,7 +333,7 @@
           var _0x2830b9 = [_0x1ec5fc('9'), 'ORANGE', 'YELLOW', _0x1ec5fc('0xa'), _0x1ec5fc('2'), _0x1ec5fc('4'), 'VIOLET'], _0x8e0f8d = _0x2830b9[_0x230006], _0x59fd1a =_0x11fbbb[_0x230006][_0x1ec5fc('8')]; 
           ctx[_0x1ec5fc('0x10')] = _0x1ec5fc('0x14'), ctx[_0x1ec5fc('0xd')](_0x1ec5fc('0xe')+_0x8e0f8d+_0x1ec5fc('1') + _0x59fd1a + _0x1ec5fc('6'), 0x190, 0x258);
         }  
-
+*/
         // If a large marble is next to a small marble of the same color, then those two marbles
         // are removed from the row, and the marbles are squeezed together to maintain the row. 
         // The process repeats, until no marbles can be removed from the row.
@@ -186,7 +349,7 @@
     </script>
 
 
-    <script>
+    <script>/*
       var _0x30bf=['fillStyle','black','\x20with\x20','BLUE','getContext','INDIGO','toUpperCase','\x20Remaining','fillRect','length','RED','GREEN','substr','getElementById','fillText','Winner:\x20','myCanvas','font','white','substring','push','60px\x20Arial'];
       
       (function(_0x463e55,_0x30bffe)
@@ -235,7 +398,7 @@
           case'V':case'v':_0x11fbbb[0x6][_0x1ec5fc('0x13')](_0x4dd4d9);break;}}
           
           var _0x230006=0x0;
-          for(var _0x113ba8=0x1;_0x113ba8<_0x11fbbb[_0x1ec5fc('0x8')];_0x113ba8++){_0x11fbbb[_0x113ba8][_0x1ec5fc('0x8')]>_0x11fbbb[_0x230006]['length']&&(_0x230006=_0x113ba8);}var _0x2830b9=[_0x1ec5fc('0x9'),'ORANGE','YELLOW',_0x1ec5fc('0xa'),_0x1ec5fc('0x2'),_0x1ec5fc('0x4'),'VIOLET'],_0x8e0f8d=_0x2830b9[_0x230006],_0x59fd1a=_0x11fbbb[_0x230006][_0x1ec5fc('0x8')];ctx[_0x1ec5fc('0x10')]=_0x1ec5fc('0x14'),ctx[_0x1ec5fc('0xd')](_0x1ec5fc('0xe')+_0x8e0f8d+_0x1ec5fc('0x1')+_0x59fd1a+_0x1ec5fc('0x6'),0x190,0x258);}
+          for(var _0x113ba8=0x1;_0x113ba8<_0x11fbbb[_0x1ec5fc('0x8')];_0x113ba8++){_0x11fbbb[_0x113ba8][_0x1ec5fc('0x8')]>_0x11fbbb[_0x230006]['length']&&(_0x230006=_0x113ba8);}var _0x2830b9=[_0x1ec5fc('0x9'),'ORANGE','YELLOW',_0x1ec5fc('0xa'),_0x1ec5fc('0x2'),_0x1ec5fc('0x4'),'VIOLET'],_0x8e0f8d=_0x2830b9[_0x230006],_0x59fd1a=_0x11fbbb[_0x230006][_0x1ec5fc('0x8')];ctx[_0x1ec5fc('0x10')]=_0x1ec5fc('0x14'),ctx[_0x1ec5fc('0xd')](_0x1ec5fc('0xe')+_0x8e0f8d+_0x1ec5fc('0x1')+_0x59fd1a+_0x1ec5fc('0x6'),0x190,0x258);}*/
         </script>
 </body>
 </html>
