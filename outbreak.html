@@ -50,13 +50,15 @@
       
       // does a zombie turn into a space?
       function doesZombieDie(gridZombiesHumans) {
-        for (var i = 0, j = 0; j < gridZombiesHumans[j].length; i++) {
+        for (var row = 0, col = 0; row < gridZombiesHumans[row].length; col++) {
             // look for zombies (z) in each row
 
-            // go to next row when this row is complete
-            if (i == gridZombiesHumans[i].length - 1) {
-                i = 0;
-                j++;
+            gridZombiesHumans[row][col];
+
+            // start at next row when this row is complete
+            if (col == gridZombiesHumans[col].length - 1) {
+                col = 0;
+                row++;
             }
         }
       }
