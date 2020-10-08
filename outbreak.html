@@ -51,9 +51,36 @@
       // does a zombie turn into a space?
       function doesZombieDie(gridZombiesHumans) {
         for (var row = 0, col = 0; row < gridZombiesHumans[row].length; col++) {
+
+            gridZombiesHumans[row][col];    // look at each cell
+
             // look for zombies (z) in each row
 
-            gridZombiesHumans[row][col];
+            /*
+            BORROWING FROM MY MINESWEEPER JAVA PROJECT
+
+
+            for (var i = 1; i <= m; i++) {
+                for (var j = 1; j <= n; j++) {
+                    // don't look at non-existant tiles
+                    if (containsMine[i-1][j-1])         // top left
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i-1][j])           // top middle
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i-1][j+1])         // top right
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i][j+1])           // right
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i][j-1])           // left
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i+1][j-1])         // bottom left
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i+1][j])           // bottom middle
+                        countMinesNear[i][j] += 1;
+                    if (containsMine[i+1][j+1])         // bottom right
+                        countMinesNear[i][j] += 1;
+                }
+            }*/
 
             // start at next row when this row is complete
             if (col == gridZombiesHumans[col].length - 1) {
