@@ -35,10 +35,17 @@
 
       // evaluates end result of day and updates grid for the next day
       function updateDay() {
+        const END_DAYS = 365;
+
+        // start with Day 1
         var dayCount = 1;
+
+        // update grid display and Day # every 500 ms
         var interval =  setInterval(displayGrid, 500, strZombiesHumans);
         dayCount++;
-        if (dayCount > 365) clearInterval(interval);
+
+        // stop grid update when last day is reached
+        if (dayCount > END_DAYS) clearInterval(interval);
       }
 
       // does a space turn into a human or zombie?
