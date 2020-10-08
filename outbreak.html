@@ -3,29 +3,36 @@
 <head>
   <title>Homework #4: Outbreak | Jessica Walker</title>
   <style>
+      body {font-family: monospace;}
   </style>
   </head>
   <body>
 
     <script>
 
-      var strZombiesHumans = "..h..h.h.h.hh..z.zh...h..z.h.........h.......h..z.\nz.h.........hhh....z....h....zzhh.....h.h.........\n..hh......z.zhhz.z.......z..z.z.zzz...h.z..z...z..\nh....z....h.zz.zz.....zz...zzh..h....h..hzhh...zzz\nzh...h.zh..h......z.zz....zh....h...hz......h.zh.h\n..h....zz.zz.z..hhzz...z..zzh......h...hz.hh.z.z..\n.z...zhh...........zh.....hzz....z.z...hz.hzzz..h.\nhh....z.z.h...hh...zzzh.hz.....z.hz.hz...z.z.h...z\n...z.....hh.......z....zhzzzhzzzz..hzh.zzz..hh.z.z\nhzh...hh..zz.hh.hh..z.z.h..z...z..h........z..hz..\nz....hh.h.....h.h.zh.zz.h..h.z.....h..h.....zh.h..\nh..hhz........hz.h..h.h...z..z....z.h.....hhz.z...\n..h...hh.hzzhhzz..h...zh.....hz.h....z....hhz.zz..\nzh..zh..hh...h..h.hzh..zz.z.......zhz....zhh...z..\nhzh.h...h..zz...h.zhhz..z...z....hh.z.h...zz..h..z\nh..hh.z.z..h....z...z.z..z..z...hh.h.z.z.z.....zh.\n.hzz.zzzz..hh.z.hz.zzz....z...z.h..z.z.zz.h..zz..z\nzh.......z......h.z..h.....hh.h.zhhz.z.zz.zh....h.\n.h..z.hz.zzh....z......h.zhh..hz..zz.h..z......zzz\n..zzz....z.hh.z..hzz.zz..zh.z...hzh...z.h.h...zhz.\n........hh......hzzhhzz..zzzh..h.zz.z..zhzz...h..z\n.z....h....h...zz.z.hhzz.....zh...hz.zhh...z.....h\nz...zh...zzz.h.h..h..z.hzzz.h.z.h.zzzzh...h.z..hz.\n...z..h.....h.z.zz.h.z.z..h..zz.zz.z..h...z...hz..\n..zzz.zhzzhz.z.......h.h...hhzzzh.z.........z..h..\n..hz...hh.z.z..h...h..zhh...h.z.z......z...h..z...\n.hh..........h.z....h.hh...hz.h.hhh..hh........hz.\nz.zz.zhh..h.hz...h..zh.hz......h.hh.......h...hz..\nz.hh.hhz...zhhh.....h.h.h.h...hh.z..z.z.zh..hhh.h.\n.z...z...hhhhz...zz.z.z......zh......z.h.....hzhh.\n.zh.zzzhzhh.hz...z.h..h.hz.hz..z..z...h.h.h...h.h.\n..zh.hzh..zzh.hh.h.....hz...z..h.hz....h.h..h..hz.\nz....h..z.z.......zhh..z....h.h..z.zh..z...hz.z.h.\nz.z.h..h...zh.zzzhh.z.....zhzhz.zz..h.hzh....h....\n....hz.z.hh..h..z...h...h..h...h..z..z......zh.z..\n..z..zh.h.hz.z.h.h.z.z.....z..h..z..h.......hhzhz.\nzh......hz..h.z...zzh....h..hzhh..h..hh...hh.z....\nz..hz.......hh.....h.hhhhz.hz.h....zhz....hz.z....\nz.zz.z.z..hh......z...h......hzh...h.hh.z.h..h....\nzzzz.h...hhzzhzh.......hhh.z.z.....z...zz.zh..z...\n..h..hhh..h.hhzhz.h..z.h..z.h........zzz......z..h\n..zh.....hhhhhz..hh.....zz..z...hhh.....z......z.z\n.z.h.hhz.zz.......hh.z.hh..z...hzz..h.z.z...h...h.\n.zz........h..hh.h.zh.h.hhhh..z...z..h..hzhz..hzh.\n.z.z.....zhhh..h...z.h...h...z.hh..hhzzzh.zh......\nh.hz..z.z.hhhhh.zh.h......z.hz.hh.....z..z...hz.h.\n...h....z.zzzh.z.zz......hz.zz.....z.h.zz.z......z\n.z.z.....h..z.zz..zhzh..z.zhzz..zzh..zz.z..z....hh\n..z.z.h.....z.h..z.h.hz...h....z...h..h.h..zhh...h\nh.hh.h...h...hzz..hh....hz.h..z..zz....hz.zhzz..h.\n";
+      var strZombiesHumans = "..h..h.h.h.hh..z.zh...h..z.h.........h.......h..z.\nz.h.........hhh....z....h....zzhh.....h.h.........\n..hh......z.zhhz.z.......z..z.z.zzz...h.z..z...z..\nh....z....h.zz.zz.....zz...zzh..h....h..hzhh...zzz\nzh...h.zh..h......z.zz....zh....h...hz......h.zh.h\n..h....zz.zz.z..hhzz...z..zzh......h...hz.hh.z.z..\n.z...zhh...........zh.....hzz....z.z...hz.hzzz..h.\nhh....z.z.h...hh...zzzh.hz.....z.hz.hz...z.z.h...z\n...z.....hh.......z....zhzzzhzzzz..hzh.zzz..hh.z.z\nhzh...hh..zz.hh.hh..z.z.h..z...z..h........z..hz..\nz....hh.h.....h.h.zh.zz.h..h.z.....h..h.....zh.h..\nh..hhz........hz.h..h.h...z..z....z.h.....hhz.z...\n..h...hh.hzzhhzz..h...zh.....hz.h....z....hhz.zz..\nzh..zh..hh...h..h.hzh..zz.z.......zhz....zhh...z..\nhzh.h...h..zz...h.zhhz..z...z....hh.z.h...zz..h..z\nh..hh.z.z..h....z...z.z..z..z...hh.h.z.z.z.....zh.\n.hzz.zzzz..hh.z.hz.zzz....z...z.h..z.z.zz.h..zz..z\nzh.......z......h.z..h.....hh.h.zhhz.z.zz.zh....h.\n.h..z.hz.zzh....z......h.zhh..hz..zz.h..z......zzz\n..zzz....z.hh.z..hzz.zz..zh.z...hzh...z.h.h...zhz.\n........hh......hzzhhzz..zzzh..h.zz.z..zhzz...h..z\n.z....h....h...zz.z.hhzz.....zh...hz.zhh...z.....h\nz...zh...zzz.h.h..h..z.hzzz.h.z.h.zzzzh...h.z..hz.\n...z..h.....h.z.zz.h.z.z..h..zz.zz.z..h...z...hz..\n..zzz.zhzzhz.z.......h.h...hhzzzh.z.........z..h..\n..hz...hh.z.z..h...h..zhh...h.z.z......z...h..z...\n.hh..........h.z....h.hh...hz.h.hhh..hh........hz.\nz.zz.zhh..h.hz...h..zh.hz......h.hh.......h...hz..\nz.hh.hhz...zhhh.....h.h.h.h...hh.z..z.z.zh..hhh.h.\n.z...z...hhhhz...zz.z.z......zh......z.h.....hzhh.\n.zh.zzzhzhh.hz...z.h..h.hz.hz..z..z...h.h.h...h.h.\n..zh.hzh..zzh.hh.h.....hz...z..h.hz....h.h..h..hz.\nz....h..z.z.......zhh..z....h.h..z.zh..z...hz.z.h.\nz.z.h..h...zh.zzzhh.z.....zhzhz.zz..h.hzh....h....\n....hz.z.hh..h..z...h...h..h...h..z..z......zh.z..\n..z..zh.h.hz.z.h.h.z.z.....z..h..z..h.......hhzhz.\nzh......hz..h.z...zzh....h..hzhh..h..hh...hh.z....\nz..hz.......hh.....h.hhhhz.hz.h....zhz....hz.z....\nz.zz.z.z..hh......z...h......hzh...h.hh.z.h..h....\nzzzz.h...hhzzhzh.......hhh.z.z.....z...zz.zh..z...\n..h..hhh..h.hhzhz.h..z.h..z.h........zzz......z..h\n..zh.....hhhhhz..hh.....zz..z...hhh.....z......z.z\n.z.h.hhz.zz.......hh.z.hh..z...hzz..h.z.z...h...h.\n.zz........h..hh.h.zh.h.hhhh..z...z..h..hzhz..hzh.\n.z.z.....zhhh..h...z.h...h...z.hh..hhzzzh.zh......\nh.hz..z.z.hhhhh.zh.h......z.hz.hh.....z..z...hz.h.\n...h....z.zzzh.z.zz......hz.zz.....z.h.zz.z......z\n.z.z.....h..z.zz..zhzh..z.zhzz..zzh..zz.z..z....hh\n..z.z.h.....z.h..z.h.hz...h....z...h..h.h..zhh...h\nh.hh.h...h...hzz..hh....hz.h..z..zz....hz.zhzz..h.";
 
       function displayGrid(zombiesHumans) {
 
         var arrZombiesHumans = zombiesHumans.split("\n");
-        var gridZombiesHumans;
+        var gridZombiesHumans = [];
         var eachZombiesHumans;
 
-        // string to array (rows)
-        for (var i = 0; i < arrZombiesHumans.length - 1; i++) {
+        // string to array
+        for (var i = 0; i < arrZombiesHumans.length; i++) {
           eachZombiesHumans = arrZombiesHumans[i].split("");
-            document.write(i + ": " + eachZombiesHumans[i] + "  ");
-          // array to grid/matrix (columns)
-          for (var j = 0; j < eachZombiesHumans.length - 1; j++) {
+
+          // array to grid/matrix
+          for (var j = 0; j < eachZombiesHumans.length; j++) {
+            gridZombiesHumans[i] = [];
             gridZombiesHumans[i][j] = eachZombiesHumans[j];
+
+            // print grid
             document.write(gridZombiesHumans[i][j]);
           }
+
+          // add break after each row
+          document.write("<br>");
         }
       }
 
