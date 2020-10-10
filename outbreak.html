@@ -20,7 +20,6 @@
 
     #displayOutbreak {
         background-color: #333;
-        /* color: #dde; */
         letter-spacing: 3px;
         margin: 0 auto;
         padding: 40px;
@@ -34,12 +33,11 @@
 
     <h1>Outbreak</h1>
 
-    <div id="displayOutbreak"></div>
-    <div style="clear:both;"></div>
+    <div id="displayOutbreak">Loading grid...</div>
 
     <script>
 
-    const END_DAYS = 5;
+    const END_DAYS = 365;
 
     var strZombiesHumans = "..h..h.h.h.hh..z.zh...h..z.h.........h.......h..z.\nz.h.........hhh....z....h....zzhh.....h.h.........\n..hh......z.zhhz.z.......z..z.z.zzz...h.z..z...z..\nh....z....h.zz.zz.....zz...zzh..h....h..hzhh...zzz\nzh...h.zh..h......z.zz....zh....h...hz......h.zh.h\n..h....zz.zz.z..hhzz...z..zzh......h...hz.hh.z.z..\n.z...zhh...........zh.....hzz....z.z...hz.hzzz..h.\nhh....z.z.h...hh...zzzh.hz.....z.hz.hz...z.z.h...z\n...z.....hh.......z....zhzzzhzzzz..hzh.zzz..hh.z.z\nhzh...hh..zz.hh.hh..z.z.h..z...z..h........z..hz..\nz....hh.h.....h.h.zh.zz.h..h.z.....h..h.....zh.h..\nh..hhz........hz.h..h.h...z..z....z.h.....hhz.z...\n..h...hh.hzzhhzz..h...zh.....hz.h....z....hhz.zz..\nzh..zh..hh...h..h.hzh..zz.z.......zhz....zhh...z..\nhzh.h...h..zz...h.zhhz..z...z....hh.z.h...zz..h..z\nh..hh.z.z..h....z...z.z..z..z...hh.h.z.z.z.....zh.\n.hzz.zzzz..hh.z.hz.zzz....z...z.h..z.z.zz.h..zz..z\nzh.......z......h.z..h.....hh.h.zhhz.z.zz.zh....h.\n.h..z.hz.zzh....z......h.zhh..hz..zz.h..z......zzz\n..zzz....z.hh.z..hzz.zz..zh.z...hzh...z.h.h...zhz.\n........hh......hzzhhzz..zzzh..h.zz.z..zhzz...h..z\n.z....h....h...zz.z.hhzz.....zh...hz.zhh...z.....h\nz...zh...zzz.h.h..h..z.hzzz.h.z.h.zzzzh...h.z..hz.\n...z..h.....h.z.zz.h.z.z..h..zz.zz.z..h...z...hz..\n..zzz.zhzzhz.z.......h.h...hhzzzh.z.........z..h..\n..hz...hh.z.z..h...h..zhh...h.z.z......z...h..z...\n.hh..........h.z....h.hh...hz.h.hhh..hh........hz.\nz.zz.zhh..h.hz...h..zh.hz......h.hh.......h...hz..\nz.hh.hhz...zhhh.....h.h.h.h...hh.z..z.z.zh..hhh.h.\n.z...z...hhhhz...zz.z.z......zh......z.h.....hzhh.\n.zh.zzzhzhh.hz...z.h..h.hz.hz..z..z...h.h.h...h.h.\n..zh.hzh..zzh.hh.h.....hz...z..h.hz....h.h..h..hz.\nz....h..z.z.......zhh..z....h.h..z.zh..z...hz.z.h.\nz.z.h..h...zh.zzzhh.z.....zhzhz.zz..h.hzh....h....\n....hz.z.hh..h..z...h...h..h...h..z..z......zh.z..\n..z..zh.h.hz.z.h.h.z.z.....z..h..z..h.......hhzhz.\nzh......hz..h.z...zzh....h..hzhh..h..hh...hh.z....\nz..hz.......hh.....h.hhhhz.hz.h....zhz....hz.z....\nz.zz.z.z..hh......z...h......hzh...h.hh.z.h..h....\nzzzz.h...hhzzhzh.......hhh.z.z.....z...zz.zh..z...\n..h..hhh..h.hhzhz.h..z.h..z.h........zzz......z..h\n..zh.....hhhhhz..hh.....zz..z...hhh.....z......z.z\n.z.h.hhz.zz.......hh.z.hh..z...hzz..h.z.z...h...h.\n.zz........h..hh.h.zh.h.hhhh..z...z..h..hzhz..hzh.\n.z.z.....zhhh..h...z.h...h...z.hh..hhzzzh.zh......\nh.hz..z.z.hhhhh.zh.h......z.hz.hh.....z..z...hz.h.\n...h....z.zzzh.z.zz......hz.zz.....z.h.zz.z......z\n.z.z.....h..z.zz..zhzh..z.zhzz..zzh..zz.z..z....hh\n..z.z.h.....z.h..z.h.hz...h....z...h..h.h..zhh...h\nh.hh.h...h...hzz..hh....hz.h..z..zz....hz.zhzz..h.";
     var arrayZombiesHumans = [];  // initialize array for grid rows
@@ -52,7 +50,10 @@
 
       /* ============    PRINT AND DO STUFF HERE     ============== */
     createGrid(strZombiesHumans);
-    displayGrid(gridZombiesHumans);
+    while (dayCount < END_DAYS) {
+        setTimeout( function() { displayGrid(gridZombiesHumans); } , 500);
+        dayCount++;
+    }
       /* ============     END PRINT AND DO STUFF     ============== */
 
       // takes zombies/humans string and converts to a grid in gridZombiesHumans[][]
@@ -71,6 +72,8 @@
 
       // lops through gridZombiesHumans[][] to print grid
     function displayGrid() {
+        // clear grid of yesterday to display today's grid
+        display.innerHTML = "";
 
         // print grid
         for (var i = 0; i < arrayZombiesHumans.length; i++) {
@@ -83,20 +86,11 @@
 
         // process current grid to next day's grid
         updateDay();
-
-        dayCount++;
-        if (dayCount > END_DAYS) {
-            clearInterval(interval);
-        } 
-        //return gridZombiesHumans;
     }
 
 
     // evaluates end result of day and updates grid for the next day
     function updateDay() {
-
-        // update grid display and Day # every 500 ms
-        // interval =  setInterval(displayGrid, 2000, strZombiesHumans);
 
         for (var row = 0, col = 0; row < arrayZombiesHumans.length; col++) {
             
@@ -134,7 +128,6 @@
         }
     }
 
-    //interval =  setInterval(displayGrid, 500);
 
     // does a space turn into a human?
     // >=3 human around? cell becomes human
@@ -184,7 +177,7 @@
         return ((counterHumansNear >= 3) ? true : false);
     }
       
-    // does a human turn into a space or zombie?
+    // does a human turn into a zombie?
     // >=3 zombie around? cell becomes zombie
     function evaluateHumans(row, col) {
         var counterZombiesNear = 0;
@@ -307,18 +300,18 @@
         human. For example, consider a grid x and y coordinates for column 
         and row respectively. Humans are at positions 0,0; 1,2; and 2,2. 
         Since the empty space at 1,1 is surrounded by at least three humans, 
-        then that space will become a human after one day:
+        then that space will become a human after one day.
 
         2. Zombies infect humans. A human will become a zombie(z) if the human 
         is surrounded by three or more zombies. For example, the human at 
-        coordinate 1,1 will become a zombie after one day:
+        coordinate 1,1 will become a zombie after one day.
 
         3. Zombies die without support and food. If a zombie is surrounded by 
         at least one other zombie and at least one human, then the zombie 
         will survive until the next day. Otherwise, the zombie will die, 
         and its space will become an empty space. For example, the zombie at 
         1,1 will die, because no other zombie is next to it. After one day, 
-        the zombie dies, and it becomes an empty space:
+        the zombie dies, and it becomes an empty space.
 
       */
     </script>
