@@ -51,7 +51,7 @@
  
 
       /* ============    PRINT AND DO STUFF HERE     ============== */
-    createGrid(strZombiesHumans)
+    createGrid(strZombiesHumans);
     displayGrid(gridZombiesHumans);
       /* ============     END PRINT AND DO STUFF     ============== */
 
@@ -141,43 +141,43 @@
     function evaluateSpaces(row, col) {
         var counterHumansNear = 0;
 
-        if (row != 0 && col != 0) {         // top left
-            if (gridZombiesHumans[row-1][col-1] == "h")
+        if (row != 0 && col != 0) {
+            if (gridZombiesHumans[row-1][col-1] == "h")         // top left
                 counterHumansNear += 1;
         }
 
-        if (row != 0) {           // top middle
-            if (gridZombiesHumans[row-1][col] == "h")
+        if (row != 0) {
+            if (gridZombiesHumans[row-1][col] == "h")           // top middle
                 counterHumansNear += 1;
         }
         
-        if (row != 0 && col != gridZombiesHumans[row].length) {         // top right
-            if (gridZombiesHumans[row-1][col+1] == "h")
+        if (row != 0 && col != gridZombiesHumans[row].length) {
+            if (gridZombiesHumans[row-1][col+1] == "h")         // top right
                 counterHumansNear += 1;
         }
 
-        if (col != gridZombiesHumans[row].length) {           // right
-            if (gridZombiesHumans[row][col+1] == "h")
+        if (col != gridZombiesHumans[row].length) {
+            if (gridZombiesHumans[row][col+1] == "h")           // right
                 counterHumansNear += 1;
         }
 
-        if (col != 0) {           // left
-            if (gridZombiesHumans[row][col-1] == "h")
+        if (col != 0) {
+            if (gridZombiesHumans[row][col-1] == "h")           // left
                 counterHumansNear += 1;
         }
         
-        if (row != arrayZombiesHumans.length - 1 && col != 0) {         // bottom left
-            if (gridZombiesHumans[row+1][col-1] == "h")
+        if (row != arrayZombiesHumans.length - 1 && col != 0) {
+            if (gridZombiesHumans[row+1][col-1] == "h")         // bottom left
                 counterHumansNear += 1;
         }
 
-        if (row != arrayZombiesHumans.length - 1) {           // bottom middle
-            if (gridZombiesHumans[row+1][col] == "h")
+        if (row != arrayZombiesHumans.length - 1) {
+            if (gridZombiesHumans[row+1][col] == "h")           // bottom middle
                 counterHumansNear += 1;
         }
         
-        if (row != arrayZombiesHumans.length - 1 && col != gridZombiesHumans[row].length) {         // bottom right
-            if (gridZombiesHumans[row+1][col+1] == "h")
+        if (row != arrayZombiesHumans.length - 1 && col != gridZombiesHumans[row].length) {
+            if (gridZombiesHumans[row+1][col+1] == "h")         // bottom right
                 counterHumansNear += 1;
         }
 
@@ -236,7 +236,6 @@
     // does a zombie turn into a space?
     // 0 zombie around? || 0 human around? cell becomes space
     function doesZombieDie(row, col) {
-    //function doesZombieDie(gridZombiesHumans) {
         var counterZombiesNear = 0;
         var counterHumansNear = 0;
 
@@ -296,19 +295,12 @@
                 counterHumansNear += 1;
         }
 
-        /*if (counterZombiesNear == 0 || counterHumansNear == 0) {
-            return true;
-        }
-        else {
-            return false;
-        }*/
-
         return ((counterZombiesNear == 0 || counterHumansNear == 0) ? true : false);
     }
  
       
       /*
-        =============== RULES ====================
+        ================================ RULES ================================
 
         1. Humans recruit other humans to fight zombies. If an empty space(.) 
         is surrounded by three or more humans(h), the empty space becomes a 
@@ -327,10 +319,6 @@
         and its space will become an empty space. For example, the zombie at 
         1,1 will die, because no other zombie is next to it. After one day, 
         the zombie dies, and it becomes an empty space:
-
-
-
-
 
       */
     </script>
