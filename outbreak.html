@@ -29,6 +29,20 @@
         padding: 10px 20px;
       }
 
+    #buttonControls {
+        clear: both;
+    }
+
+    #results {
+        margin: 0 auto;
+        width: 280px;
+    }
+
+    #results div {
+        float:left;
+        padding: 0 40px 40px;
+    }
+
     #displayOutbreak {
         background-color: #333;
         letter-spacing: 3px;
@@ -44,8 +58,12 @@
 
     <h1>Outbreak</h1>
 
-    <button id="playGrid" class='btn' type="button" onclick="startGrid()">PLAY</button>
-    <button id="pauseGrid" class='btn' type="button" onclick="pauseGrid()">PAUSE</button>
+    <div id="results"></div>
+
+    <div id="buttonControls">
+        <button id="playGrid" class='btn' type="button" onclick="startGrid()">PLAY</button>
+        <button id="pauseGrid" class='btn' type="button" onclick="pauseGrid()">PAUSE</button>
+    </div>
 
     <div id="displayOutbreak">Loading grid...</div>
 
@@ -57,8 +75,11 @@
     var arrayZombiesHumans = [];  // initialize array for grid rows
     var gridZombiesHumans = [];   // initialize array for whole grid
     var display = document.getElementById("displayOutbreak");
+    var resultsDisplay = document.getElementById("results");
     var interval;
     var dayCount = 1;     // start with Day 1
+    var humanCount;     // display count of remaining humans after END_DAYS
+    var zombieCount;    // display count of remaining zombies after END_DAYS
  
 
       /* ============      PRINT TO PAGE HERE      ============== */
@@ -67,7 +88,7 @@
       /* ============    END PRINT TO PAGE HERE     ============== */
 
     function startGrid() {
-        interval = setTimeout(displayGrid, 200);
+        interval = setTimeout(displayGrid, 100);
     }
 
     function pauseGrid() {
@@ -106,6 +127,12 @@
             updateDay();
             startGrid();
         }
+        else {
+            countResults();
+            displayResults();
+        }
+
+        return gridZombiesHumans;
     }
 
 
@@ -228,7 +255,36 @@
         // count never reached num
         return false;
     }
-    
+
+    function countResults() {
+
+        humanCount = 0;
+        zombieCount = 0;
+
+        for (var i = 0; i < arrayZombiesHumans.length; i++) {
+            for (var j = 0; j < gridZombiesHumans[i].length; j++) {
+
+                // how many humans after END_DAYS?
+                if (gridZombiesHumans[i][j] == "h")
+                    humanCount++;
+
+                // how many zombies after END_DAYS?
+                if (gridZombiesHumans[i][j] == "z")
+                    zombieCount++;
+
+            }
+        }
+
+        dayCount = 1;
+    }
+
+    function displayResults() {
+        var resultHumans = "Humans:<br>" + humanCount;
+        var resultZombies = "Zombies:<br>" + zombieCount;
+
+        resultsDisplay.innerHTML = "<div id='displayHumans'>" + resultHumans + "</div><div id='displayZombies'>" + resultZombies + "</div>";
+    }
+
     </script>
   </body>
   </html>
