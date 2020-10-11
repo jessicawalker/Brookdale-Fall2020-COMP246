@@ -18,6 +18,16 @@
         font-size: 38px;
     }
 
+    .btn {
+        background-color: darkred;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin: 0 20px 40px;
+        padding: 10px 20px;
+      }
+
     #displayOutbreak {
         background-color: #333;
         letter-spacing: 3px;
@@ -32,6 +42,9 @@
   <body>
 
     <h1>Outbreak</h1>
+
+    <button id="playGrid" class='btn' type="button" onclick="startGrid()">PLAY</button>
+    <button id="pauseGrid" class='btn' type="button" onclick="pauseGrid()">PAUSE</button>
 
     <div id="displayOutbreak">Loading grid...</div>
 
@@ -70,7 +83,7 @@
         return gridZombiesHumans;
     }
 
-      // lops through gridZombiesHumans[][] to print grid
+      // loops through gridZombiesHumans[][] to print grid
     function displayGrid() {
         // clear grid of yesterday to display today's grid
         display.innerHTML = "";
