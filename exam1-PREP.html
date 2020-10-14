@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>EXAM 1 PREP BASED ON PPT</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="displayRandom"></div>
+
+        <div id="displayCanvas">
+            <canvas id="myCanvas" width="575" height="250" style="border:0px solid black;"></canvas>
+        </div>
+
+        <div id="displayFormula"></div>
+
+    <script>
+    /*
+        1.Loop through and print (to page or console) stuff selected randomly
+            a. An item may need a 33% chance of occurring.
+                i. For the 33% chance item, if the items are in an array, the item should occur in 1/3 of array slots
+            b. Use Math.random() for picking from an array
+        2.Draw to a <canvas> in a loop
+        3.Solve a problem (mathematical) and write results to page or console
+
+        Be sure to know:
+        1.How to interact with the DOM
+        2.How to create and draw on a canvas
+        3.How to do Loop code blocks
+        4.How to do IF or IF/ELSE code blocks
+        5.How to use the random function
+        6.How to use the console to read errors
+        7.How to use the console to trace through code
+    */
+
+    // ==============================================================================
+    // Loop through and print (to page or console) stuff selected randomly
+
+        // FROM LAB 4
+        // Generate array of all capital letters using unicode values
+
+        var uniqueAlphas = 10;
+        var alphaAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        var alpha10 = [];
+        var alphaRandom;
+        var pickedAlpha;
+
+        // Generate array of 10 capital letters from the alphaAll array
+        for (var i = 0; i < uniqueAlphas; i++) {    // the length is going to keep changing because of upcoming splice!
+            alphaRandom = Math.floor(Math.random() * alphaAll.length);  // pick random # 0-25 (then 0-24, etc)
+            pickedAlpha = alphaAll.splice(alphaRandom, 1)   // splice out the letter so it doesn't get picked again!
+            alpha10.push(pickedAlpha);  // push() adds to the end of an array
+        }
+        document.getElementById("displayRandom").innerHTML = alpha10 + "<br><br>";
+
+        // quick other example, where there is a 3/5 chance to get "Better luck next time"
+
+        var randomFortune;
+        var fortunes = ["Better luck next time", "Better luck next time", "Better luck next time", "You'll have a great day", "Dance the night away"];
+        for (var i = 0; i < 10; i++) {
+            randomFortune = Math.floor(Math.random() * fortunes.length);
+            document.getElementById("displayRandom").innerHTML += fortunes[randomFortune] + "<br>";
+        }
+
+
+    // Draw to a <canvas> in a loop
+
+        // FROM TIMER1.HTML
+        // Draw 10 random rectangles, at 10 random positions, one per second, then stop.
+
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        
+        var width=600;
+        var height=600;
+        
+        canvas.width = width;
+        canvas.height = height;
+    
+        //color the canvas
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, width, height);
+    
+        var iterations = 0;
+        function drawRectangle() {
+          //clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          //draw a random rectangle at a random position
+          x = Math.trunc(Math.random() * width);
+          y = Math.trunc(Math.random() * height);
+          rw = Math.trunc(Math.random() * 100) + 200; //rectangle width is 200-300
+          rh = Math.trunc(Math.random() * 100) + 200; //rectangle height is 200-300
+          ctx.beginPath();
+          ctx.rect(x,y,rw,rh); //x,y,width,height
+          ctx.fillStyle = "blue";
+          ctx.fill();
+          ctx.closePath();
+    
+          iterations++;
+          if (iterations >= 10) {
+            clearInterval(id);
+            console.log('done.');
+          }
+        }
+    
+        //create an interval that calls drawRectangle() every 1 second
+        var id = setInterval( function() { drawRectangle(); } , 1000);
+
+
+
+
+    // Solve a problem (mathematical) and write results to page or console
+    
+
+
+    </script>
+    </body>
+</html>
