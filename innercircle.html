@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Exam 1, Question 2: Inner Circle | Jessica Walker</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <canvas id="myCanvas" width="300" height="300" style="border:0px solid black;">
+			Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <script>
+        
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var OUTPUT_TIMES = 100;
+
+            // color the entire canvas white
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+            function drawCircle(num) {
+                
+                // Circle n has radius n at position n,n and black (odd is black)
+                // Circle m has radius m at position m,m and yellow (even is yellow)
+
+                for (i = 1; i <= num; i++) {
+
+                    ctx.beginPath();
+                    ctx.arc(i, i, i, 0, 2 * Math.PI);
+                    if (i % 2 == 0) {
+                        ctx.fillStyle = "yellow";
+                    }
+                    else {
+                        ctx.fillStyle = "black";
+                    }
+                    
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+            }
+
+            drawCircle(OUTPUT_TIMES);
+
+        </script>
+    </body>
+    </html>

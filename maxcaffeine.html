@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Exam 1, Question 3: Max Caffeine | Jessica Walker</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <div id="displayResults"></div>
+        <div id="displayResultsExtra"></div>
+
+        <script>
+
+        var display = document.getElementById("displayResults");
+        var displayExtra = document.getElementById("displayResultsExtra");
+
+        // How much money do I have available to spend?
+        var POCKET_MONEY = 60;
+        var remainingMoney = POCKET_MONEY;
+
+        // coffeeSize = [name, price in dollars, mg of caffeine]
+        var tall = ["Tall", 1.85, 260];
+        var grande = ["Grande", 2.10, 330];
+        var venti = ["Venti", 2.45, 415];
+
+        // how many coffees per size can be bought with available money?
+        var tallCount = 0;
+        var grandeCount = 0;
+        var ventiCount = 0;
+
+
+        var tallCalc = calculateRatio(tall, POCKET_MONEY);
+        var grandeCalc = calculateRatio(grande, POCKET_MONEY);
+        var ventiCalc = calculateRatio(venti, POCKET_MONEY);
+
+        /*
+
+        ====== THIS DOESN'T SEEM TO BE NECESSARY WITH CURRENT DIRECTION =======
+
+        // how much does each mg of caffeine cost in dollars?
+        var tallMgCost = costPerMg(tall[1], tall[2]);
+        var grandeMgCost = costPerMg(grande[1], grande[2]);
+        var ventiMgCost = costPerMg(venti[1], venti[2]);
+
+        // How many of each size coffee should you buy to maximize your caffeine intake?
+        remainingMoney = buyCoffee(grande, grandeCount, remainingMoney);
+        remainingMoney = buyCoffee(tall, tallCount, remainingMoney);
+
+        // how much does each mg of caffeine cost in dollars?
+        function costPerMg(cost, mg) {
+            return cost / mg;
+        }
+
+        // how many coffees per size can be bought with available money?
+        function buyCoffee(coffeeSize, coffeeCount, remainingMoney) {
+            // how mant grandes can i buy with $60? how many mg will i have? etc...
+            while (remainingMoney - coffeeSize[1] > 0) {
+                remainingMoney -= coffeeSize[1];
+                coffeeCount++;
+            }
+            display.innerHTML += "Buy " + coffeeCount + " of each " + coffeeSize[0] + "<br>";
+            display.innerHTML += coffeeCount * coffeeSize[2] + "mg<br>";
+            return remainingMoney;
+        }
+        ====== THIS DOESN'T SEEM TO BE NECESSARY WITH CURRENT DIRECTION =======
+
+        */
+
+        function calculateRatio(drinkSize, pocketMoney) {
+            var i = 0;
+            var name = drinkSize[0];
+            var cost = drinkSize[1];
+            var mg = drinkSize[2];
+            var drinkCalc = [];
+            while ((cost * i) < pocketMoney) {
+                drinkCalc[i] = [name, cost * i, mg * i]
+                i++;
+            }
+            return drinkCalc;
+        }
+
+        function createGrid(tallCalc, grandeCalc) {
+            // take the largest drink size and start from the top, take the smaller and start from the bottm
+            // while looping through those, keep adding the result
+            // and figure out which combo has the highest $$$$ under $60
+
+            var totalGrid = [];
+            var k = 0;
+
+            for (var i = 0; i < tallCalc.length; i++) {
+                for (var j = 0; j < grandeCalc.length; j++) {
+                    // tallCalc[1] = money
+                    // tallCalc[2] = caffeine
+                    totalCost = tallCalc[i][1] + grandeCalc[j][1];
+                    totalMg = tallCalc[i][2] + grandeCalc[j][2];
+                    totalGrid[k] = [totalCost, totalMg];
+                    k++;
+                }
+            }
+
+            return totalGrid;
+        }
+
+        function searchGrid(totalGrid, pocketMoney) {
+            var maxCaffeine = "0";
+            var best;
+            //for (var i = totalGrid.length - 1; i >= 0; i--) {
+            //    for (var j = totalGrid[i].length - 1; j >= 0; j--) {
+            for (var i = 0; i < totalGrid.length; i++) {
+                for (var j = 0; j < totalGrid[i].length; j++) {
+                    maxCaffeine = totalGrid[i][j+1];
+                    if (Math.ceil(totalGrid[i][j]) == pocketMoney && totalGrid[i][j+1] > maxCaffeine) {
+                        best = totalGrid[i][j];
+                        //display.innerHTML += totalGrid[i][j+1] + " : " + totalGrid[i][j] + "<br>";
+                    }
+                }
+            }
+
+            return best;
+        }
+
+        // when buying all grande, get 9240mg with 28 cups, leaving $1.20
+        // when buying all tall, get 8320mg with 32 cups, leaving $0.80
+
+        // what if 27 grande and 1 tall
+
+        var totalGrid = createGrid(tallCalc, grandeCalc);
+        var searchGrid = searchGrid(totalGrid, POCKET_MONEY)
+
+        // output
+        document.getElementById("displayResults").innerHTML += tallCalc + "<br>";
+        document.getElementById("displayResults").innerHTML += grandeCalc + "<br>";
+        document.getElementById("displayResults").innerHTML += ventiCalc + "<br>";
+        document.getElementById("displayResults").innerHTML += totalGrid + "<br>";
+        //document.getElementById("displayResults").innerHTML += searchGrid + "<br>";
+        document.getElementById("displayResults").innerHTML += "<br><br><br><br><br>";
+
+
+        // MANUALLY CHECKING
+        //                                                                          number of cups * caffeine mgs                           total cost $$$$
+        document.getElementById("displayResults").innerHTML += "=>  " + (3 * tall[2] + 26 * grande[2]) + "mg = $" + ((3 * tall[1]) + (26 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>>>  " + (4 * tall[2] + 25 * grande[2]) + "mg = $" + ((4 * tall[1]) + (25 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (5 * tall[2] + 24 * grande[2]) + "mg = $" + ((5 * tall[1]) + (24 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (6 * tall[2] + 23 * grande[2]) + "mg = $" + ((6 * tall[1]) + (23 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (7 * tall[2] + 22 * grande[2]) + "mg = $" + ((7 * tall[1]) + (22 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (8 * tall[2] + 21 * grande[2]) + "mg = $" + ((8 * tall[1]) + (21 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (9 * tall[2] + 20 * grande[2]) + "mg = $" + ((9 * tall[1]) + (20 * grande[1])) + "<br>";
+        document.getElementById("displayResults").innerHTML += "=>  " + (10 * tall[2] + 19 * grande[2]) + "mg = $" + ((10 * tall[1]) + (19 * grande[1])) + "<br>";
+
+        display.innerHTML += "Buy " + grandeCount + " of each " + grande[0] + "<br>";
+        display.innerHTML += "Buy " + tallCount + " of each " + tall[0] + "<br>";
+        display.innerHTML += "Remaining money: " + remainingMoney + "<br>";
+        display.innerHTML += "Amount of caffeine: " + (grandeCount * grande[2] + tallCount * tall[2]) + "<br>";
+        display.innerHTML += "Amount of caffeine per grande: " + (grandeCount * grande[2]) + "<br>";
+        display.innerHTML += "Amount of caffeine per tall: " + (tallCount * tall[2]) + "<br>";
+        //document.getElementById("displayResults").innerHTML += tallMgCost + "<br>";
+        //document.getElementById("displayResults").innerHTML += grandeMgCost + "<br>";
+        //document.getElementById("displayResults").innerHTML += ventiMgCost + "<br>";
+        // 
+
+        
+        </script>
+
+    </body>
+    </html>
