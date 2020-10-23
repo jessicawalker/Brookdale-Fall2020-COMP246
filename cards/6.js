@@ -3,6 +3,8 @@ Jessica Walker
 Homework 6: Cards
 */
 
+const PokerEvaluator = require('poker-evaluator');
+
 /*
 Write a Node.js program that does the following:
 
@@ -27,3 +29,28 @@ You must format your output like below:
 
     Hand 2 wins!
 */
+
+// TODO
+// create array of card deck
+// create an array copy of card deck for "this round"
+// create an array for player 1 hand
+// create an array for player 2 hand
+// create const CARDS_HANDED = 10
+
+// uses Math.ceil(Math.random() * thisRoundDeckArray.length) to pick cards (as length keeps getting smaller)
+// use array.splice(randomCard, 1) to take card out of "this round" deck
+// while in a for loop, if i is even, give it to one hand, if i is odd, give it to the other hand
+// end loop at CARDS_HANDED
+
+// use poker-evaluator npm module to evalHand() and compare value of each eval to determine winner
+// example: PokerEvaluator.evalHand([17, 22, 27, 32, 33]);
+//  { handType: 5,
+//      handRank: 6,
+//      value: 20486,
+//      handName: 'straight' }
+// 
+// explanation of what is returned:
+// handType: number; // Index of the HAND_TYPES array  
+// handRank: number; // Rank within the handType  
+// value: number; // Overall value of this hand, the higher the better. USE THIS TO DETERMINE WINNER OF A HAND  
+// handName: HandName; // Human readable name of the hand
