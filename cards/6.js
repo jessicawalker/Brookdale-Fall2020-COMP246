@@ -31,7 +31,6 @@ You must format your output like below:
 const PokerEvaluator = require('poker-evaluator');
 const cardsToDeal = 10;
 var cardDeck = [];
-var currentCardDeck = [];
 var player1Hand = [];
 var player2Hand = [];
 
@@ -54,11 +53,11 @@ function createDeck() {
 function dealCards(cardDeck) {
     var randomCard, dealtCard;
     var j = 0, k = 0;
-    currentCardDeck = cardDeck.concat();
+    var currentCardDeck = cardDeck.concat();
 
     for (var i = 0; i < cardsToDeal; i++) {
-        randomCard = Math.ceil(Math.random() * currentCardDeck.length);
-        dealtCard = currentCardDeck.splice(randomCard, 1);
+        randomCard = Math.floor(Math.random() * currentCardDeck.length);
+        dealtCard = currentCardDeck.splice(randomCard, 1).toString();
         if (i % 2 == 0) {
             player1Hand[j] = dealtCard;
             j++;
@@ -70,23 +69,26 @@ function dealCards(cardDeck) {
     }
 }
 
+function evaluateHands(player1Hand, player2Hand) {
+    var player1 = PokerEvaluator.evalHand(player1Hand);
+    var player2 = PokerEvaluator.evalHand(player2Hand);
+    
+    if (player1.value > player2.value) {
+        console.log("Player 1 wins!");
+        console.log(player1.value + " vs. " + player2.value);
+    }
+    else if (player1.value < player2.value) {
+        console.log("Player 2 wins!");
+        console.log(player1.value + " vs. " + player2.value);
+    }
+    else {
+        console.log("It's a tie!");
+        console.log(player1.value + " vs. " + player2.value);
+    }
+}
+
 dealCards(createDeck());
+evaluateHands(player1Hand, player2Hand);
 
-//console.log(player1Hand[0], player1Hand[1], player1Hand[2], player1Hand[3], player1Hand[4]);
-//console.log(player2Hand[0], player2Hand[1], player2Hand[2], player2Hand[3], player2Hand[4]);
-
-
-// TODO
-
-// use poker-evaluator npm module to evalHand() and compare value of each eval to determine winner
-// example: PokerEvaluator.evalHand([17, 22, 27, 32, 33]);
-//  { handType: 5,
-//      handRank: 6,
-//      value: 20486,
-//      handName: 'straight' }
-// 
-// explanation of what is returned:
-// handType: number; // Index of the HAND_TYPES array  
-// handRank: number; // Rank within the handType  
-// value: number; // Overall value of this hand, the higher the better. USE THIS TO DETERMINE WINNER OF A HAND  
-// handName: HandName; // Human readable name of the hand
+//console.log(player1Hand);
+//console.log(player2Hand);
