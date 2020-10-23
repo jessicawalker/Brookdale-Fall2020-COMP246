@@ -38,6 +38,17 @@ var currentCardDeck = [];
 var player1Hand = [];
 var player2Hand = [];
 
+function createDeck(value, suit) {
+    var k = 0;
+    for (var i = 0; i < value.length; i++) {
+        for (var j = 0; j < suit.length; j++) {
+            cardDeck[k] = value + suit;
+            k++;
+        }
+    }
+}
+
+
 // TODO
 
 // uses Math.ceil(Math.random() * thisRoundDeckArray.length) to pick cards (as length keeps getting smaller)
