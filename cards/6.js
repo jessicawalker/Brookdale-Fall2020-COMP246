@@ -29,20 +29,41 @@ You must format your output like below:
 */
 
 const PokerEvaluator = require('poker-evaluator');
-const cardsDealt = 10;
-
-var value = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
-var suit = ["c", "s", "h", "d"];
+const cardsToDeal = 10;
 var cardDeck = [];
 var currentCardDeck = [];
 var player1Hand = [];
 var player2Hand = [];
 
 function createDeck(value, suit) {
-    var k = 0;
+    var value = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
+    var suit = ["c", "s", "h", "d"];
+    var k = 0;  // tracks index of cardDeck array
+
+    // concat value and suit to create card
     for (var i = 0; i < value.length; i++) {
         for (var j = 0; j < suit.length; j++) {
             cardDeck[k] = value + suit;
+            k++;
+        }
+    }
+
+    return cardDeck;
+}
+
+function dealCards(cardDeck) {
+    var randomCard, dealtCard;
+    var j = 0, k = 0;
+    currentCardDeck = cardDeck.concat();
+    for (var i = 0; i < cardsToDeal; i++) {
+        randomCard = Math.ceil(Math.random() * currentCardDeck.length);
+        dealtCard = currentCardDeck.splice(randomCard, 1);
+        if (i % 2 == 0) {
+            player1Hand[j] = dealtCard;
+            j++;
+        }
+        else {
+            player2Hand[k] = dealtCard;
             k++;
         }
     }
@@ -55,7 +76,7 @@ function createDeck(value, suit) {
 // uses Math.ceil(Math.random() * currentCardDeck.length) to pick cards (as length keeps getting smaller)
 // use array.splice(randomCard, 1) to take card out of "this round" deck
 // while in a for loop, if i is even, give it to one hand, if i is odd, give it to the other hand
-// end loop at cardsDealt
+// end loop at cardsToDeal
 
 // use poker-evaluator npm module to evalHand() and compare value of each eval to determine winner
 // example: PokerEvaluator.evalHand([17, 22, 27, 32, 33]);
