@@ -35,7 +35,7 @@ var currentCardDeck = [];
 var player1Hand = [];
 var player2Hand = [];
 
-function createDeck(value, suit) {
+function createDeck() {
     var value = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
     var suit = ["c", "s", "h", "d"];
     var k = 0;  // tracks index of cardDeck array
@@ -71,12 +71,6 @@ function dealCards(cardDeck) {
 
 
 // TODO
-// send original deck into a function that deals cards:
-// copy deck into currentCardDeck array
-// uses Math.ceil(Math.random() * currentCardDeck.length) to pick cards (as length keeps getting smaller)
-// use array.splice(randomCard, 1) to take card out of "this round" deck
-// while in a for loop, if i is even, give it to one hand, if i is odd, give it to the other hand
-// end loop at cardsToDeal
 
 // use poker-evaluator npm module to evalHand() and compare value of each eval to determine winner
 // example: PokerEvaluator.evalHand([17, 22, 27, 32, 33]);
