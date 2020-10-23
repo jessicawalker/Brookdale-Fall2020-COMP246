@@ -43,7 +43,7 @@ function createDeck() {
     // concat value and suit to create card
     for (var i = 0; i < value.length; i++) {
         for (var j = 0; j < suit.length; j++) {
-            cardDeck[k] = value + suit;
+            cardDeck[k] = value[i] + suit[j];
             k++;
         }
     }
@@ -55,19 +55,28 @@ function dealCards(cardDeck) {
     var randomCard, dealtCard;
     var j = 0, k = 0;
     currentCardDeck = cardDeck.concat();
+
     for (var i = 0; i < cardsToDeal; i++) {
         randomCard = Math.ceil(Math.random() * currentCardDeck.length);
+        //console.log(randomCard);
         dealtCard = currentCardDeck.splice(randomCard, 1);
         if (i % 2 == 0) {
             player1Hand[j] = dealtCard;
+            //console.log(dealtCard);
             j++;
         }
         else {
             player2Hand[k] = dealtCard;
+            //console.log(dealtCard);
             k++;
         }
     }
 }
+
+dealCards(createDeck());
+
+console.log(player1Hand[0], player1Hand[1], player1Hand[2], player1Hand[3], player1Hand[4]);
+console.log(player2Hand[0], player2Hand[1], player2Hand[2], player2Hand[3], player2Hand[4]);
 
 
 // TODO
