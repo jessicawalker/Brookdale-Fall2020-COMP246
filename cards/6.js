@@ -50,11 +50,12 @@ function createDeck(value, suit) {
 
 
 // TODO
-
-// uses Math.ceil(Math.random() * thisRoundDeckArray.length) to pick cards (as length keeps getting smaller)
+// send original deck into a function that deals cards:
+// copy deck into currentCardDeck array
+// uses Math.ceil(Math.random() * currentCardDeck.length) to pick cards (as length keeps getting smaller)
 // use array.splice(randomCard, 1) to take card out of "this round" deck
 // while in a for loop, if i is even, give it to one hand, if i is odd, give it to the other hand
-// end loop at CARDS_HANDED
+// end loop at cardsDealt
 
 // use poker-evaluator npm module to evalHand() and compare value of each eval to determine winner
 // example: PokerEvaluator.evalHand([17, 22, 27, 32, 33]);
