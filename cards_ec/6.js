@@ -36,7 +36,7 @@ var hand2 = [];
 askUserToPlay();
 
 function askUserToPlay() {
-    rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (answer) => chooseUserPath(answer));
+    rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
     //askForBet();
 }
 
@@ -45,14 +45,14 @@ function askUserToPlay() {
 //function chooseUserPath(userPlayOrQuit, ask) {
 function chooseUserPath(userPlayOrQuit) {
 
+    askForBet();
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        console.clear();
+        //console.clear();
         //askForBet();
-        dealCards(createDeck());
-        evaluateHands(hand1, hand2);
-        // add bank update
-        askUserToPlay();
+        //dealCards(createDeck());
+        //evaluateHands(hand1, hand2);
+        //askUserToPlay();
     }
 
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
@@ -68,7 +68,9 @@ function chooseUserPath(userPlayOrQuit) {
 }
 
 function askForBet() {
-    rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
+    if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
+        rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
+    }
 }
 
 function makeABet(bet) {
@@ -84,7 +86,12 @@ function makeABet(bet) {
         askForBet();
     }
     else {
-        playerBet = bet;
+        //playerBet = bet;
+        console.clear();
+        dealCards(createDeck());
+        evaluateHands(hand1, hand2);
+        askUserToPlay();
+        //return playerBet;
     }
 }
 
@@ -154,13 +161,13 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
-        //updateBank(playerBet);
-        updateBank(20);
+        updateBank(bet);
+        //updateBank(20);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
-        //updateBank(-(playerBet));
-        updateBank(-(135));
+        updateBank(-(bet));
+        //updateBank(-(135));
     }
     else {
         console.log("\nIt's a tie!");
