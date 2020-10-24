@@ -4,19 +4,6 @@ Homework 6: Cards
 */
 
 /*
-Write a Node.js program that does the following:
-
-Save the program to a file named 6.js .
-
-Create a standard deck of 52 cards (e.g., "As", "2s", "3s", ... , "Td", "Jd", "Qd", "Kd"). Note that you must use T (not 10) to indicate the rank Ten.
-
-Deal ten unique, random cards to two players, alternating the deal.
-
-Compare the two five-card poker hands and determine the winner.
-
-Use the poker-evaluator (Links to an external site.) npm library to evaluate the two poker hands.
-Save the poker-evaluator npm module; generate the package.json and package-lock.json files to save the external library information.
-
 Submit 6.js, package.json, and package-lock.json to Canvas.
 
 You must format your output like below:
@@ -72,18 +59,18 @@ function dealCards(cardDeck) {
 function evaluateHands(player1Hand, player2Hand) {
     var player1 = PokerEvaluator.evalHand(player1Hand);
     var player2 = PokerEvaluator.evalHand(player2Hand);
+
+    console.log("Hand 1: " + player1Hand.toString().replace(/,/g, " ") + "  " + player1.handName);
+    console.log("Hand 2: " + player2Hand.toString().replace(/,/g, " ") + "  " + player2.handName);
     
     if (player1.value > player2.value) {
-        console.log("Player 1 wins!");
-        console.log(player1.value + " vs. " + player2.value);
+        console.log("\nHand 1 wins!");
     }
     else if (player1.value < player2.value) {
-        console.log("Player 2 wins!");
-        console.log(player1.value + " vs. " + player2.value);
+        console.log("\nHand 2 wins!");
     }
     else {
-        console.log("It's a tie!");
-        console.log(player1.value + " vs. " + player2.value);
+        console.log("\nIt's a tie!");
     }
 }
 
