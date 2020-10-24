@@ -29,6 +29,7 @@ const PokerEvaluator = require('poker-evaluator');
 
 const cardsToDeal = 10;
 var playerBank = 1000;
+var playerBet;
 var hand1 = [];
 var hand2 = [];
 
@@ -36,13 +37,18 @@ askUserToPlay();
 
 function askUserToPlay() {
     rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (answer) => chooseUserPath(answer));
+    //askForBet();
 }
 
-function chooseUserPath(userPlayOrQuit) {
+// does a callback need to make this work?
+//var ask = askForBet();
+//function chooseUserPath(userPlayOrQuit, ask) {
+    function chooseUserPath(userPlayOrQuit) {
+
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
         console.clear();
-        // add bet here
+        //askForBet();
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
         // add bank update
@@ -77,7 +83,7 @@ function makeABet(bet) {
         askForBet();
     }
     else {
-        return bet;
+        playerBet = bet;
     }
 }
 
@@ -164,11 +170,11 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
-        updateBank(bet);
+        updateBank(playerBet);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
-        updateBank(-(bet));
+        updateBank(-(playerBet));
     }
     else {
         console.log("\nIt's a tie!");
