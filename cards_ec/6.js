@@ -51,7 +51,6 @@ function chooseUserPath(userPlayOrQuit) {
     }
 
     else if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        rlintf.close();
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
         askUserToPlay();
@@ -59,6 +58,7 @@ function chooseUserPath(userPlayOrQuit) {
 
     else {
         console.error(userPlayOrQuit + " is not a valid option.");
+        askUserToPlay();
     }
 }
 
