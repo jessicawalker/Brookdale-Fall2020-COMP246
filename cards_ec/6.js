@@ -6,9 +6,9 @@ Homework 6: Cards
 /*
 For an additional (up to) 20 points:
 
-* Complete the 5 points requirements.
+v Complete the 5 points requirements.
 * Create and track a player "bank". 
-* The bank begins with $1,000.
+v The bank begins with $1,000.
 * After the screen is cleared, before the hand is dealt, ask the player to make a bet.
 * Assume player 1 is betting, player 2 is the dealer.
 * Bets must be greater than $0 but less than or equal to the amount in the bank.
@@ -28,10 +28,9 @@ const rlintf = readline.createInterface({
 const PokerEvaluator = require('poker-evaluator');
 
 const cardsToDeal = 10;
-const playerBank = 1000;
+var playerBank = 1000;
 var hand1 = [];
 var hand2 = [];
-var userPlayOrQuit;
 
 askUserToPlay();
 
@@ -43,8 +42,10 @@ function chooseUserPath(userPlayOrQuit) {
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
         console.clear();
+        // add bet here
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
+        // add bank update
         askUserToPlay();
     }
 
@@ -57,6 +58,39 @@ function chooseUserPath(userPlayOrQuit) {
         console.error(userPlayOrQuit + " is not a valid option.\n");
         askUserToPlay();
     }
+}
+
+function askForBet() {
+    rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
+}
+
+function makeABet(bet) {
+/*
+* The bank begins with $1,000.
+* After the screen is cleared, before the hand is dealt, ask the player to make a bet.
+* Assume player 1 is betting, player 2 is the dealer.
+* Bets must be greater than $0 but less than or equal to the amount in the bank.
+*/
+
+//playerBank = 1000;
+
+    if (bet <= 0 || bet > playerBank) {
+        console.error("This bet is invalid.");
+        askForBet();
+    }
+    else {
+        return bet;
+    }
+}
+
+function updateBank() {
+/*
+* If the player wins a hand, the bank increases by the amount of the bet.
+* If the player loses a hand, the bank decreases by the amount of the bet.
+* If it is a tie, the player bank does not increase or decrease.
+* Display the level of the players bank after each hand.
+* If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
+*/
 }
 
 function createDeck() {
@@ -114,9 +148,11 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
+        updateBank(bet);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
+        updateBank(-(bet));
     }
     else {
         console.log("\nIt's a tie!");
