@@ -35,12 +35,12 @@ const PokerEvaluator = require('poker-evaluator');
 const cardsToDeal = 10;
 var hand1 = [];
 var hand2 = [];
-var userPlayOrQuit = "Q";
+var userPlayOrQuit;
 
 askUserToPlay();
 
 function askUserToPlay() {
-    rlintf.question("Deal: Press \"D\"   Quit: Press \"Q\"", chooseUserPath(userPlayOrQuit));
+    rlintf.question("Deal: Press \"D\"   Quit: Press \"Q\"\n\nD or Q? ", (answer) => chooseUserPath(answer));
 }
 
 function chooseUserPath(userPlayOrQuit) {
