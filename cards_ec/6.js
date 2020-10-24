@@ -37,27 +37,29 @@ var hand1 = [];
 var hand2 = [];
 var userPlayOrQuit;
 
+//console.log("");
 askUserToPlay();
 
 function askUserToPlay() {
-    rlintf.question("Deal: Press \"D\"   Quit: Press \"Q\"\n\nD or Q? ", (answer) => chooseUserPath(answer));
+    rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (answer) => chooseUserPath(answer));
 }
 
 function chooseUserPath(userPlayOrQuit) {
 
-    if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
-        rlintf.close();
-        console.log("Thanks for playing!\n");
-    }
-
-    else if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
+    if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
+        console.clear();
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
         askUserToPlay();
     }
 
+    else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
+        rlintf.close();
+        console.log("Thanks for playing!");
+    }
+
     else {
-        console.error(userPlayOrQuit + " is not a valid option.");
+        console.error(userPlayOrQuit + " is not a valid option.\n");
         askUserToPlay();
     }
 }
