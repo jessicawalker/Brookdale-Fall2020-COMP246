@@ -3,23 +3,6 @@ Jessica Walker
 Homework 6: Cards
 */
 
-/*
-For an additional (up to) 20 points:
-
-* Complete the 5 points requirements.
-* Create and track a player "bank". 
-* The bank begins with $1,000.
-* After the screen is cleared, before the hand is dealt, ask the player to make a bet.
-* Assume player 1 is betting, player 2 is the dealer.
-* Bets must be greater than $0 but less than or equal to the amount in the bank.
-* If the player wins a hand, the bank increases by the amount of the bet.
-* If the player loses a hand, the bank decreases by the amount of the bet.
-* If it is a tie, the player bank does not increase or decrease.
-* Display the level of the players bank after each hand.
-* If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
-
-*/
-
 const readline = require("readline");
 const rlintf = readline.createInterface({
   input: process.stdin,
@@ -30,7 +13,6 @@ const PokerEvaluator = require('poker-evaluator');
 const cardsToDeal = 10;
 var hand1 = [];
 var hand2 = [];
-var userPlayOrQuit;
 
 askUserToPlay();
 
@@ -121,17 +103,3 @@ function evaluateHands(hand1, hand2) {
         console.log("\nIt's a tie!");
     }
 }
-
-var stickGuy = `
-Dealer
- ○ 
-く|)へ
-  〉 
- ￣￣┗┓          Player
- 　 　 ┗┓　     ヾ○ｼ
-  　　   ┗┓   ヘ/ 　 　 
- 　        ┗┓ノ 
-　 　 　 　 　┗┓
-`;
-
-//console.log(stickGuy);
