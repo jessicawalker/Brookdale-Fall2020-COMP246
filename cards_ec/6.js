@@ -58,6 +58,7 @@ function askUserToPlay() {
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
         rlintf.close();
         console.log("\nThanks for playing!");
+        process.exit();
     }
 
     else {
@@ -95,24 +96,26 @@ function updateBank(bet) {
 * Display the level of the players bank after each hand.
 * If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
 */
+playerBank += bet;
+console.log("Current bank amount: $" + playerBank);
 
-    if (bet > 0) {
+    /*if (bet > 0) {
         playerBank += bet;
         console.log("Current bank amount: $" + playerBank);
     }
 
     else if (bet < 0) {
         playerBank -= bet;
-        console.log("Current bank amount: $" + playerBank);
+        console.log("Current bank amount: $" + playerBank);*/
         if (playerBank <= 0) {
             console.log("Game over, man!\n\n" + stickGuy);
             chooseUserPath("Q");
         }
-    }
+    /*}
 
     else {
         console.error("Something went wrong.");
-    }
+    }*/
 }
 
 function createDeck() {
@@ -170,11 +173,13 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
-        updateBank(playerBet);
+        //updateBank(playerBet);
+        updateBank(20);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
-        updateBank(-(playerBet));
+        //updateBank(-(playerBet));
+        updateBank(-(135));
     }
     else {
         console.log("\nIt's a tie!");
@@ -192,5 +197,3 @@ Dealer
  　        ┗┓ノ 
 　 　 　 　 　┗┓
 `;
-
-//console.log(stickGuy);
