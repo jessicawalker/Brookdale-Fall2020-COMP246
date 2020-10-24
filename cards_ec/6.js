@@ -72,8 +72,6 @@ function makeABet(bet) {
 * Bets must be greater than $0 but less than or equal to the amount in the bank.
 */
 
-//playerBank = 1000;
-
     if (bet <= 0 || bet > playerBank) {
         console.error("This bet is invalid.");
         askForBet();
@@ -83,7 +81,7 @@ function makeABet(bet) {
     }
 }
 
-function updateBank() {
+function updateBank(bet) {
 /*
 * If the player wins a hand, the bank increases by the amount of the bet.
 * If the player loses a hand, the bank decreases by the amount of the bet.
@@ -91,6 +89,24 @@ function updateBank() {
 * Display the level of the players bank after each hand.
 * If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
 */
+
+    if (bet > 0) {
+        playerBank += bet;
+        console.log("Current bank amount: $" + playerBank);
+    }
+
+    else if (bet < 0) {
+        playerBank -= bet;
+        console.log("Current bank amount: $" + playerBank);
+        if (playerBank <= 0) {
+            console.log("Game over, man!\n\n" + stickGuy);
+            chooseUserPath("Q");
+        }
+    }
+
+    else {
+        console.error("Something went wrong.");
+    }
 }
 
 function createDeck() {
