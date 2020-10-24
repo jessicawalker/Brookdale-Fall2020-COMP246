@@ -28,7 +28,6 @@ const rlintf = readline.createInterface({
 const PokerEvaluator = require('poker-evaluator');
 
 const cardsToDeal = 10;
-const playerBank = 1000;
 var hand1 = [];
 var hand2 = [];
 var userPlayOrQuit;
