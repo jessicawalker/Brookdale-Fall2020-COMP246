@@ -43,7 +43,7 @@ function askUserToPlay() {
 // does a callback need to make this work?
 //var ask = askForBet();
 //function chooseUserPath(userPlayOrQuit, ask) {
-    function chooseUserPath(userPlayOrQuit) {
+function chooseUserPath(userPlayOrQuit) {
 
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
@@ -89,33 +89,14 @@ function makeABet(bet) {
 }
 
 function updateBank(bet) {
-/*
-* If the player wins a hand, the bank increases by the amount of the bet.
-* If the player loses a hand, the bank decreases by the amount of the bet.
-* If it is a tie, the player bank does not increase or decrease.
-* Display the level of the players bank after each hand.
-* If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
-*/
-playerBank += bet;
-console.log("Current bank amount: $" + playerBank);
+    playerBank += bet;
+    console.log("Current bank amount: $" + playerBank);
 
-    /*if (bet > 0) {
-        playerBank += bet;
-        console.log("Current bank amount: $" + playerBank);
+    // stop game when bank is empty
+    if (playerBank <= 0) {
+        console.log("Game over, man!\n\n" + stickGuy);
+        chooseUserPath("Q");
     }
-
-    else if (bet < 0) {
-        playerBank -= bet;
-        console.log("Current bank amount: $" + playerBank);*/
-        if (playerBank <= 0) {
-            console.log("Game over, man!\n\n" + stickGuy);
-            chooseUserPath("Q");
-        }
-    /*}
-
-    else {
-        console.error("Something went wrong.");
-    }*/
 }
 
 function createDeck() {
