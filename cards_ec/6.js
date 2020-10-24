@@ -37,7 +37,6 @@ var hand1 = [];
 var hand2 = [];
 var userPlayOrQuit;
 
-//console.log("");
 askUserToPlay();
 
 function askUserToPlay() {
@@ -55,7 +54,7 @@ function chooseUserPath(userPlayOrQuit) {
 
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
         rlintf.close();
-        console.log("Thanks for playing!");
+        console.log("\nThanks for playing!");
     }
 
     else {
@@ -113,7 +112,7 @@ function evaluateHands(hand1, hand2) {
     var readableHand2 = hand2.toString().replace(/,/g, " ");
 
     // display hands and their hand types
-    console.log("Hand 1: " + readableHand1 + "  " + hand1Evaluated.handName);
+    console.log("\nHand 1: " + readableHand1 + "  " + hand1Evaluated.handName);
     console.log("Hand 2: " + readableHand2 + "  " + hand2Evaluated.handName);
     
     // declare winner
