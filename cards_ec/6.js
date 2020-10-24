@@ -25,14 +25,42 @@ For an additional (up to) 20 points:
 
 */
 
-/*
+const readline = require("readline");
+const rlintf = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 const PokerEvaluator = require('poker-evaluator');
+
 const cardsToDeal = 10;
 var hand1 = [];
 var hand2 = [];
+var userPlayOrQuit = "Q";
 
-dealCards(createDeck());
-evaluateHands(hand1, hand2);
+askUserToPlay();
+
+function askUserToPlay() {
+    rlintf.question("Deal: Press \"D\"   Quit: Press \"Q\"", chooseUserPath(userPlayOrQuit));
+}
+
+function chooseUserPath(userPlayOrQuit) {
+
+    if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
+        rlintf.close();
+        console.log("Thanks for playing!\n");
+    }
+
+    else if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
+        rlintf.close();
+        dealCards(createDeck());
+        evaluateHands(hand1, hand2);
+        askUserToPlay();
+    }
+
+    else {
+        console.error(userPlayOrQuit + " is not a valid option.");
+    }
+}
 
 function createDeck() {
     var value = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
@@ -96,7 +124,7 @@ function evaluateHands(hand1, hand2) {
     else {
         console.log("\nIt's a tie!");
     }
-}*/
+}
 
 var stickGuy = `
 Dealer
@@ -110,4 +138,4 @@ Dealer
 　 　 　 　 　┗┓
 `;
 
-console.log(stickGuy);
+//console.log(stickGuy);
