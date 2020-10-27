@@ -1,6 +1,9 @@
 /* 
 Jessica Walker
 Homework 6: Cards
+
+Packages used:
+    poker-evaluator -- https://www.npmjs.com/package/poker-evaluator
 */
 
 const PokerEvaluator = require('poker-evaluator');

@@ -1,6 +1,10 @@
 /* 
 Jessica Walker
-Homework 6: Cards
+Homework 6, Extra Credit Version: Cards
+
+Packages used:
+    readline -- core module
+    poker-evaluator -- https://www.npmjs.com/package/poker-evaluator
 */
 
 /*
