@@ -25,17 +25,27 @@ fs.writeFile("knockknock.txt", outputString, function(err) {
 });
 
 // start using promises here
-var promise = checkReadResults(err, inputString); // first job
-promise                                           // execute first job
+var myPromise = new Promise (function(resolve, reject) {
+    fs.readFile("knockknock.txt", "utf8", function(resolve, reject) {
+        if(err) {
+            reject(err);
+        } else {
+            resolves(inputString);
+        }
+    }
+}
 
-.then(function(data) {                            // second job
-    //console.log(data);
-    //return job1("aBcDeFgHiJkLmNoPqRsTuVwXyZ","file1.txt");
-  })
+myPromise                                           // execute first job
+    .then(function(inputString) {                            // second job
+        displayJokes(inputString);
+    })
+
+    .catch(function(error) {
+        console.error(error);
+    });
 
   
 
-fs.readFile("knockknock.txt", "utf8", checkReadResults);
 
 function checkReadResults(err, inputString) {   // first job
     return new Promise(function(resolve, reject) {
