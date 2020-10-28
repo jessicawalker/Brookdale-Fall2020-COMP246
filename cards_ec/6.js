@@ -7,23 +7,6 @@ Packages used:
     poker-evaluator -- https://www.npmjs.com/package/poker-evaluator
 */
 
-/*
-For an additional (up to) 20 points:
-
-v Complete the 5 points requirements.
-* Create and track a player "bank". 
-v The bank begins with $1,000.
-* After the screen is cleared, before the hand is dealt, ask the player to make a bet.
-* Assume player 1 is betting, player 2 is the dealer.
-* Bets must be greater than $0 but less than or equal to the amount in the bank.
-* If the player wins a hand, the bank increases by the amount of the bet.
-* If the player loses a hand, the bank decreases by the amount of the bet.
-* If it is a tie, the player bank does not increase or decrease.
-* Display the level of the players bank after each hand.
-* If the bank hits $0 dollars, the game is over and the player is ejected from the casino.
-
-*/
-
 const readline = require("readline");
 const rlintf = readline.createInterface({
   input: process.stdin,
