@@ -39,47 +39,15 @@ var hand2 = [];
 var userPlayOrQuit = "";
 
 askUserToPlay();
-/*
-function askUserToPlay() {
-    rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
-    //askForBet();
-}*/
 
 function askUserToPlay() {
     rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
-    //askForBet();
 }
 
-/*
-rlintf.question("Your name? ", function(name) {
-    rlintf.question("Enter grades separated by a space: ", function(grades) {
-      var arr = grades.split(" ");
-      var sum = 0;
-      for (var i=0; i < arr.length; i++) {
-        sum = sum + parseFloat(arr[i]);
-      }
-      console.log(name + ', the average grade is: ' + (sum / arr.length) );
-      rlintf.close();
-    });
-  });*/
-
-// does a callback need to make this work?
-//var ask = askForBet();
 function chooseUserPath(userPlayOrQuit) {
-//function chooseUserPath(userPlayOrQuit) {
-
-    //askForBet();
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
-        
-        // does this belong in the bet function instead?
-        /*
-        console.clear();
-        //askForBet();
-        dealCards(createDeck());
-        evaluateHands(hand1, hand2);
-        askUserToPlay();*/
+        rlintf.question("\nWhat is your bet for this hand? ", (bet) => play(bet));
     }
 
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
@@ -94,25 +62,21 @@ function chooseUserPath(userPlayOrQuit) {
     }
 }
 
-function makeABet(bet) {
-/*
-* The bank begins with $1,000.
-* After the screen is cleared, before the hand is dealt, ask the player to make a bet.
-* Assume player 1 is betting, player 2 is the dealer.
-* Bets must be greater than $0 but less than or equal to the amount in the bank.
-*/
+function play(bet) {
 
-    if (bet <= 0 || bet > playerBank) {
-        console.error("This bet is invalid.");
-        askForBet();
+    // prevent bad bet amounts
+    if (bet <= 0 || bet > playerBank || isNaN(bet)) {
+        console.error("This bet is invalid. Try again.");
+        chooseUserPath("D");
     }
+
+    // executes the game
     else {
         playerBet = bet;
         console.clear();
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
         askUserToPlay();
-        //return playerBet;
     }
 }
 
@@ -183,12 +147,10 @@ function evaluateHands(hand1, hand2) {
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
         updateBank(playerBet);
-        //updateBank(20);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
         updateBank(-(playerBet));
-        //updateBank(-(135));
     }
     else {
         console.log("\nIt's a tie!");
