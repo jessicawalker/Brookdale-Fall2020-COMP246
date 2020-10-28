@@ -117,7 +117,7 @@ function makeABet(bet) {
 }
 
 function updateBank(bet) {
-    playerBank += bet;
+    playerBank += parseInt(bet);
     console.log("Current bank amount: $" + playerBank);
 
     // stop game when bank is empty
@@ -182,13 +182,13 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
-        //updateBank(bet);
-        updateBank(20);
+        updateBank(playerBet);
+        //updateBank(20);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
-        //updateBank(-(bet));
-        updateBank(-(135));
+        updateBank(-(playerBet));
+        //updateBank(-(135));
     }
     else {
         console.log("\nIt's a tie!");
