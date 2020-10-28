@@ -9,4 +9,9 @@ Packages used:
 
 const nostra = require('nostra');
 
-var fortune = nostra.generate();
+
+for (var i = 0; i < 10; i++) {
+    //var fortune = nostra.generate();
+    //console.log("\n" + fortune);
+    console.log("\n" + nostra.generate());
+}
