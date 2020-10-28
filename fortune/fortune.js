@@ -1,6 +1,7 @@
 /* 
 Jessica Walker
 Lab 9: Fortune Teller
+Directions: Write a Node.js program that displays 10 random fortunes using the nostra npm module
 
 Packages used:
     nostra -- https://www.npmjs.com/package/nostra/v/0.0.6
