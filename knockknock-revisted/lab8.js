@@ -1,7 +1,8 @@
 /* 
 Jessica Walker
-Lab 8: Knock, knock
+Lab 8a: Knock, knock
 Directions: Write a Node.js program that gets a random knock-knock joke and displays it. 
+            Revised: Rewrite the Lab 8 solution using a Promise.
 */
 
 const joke = require('knock-knock-jokes');
