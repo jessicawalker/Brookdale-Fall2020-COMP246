@@ -19,18 +19,19 @@ var playerBank = 1000;
 var playerBet;
 var hand1 = [];
 var hand2 = [];
-var userPlayOrQuit = "";
 
+console.clear();
 askUserToPlay();
 
 function askUserToPlay() {
+    console.log("\n========== CARE FOR A GAME OF POKER? ==========");
     rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
 }
 
 function chooseUserPath(userPlayOrQuit) {
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        rlintf.question("\nWhat is your bet for this hand? ", (bet) => play(bet));
+        rlintf.question("\nWhat is your bet for this hand? $", (bet) => play(bet));
     }
 
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
@@ -57,6 +58,7 @@ function play(bet) {
     else {
         playerBet = bet;
         console.clear();
+        console.log("========= HERE IS THIS ROUND'S RESULT =========");
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
         askUserToPlay();
@@ -69,7 +71,7 @@ function updateBank(bet) {
 
     // stop game when bank is empty
     if (playerBank <= 0) {
-        console.log("Game over, man!\n\n" + stickGuy);
+        console.log("\n======== YOUR BANK IS EMPTY! GAME OVER ========\n\n" + stickGuy);
         chooseUserPath("Q");
     }
 }
