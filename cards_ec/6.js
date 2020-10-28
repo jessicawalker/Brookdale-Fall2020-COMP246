@@ -36,27 +36,50 @@ var playerBank = 1000;
 var playerBet;
 var hand1 = [];
 var hand2 = [];
+var userPlayOrQuit = "";
 
 askUserToPlay();
+/*
+function askUserToPlay() {
+    rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
+    //askForBet();
+}*/
 
 function askUserToPlay() {
     rlintf.question("\nDeal New Hand: Press \"D\"   Quit Game: Press \"Q\"\n\nD or Q? ", (userPlayOrQuit) => chooseUserPath(userPlayOrQuit));
     //askForBet();
 }
 
+/*
+rlintf.question("Your name? ", function(name) {
+    rlintf.question("Enter grades separated by a space: ", function(grades) {
+      var arr = grades.split(" ");
+      var sum = 0;
+      for (var i=0; i < arr.length; i++) {
+        sum = sum + parseFloat(arr[i]);
+      }
+      console.log(name + ', the average grade is: ' + (sum / arr.length) );
+      rlintf.close();
+    });
+  });*/
+
 // does a callback need to make this work?
 //var ask = askForBet();
-//function chooseUserPath(userPlayOrQuit, ask) {
 function chooseUserPath(userPlayOrQuit) {
+//function chooseUserPath(userPlayOrQuit) {
 
-    askForBet();
+    //askForBet();
 
     if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        //console.clear();
+        rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
+        
+        // does this belong in the bet function instead?
+        /*
+        console.clear();
         //askForBet();
-        //dealCards(createDeck());
-        //evaluateHands(hand1, hand2);
-        //askUserToPlay();
+        dealCards(createDeck());
+        evaluateHands(hand1, hand2);
+        askUserToPlay();*/
     }
 
     else if (userPlayOrQuit == "Q" || userPlayOrQuit == "q") {
@@ -68,12 +91,6 @@ function chooseUserPath(userPlayOrQuit) {
     else {
         console.error(userPlayOrQuit + " is not a valid option.\n");
         askUserToPlay();
-    }
-}
-
-function askForBet() {
-    if (userPlayOrQuit == "D" || userPlayOrQuit == "d") {
-        rlintf.question("\nWhat is your bet for this hand? ", (bet) => makeABet(bet));
     }
 }
 
@@ -90,7 +107,7 @@ function makeABet(bet) {
         askForBet();
     }
     else {
-        //playerBet = bet;
+        playerBet = bet;
         console.clear();
         dealCards(createDeck());
         evaluateHands(hand1, hand2);
@@ -165,13 +182,13 @@ function evaluateHands(hand1, hand2) {
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
         console.log("\nHand 1 wins!");
-        updateBank(bet);
-        //updateBank(20);
+        //updateBank(bet);
+        updateBank(20);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
         console.log("\nHand 2 wins!");
-        updateBank(-(bet));
-        //updateBank(-(135));
+        //updateBank(-(bet));
+        updateBank(-(135));
     }
     else {
         console.log("\nIt's a tie!");
