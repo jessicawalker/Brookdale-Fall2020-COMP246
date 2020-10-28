@@ -139,7 +139,8 @@
     // evaluates end result of day and updates grid for the next day
     function updateDay() {
         // grid copy that gets filled in while evaluating current day's grid
-        var gridNextDay = gridZombiesHumans;
+        var gridNextDay = "";
+        gridNextDay = gridZombiesHumans.concat();
 
         for (var row = 0, col = 0; row < arrayZombiesHumans.length; col++) {
             
@@ -171,7 +172,8 @@
         }
 
         // copy next day's grid to be today's grid
-        gridZombiesHumans = gridNextDay;
+        gridZombiesHumans = "";
+        gridZombiesHumans = gridNextDay.concat();
     }
       
     // 0 zombie around? 0 human around? cell becomes space
