@@ -91,27 +91,50 @@ function createDeck() {
         }
     }
 
+    return shuffleDeck(cardDeck);
+}
+
+function shuffleDeck(cardDeck) {
+    var randomCard;
+    var shuffledDeck = [];
+    var temp;
+
+    for (var i = cardDeck.length - 1; i > 0; i--) {
+
+        /*if (cardDeck.length == 1) {
+            shuffledDeck[cardDeck.length - 1] = cardDeck[0];
+        }*/
+
+        randomCard = Math.floor(Math.random() * (i + 1));
+        temp = cardDeck[i];
+        cardDeck[i] = cardDeck[randomCard].toString();
+        cardDeck[randomCard] = temp.toString();
+        //shuffledDeck[i] = cardDeck.splice(randomCard, 1).toString();
+        console.log(i + ": " + cardDeck[i]);
+        console.log("card deck length: " + cardDeck.length);
+        //console.log("shuffled deck length: " + shuffledDeck.length);
+        console.log("-------");
+    }
+
+    console.log("end shuffle");
+
     return cardDeck;
 }
-function dealCards(cardDeck) {
-    var randomCard, dealtCard;
-    var j = 0, k = 0;  // tracks indices of hands
 
-    for (var i = 0; i < cardsToDeal; i++) {
+function dealCards(shuffledDeck) {
+    //var j = 0, k = 0;  // tracks indices of hands
+
+    for (var i = 0, j = 0; i < cardsToDeal; i+2, j++) {
 
         // pick a random card from deck and remove it from the deck
-        randomCard = Math.floor(Math.random() * cardDeck.length);
-        dealtCard = cardDeck.splice(randomCard, 1).toString();
+        //randomCard = Math.floor(Math.random() * cardDeck.length);
+        //dealtCard = cardDeck.splice(0, 1).toString();
 
         // alternate dealing cards between players
-        if (i % 2 == 0) {
-            hand1[j] = dealtCard;
-            j++;
-        }
-        else {
-            hand2[k] = dealtCard;
-            k++;
-        }
+        hand1[j] = shuffledDeck[i];
+        //console.log(hand1[j]);
+        hand2[j] = shuffledDeck[i+1];
+        //console.log(hand2[j]);
     }
 }
 
