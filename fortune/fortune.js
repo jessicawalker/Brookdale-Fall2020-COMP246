@@ -11,7 +11,7 @@ const nostra = require('nostra');
 
 
 for (var i = 0; i < 10; i++) {
-    //var fortune = nostra.generate();
-    //console.log("\n" + fortune);
-    console.log("\n" + nostra.generate());
+    var fortune = nostra.generate();
+    console.log("\n" + fortune);
+    //console.log("\n" + nostra.generate());
 }

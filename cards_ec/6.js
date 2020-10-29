@@ -59,7 +59,8 @@ function play(bet) {
         playerBet = bet;
         console.clear();
         console.log("========= HERE IS THIS ROUND'S RESULT =========");
-        dealCards(createDeck());
+        
+        dealCards(shuffleDeck(createDeck()));
         evaluateHands(hand1, hand2);
         askUserToPlay();
     }
@@ -91,6 +92,18 @@ function createDeck() {
     }
 
     return cardDeck;
+}
+
+function shuffleDeck(cardDeck) {
+    var randomCard;
+    var shuffledDeck = [];
+
+    for (var i = cardDeck.length - 1; i > 0; i--) {
+        randomCard = Math.floor(Math.random() * i + 1);
+        shuffledDeck[i] = cardDeck.splice(randomCard, 1).toString();
+    }
+
+    return shuffledDeck;
 }
 
 function dealCards(cardDeck) {
