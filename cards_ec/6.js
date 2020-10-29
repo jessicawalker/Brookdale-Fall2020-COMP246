@@ -125,16 +125,16 @@ function evaluateHands(hand1, hand2) {
     var readableHand2 = hand2.toString().replace(/,/g, " ");
 
     // display hands and their hand types
-    console.log("\nHand 1: " + readableHand1 + "  " + hand1Evaluated.handName);
-    console.log("Hand 2: " + readableHand2 + "  " + hand2Evaluated.handName);
+    console.log("\nPlayer: " + readableHand1 + "  " + hand1Evaluated.handName);
+    console.log("Dealer: " + readableHand2 + "  " + hand2Evaluated.handName);
     
     // declare winner
     if (hand1Evaluated.value > hand2Evaluated.value) {
-        console.log("\nHand 1 wins!");
+        console.log("\nPlayer wins!");
         updateBank(playerBet);
     }
     else if (hand1Evaluated.value < hand2Evaluated.value) {
-        console.log("\nHand 2 wins!");
+        console.log("\nDealer wins!");
         updateBank(-(playerBet));
     }
     else {
