@@ -5,6 +5,7 @@ Homework 6, Extra Credit Version: Cards
 Packages used:
     readline -- core module
     poker-evaluator -- https://www.npmjs.com/package/poker-evaluator
+    shuffle-array -- https://www.npmjs.com/package/shuffle-array
 */
 
 const readline = require("readline");
@@ -13,6 +14,7 @@ const rlintf = readline.createInterface({
   output: process.stdout
 });
 const PokerEvaluator = require('poker-evaluator');
+const shuffle = require('shuffle-array');
 
 const cardsToDeal = 10;
 var playerBank = 1000;
@@ -94,22 +96,20 @@ function createDeck() {
     return cardDeck;
 }
 function dealCards(cardDeck) {
-    var randomCard, dealtCard;
     var j = 0, k = 0;  // tracks indices of hands
+
+    // shuffle deck before dealing cards
+    shuffle(cardDeck);
 
     for (var i = 0; i < cardsToDeal; i++) {
 
-        // pick a random card from deck and remove it from the deck
-        randomCard = Math.floor(Math.random() * cardDeck.length);
-        dealtCard = cardDeck.splice(randomCard, 1).toString();
-
         // alternate dealing cards between players
         if (i % 2 == 0) {
-            hand1[j] = dealtCard;
+            hand1[j] = cardDeck[i];
             j++;
         }
         else {
-            hand2[k] = dealtCard;
+            hand2[k] = cardDeck[i];
             k++;
         }
     }
