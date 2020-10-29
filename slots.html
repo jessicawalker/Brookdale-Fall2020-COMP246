@@ -3,6 +3,13 @@
     <head>
         <title>Jackpot! | Jessica Walker</title>
         <meta charset="utf-8">
+
+        <style>
+            #machine {}
+            #test_slot {}
+            #playBtn {}
+            #winner {}
+        </style>
     </head>
     <body>
     <!--
@@ -28,9 +35,36 @@
     It all three fruits match, output "Winner, winner, chicken dinner!" to a <div> element below the fruits
     -->
 
-    <div id="machine"></div>
-    <button>Spin!</button>
+    <div id="machine">
+        <div id="test_slot"></div>
+        <div id="reel1"></div>
+        <div id="reel2"></div>
+        <div id="reel3"></div>
+    </div>
+    <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
     <div id="winner">Winner, winner, chicken dinner!</div>
 
+    <script>
+        var fruitArray = ["🍇", "🍉", "🍊", "🍑", "🍋", "🍎", "🍒", "🍓", "🍐"];
+        var interval;
+
+        function playGame() {
+            //interval = setTimeout(spinReel, 100);
+            //interval = setInterval(spinReel, 50);
+        }
+
+        function spinReel() {
+            // animation of icons moving upward, then stops
+            // must work with three separate slots side-by-side
+            //      can it do the slow down and bounce back up thing like real life?
+            //      can it have a delay between slots, like real life?
+        }
+
+        function evaluateReels() {
+            // if value of all three reels match, trigger win
+            // otherwise, nuttin'!
+        }
+
+    </script>
     </body>
     </html>
