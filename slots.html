@@ -7,20 +7,24 @@
         <style>
 
             @keyframes mymove {
-                from {margin-top: 0;}
-                to {margin-top: -1800px;}
+                from {margin-top: -100px;}
+                to {margin-top: -1900px;}
               }
+
+            body {
+                overflow: hidden;
+            }
 
             #machine {
                 background-color: darksalmon;
                 border: 5px solid black;
                 height: 500px;
                 margin: 100px auto;
-                padding-bottom: 50px;
+                padding: 20px 0 50px;
                 text-align: center;
-                width: 750px;
+                width: 725px;
             }
-            #test_slot, #test_slot1, #test_slot2, #test_slot3 {
+            #displayFruitReel1, #displayFruitReel2, #displayFruitReel3 {
                 /*animation-name: mymove;
                 animation-duration: 3s;
                 animation-delay: 1s;
@@ -89,8 +93,8 @@
               
               .animate {
                  animation-name: mymove;
-                 animation-duration: 5s;
-                 animation-iteration-count: 5;
+                 animation-duration: 1250ms;
+                 animation-iteration-count: 4;
                  animation-timing-function: linear;
               }
 /*
@@ -139,12 +143,11 @@
 
     <div id="machine" style="overflow: hidden;">
         
-        <div id="reel1" class="reel"><div id="test_slot1">X</div></div>
-        <div id="reel2" class="reel"><div id="test_slot2">X</div></div>
-        <div id="reel3" class="reel"><div id="test_slot3">X</div></div>
+        <div id="reel1" class="reel"><div id="displayFruitReel1">X</div></div>
+        <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
+        <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
         <div id="winner">Winner, winner, chicken dinner!</div>
         <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
-        <!--<div id="box">Xht strh ryj srhtshs</div>-->
     </div>
 
     <script>
@@ -152,48 +155,46 @@
         //var fruitDisplay = fruitArray.toString().replace(/,/g, "\n") + "\n";
         //var REPEAT_FRUIT = 2;
         var interval;
-        var test_slot1 = document.getElementById("test_slot1");
-        var test_slot2 = document.getElementById("test_slot2");
-        var test_slot3 = document.getElementById("test_slot3");
+        var displayFruitReel1 = document.getElementById("displayFruitReel1");
+        var displayFruitReel2 = document.getElementById("displayFruitReel2");
+        var displayFruitReel3 = document.getElementById("displayFruitReel3");
 
         displayFruit();
 
         function displayFruit() {
 
             // start with "for display only" fruit
-            test_slot1.innerText = "🍐";
-            test_slot2.innerText = "🍐";
-            test_slot3.innerText = "🍐";
+            displayFruitReel1.innerText = "🍐";
+            displayFruitReel2.innerText = "🍐";
+            displayFruitReel3.innerText = "🍐";
             
             // populate with actual fruit array
             for (var i = 0; i < fruitArray.length; i++) {
-                test_slot1.innerText += fruitArray[i];
-                test_slot2.innerText += fruitArray[i];
-                test_slot3.innerText += fruitArray[i];
+                displayFruitReel1.innerText += fruitArray[i];
+                displayFruitReel2.innerText += fruitArray[i];
+                displayFruitReel3.innerText += fruitArray[i];
             }
 
             // end with "for display only" fruit
-            test_slot1.innerText += "🍇";
-            test_slot2.innerText += "🍇";
-            test_slot3.innerText += "🍇";
+            displayFruitReel1.innerText += "🍇";
+            displayFruitReel2.innerText += "🍇";
+            displayFruitReel3.innerText += "🍇";
 
         }
 
         function playGame() {
             //interval = setTimeout(spinReel, 100);
             interval = setInterval(spinReel, 100);
-                //test_slot.className = "animate";
+                //displayFruitReel.className = "animate";
         }
 
         function spinReel() {
-            //test_slot.className = "classname";
-            //test_slot.className = "animate";
-            test_slot1.className = "animate";
-            test_slot1.style.animationDelay = "100ms"
-            test_slot2.className = "animate";
-            test_slot2.style.animationDelay = "300ms"
-            test_slot3.className = "animate";
-            test_slot3.style.animationDelay = "500ms"
+            displayFruitReel1.className = "animate";
+            displayFruitReel1.style.animationDelay = "100ms"
+            displayFruitReel2.className = "animate";
+            displayFruitReel2.style.animationDelay = "300ms"
+            displayFruitReel3.className = "animate";
+            displayFruitReel3.style.animationDelay = "500ms"
             //clearInterval(interval);
             // animation of icons moving upward, then stops
             // must work with three separate slots side-by-side
