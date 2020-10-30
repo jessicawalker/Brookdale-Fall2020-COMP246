@@ -5,10 +5,66 @@
         <meta charset="utf-8">
 
         <style>
-            #machine {}
-            #test_slot {}
+
+            @keyframes mymove {
+                from {margin-top: 0;}
+                to {margin-top: -2000px;}
+              }
+
+            #machine {
+                margin-top: 300px;}
+            #test_slot {
+                /*animation-name: mymove;
+                animation-duration: 3s;
+                animation-delay: 1s;
+                animation-iteration-count: 10;
+                transform: translate(50px, 100px);*/
+
+                background-color: red;
+                font-size: 150px;
+                height: 200px;
+                text-align: center;
+                width: 200px;
+            }
             #playBtn {}
             #winner {}
+
+            @keyframes fontbulger {
+                0% {
+                  font-size: 10px;
+                }
+                30% {
+                  font-size: 15px;
+                }
+                100% {
+                  font-size: 12px;
+                }
+              }
+              
+              #box {
+                 /*animation: fontbulger 2s infinite;*/
+              }
+              
+              .animate {
+                 animation: mymove 3s 10;
+              }
+
+              .classname {
+                transform: translate(0,-1000px);
+                -webkit-transform: translate(0,-1000px);
+                -o-transform: translate(0,-1000px); 
+                -moz-transform: translate(0,-1000px);
+/*
+                transition: all 2s ease-in-out;
+                -webkit-transition: all 2s ease-in-out;
+                -moz-transition: all 2s ease-in-out;
+                -o-transition: all 2s ease-in-out;*/
+
+                transition: all 300ms linear;
+                -webkit-transition: all 300ms linear;
+                -moz-transition: all 300ms linear;
+                -o-transition: all 300ms linear;
+            }
         </style>
     </head>
     <body>
@@ -35,29 +91,44 @@
     It all three fruits match, output "Winner, winner, chicken dinner!" to a <div> element below the fruits
     -->
 
-    <div id="machine">
-        <div id="test_slot"></div>
+    <div id="machine" style="overflow: hidden;">
+        <div id="test_slot">X</div>
         <div id="reel1"></div>
         <div id="reel2"></div>
         <div id="reel3"></div>
+        <div id="box">Xht strh ryj srhtshs</div>
     </div>
     <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
     <div id="winner">Winner, winner, chicken dinner!</div>
 
     <script>
         var fruitArray = ["🍇", "🍉", "🍊", "🍑", "🍋", "🍎", "🍒", "🍓", "🍐"];
+        var fruitDisplay = fruitArray.toString().replace(/,/g, "\n");
         var interval;
+        var REPEAT_FRUIT = 10;
+
+        var test_slot = document.getElementById("test_slot");
+        //test_slot.innerText = fruitDisplay.repeat(REPEAT_FRUIT);
+        test_slot.innerText = fruitDisplay;
 
         function playGame() {
             //interval = setTimeout(spinReel, 100);
-            //interval = setInterval(spinReel, 50);
+            interval = setInterval(spinReel, 100);
+                //test_slot.className = "animate";
         }
 
         function spinReel() {
+            test_slot.className = "classname";
+            //clearInterval(interval);
             // animation of icons moving upward, then stops
             // must work with three separate slots side-by-side
             //      can it do the slow down and bounce back up thing like real life?
             //      can it have a delay between slots, like real life?
+        }
+
+        function pickStop() {
+            // stop each reel
+
         }
 
         function evaluateReels() {
