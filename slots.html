@@ -81,7 +81,7 @@
               
               .animate {
                  animation-name: mymove;
-                 animation-duration: 1s;
+                 animation-duration: 5s;
                  animation-iteration-count: 5;
                  animation-timing-function: linear;
               }
@@ -141,19 +141,35 @@
 
     <script>
         var fruitArray = ["🍇", "🍉", "🍊", "🍑", "🍋", "🍎", "🍒", "🍓", "🍐"];
-        var fruitDisplay = fruitArray.toString().replace(/,/g, "\n") + "\n";
+        //var fruitDisplay = fruitArray.toString().replace(/,/g, "\n") + "\n";
+        //var REPEAT_FRUIT = 2;
         var interval;
-        var REPEAT_FRUIT = 2;
-
-        //var test_slot = document.getElementById("test_slot");
         var test_slot1 = document.getElementById("test_slot1");
         var test_slot2 = document.getElementById("test_slot2");
         var test_slot3 = document.getElementById("test_slot3");
-        //test_slot.innerText = fruitDisplay.repeat(REPEAT_FRUIT);
-        //test_slot.innerText = fruitDisplay;
-        test_slot1.innerText = fruitDisplay.repeat(REPEAT_FRUIT);
-        test_slot2.innerText = fruitDisplay.repeat(REPEAT_FRUIT);
-        test_slot3.innerText = fruitDisplay.repeat(REPEAT_FRUIT);
+
+        displayFruit();
+
+        function displayFruit() {
+
+            // start with "for display only" fruit
+            test_slot1.innerText = "🍐";
+            test_slot2.innerText = "🍐";
+            test_slot3.innerText = "🍐";
+            
+            // populate with actual fruit array
+            for (var i = 0; i < fruitArray.length; i++) {
+                test_slot1.innerText += fruitArray[i];
+                test_slot2.innerText += fruitArray[i];
+                test_slot3.innerText += fruitArray[i];
+            }
+
+            // end with "for display only" fruit
+            test_slot1.innerText += "🍇";
+            test_slot2.innerText += "🍇";
+            test_slot3.innerText += "🍇";
+
+        }
 
         function playGame() {
             //interval = setTimeout(spinReel, 100);
