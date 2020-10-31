@@ -111,7 +111,7 @@
         var winner = document.getElementById("winner");
 
         var REELS = 3;
-        var SPIN_DURATION = 1300;
+        var SPIN_DURATION = 1250;
         var FRUIT_DISTANCE = 200;
         var MIN_ITERATIONS = 2;
 
@@ -122,6 +122,7 @@
         displayFruit();
 
         function displayFruit() {
+            // UPDATE THIS TO TAKE IN REELS AND AUTO
 
             // start with "for display only" fruit
             displayFruitReel1.innerText = "🍐";
@@ -147,16 +148,17 @@
             // reset everything from any previous spins
             clearTimeout(timer);
             winner.style.visibility = "hidden";
-
-            fruitReel1 = "x";
-            fruitReel2 = "y";
-            fruitReel3 = "z";
-
             displayFruitReel1.removeAttribute('style');
             displayFruitReel2.removeAttribute('style');
             displayFruitReel3.removeAttribute('style');
 
-            setTimeout(spinReel, 300);
+            // set new random fruit values to each reel
+            fruitReel1 = pickFruit();
+            fruitReel2 = pickFruit();
+            fruitReel3 = pickFruit();
+
+            // give a few milliseconds so that resets have enough time to occur
+            timer = setTimeout(spinReel, 300);
         }
 
         function startMachine() {
@@ -195,22 +197,27 @@
             displayFruitReel1.style.animationDelay = "100ms";
             displayFruitReel1.style.animationDuration = SPIN_DURATION + "ms";
             displayFruitReel1.style.animationIterationCount = MIN_ITERATIONS;
-            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, 1);
+            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, 1, fruitReel1);
 
             displayFruitReel2.className = "animate";
             displayFruitReel2.style.animationDelay = "300ms";
             displayFruitReel2.style.animationDuration = SPIN_DURATION + "ms";
             displayFruitReel2.style.animationIterationCount = MIN_ITERATIONS + 1;
-            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 1), 2);
+            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 1), 2, fruitReel2);
 
             displayFruitReel3.className = "animate";
             displayFruitReel3.style.animationDelay = "500ms";
             displayFruitReel3.style.animationDuration = SPIN_DURATION + "ms";
             displayFruitReel3.style.animationIterationCount = MIN_ITERATIONS + 2;
-            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 2), 3);
+            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 2), 3, fruitReel3);
 
             // is it a winner? check after the reels stop
             timer = setTimeout(evaluateReels, SPIN_DURATION * (MIN_ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
+        }
+
+        function testOutput() {
+            console.log("Sent to evaluateReels, via testOutput: " + fruitReel1 + fruitReel2 + fruitReel3);
+
         }
 
         function pickFruit() {
@@ -219,23 +226,20 @@
         }
 
         // kicks in after timeout completes in spinReel
-        function stopSpin(reelNumber) {
+        function stopSpin(reelNumber, fruitReel) {
             // placeholder for div ids
             var reelID;
-
-            // assign a random fruit result to each reel
-            var fruitReel = pickFruit();
             
             // the stop point for each fruit is 200px apart:
-            // [0] grape = 0
-            // [1] watermelon = -200px
-            // [2] orange = -400px
-            // [3] peach = -600px
-            // [4] lemon = -800px
-            // [5] apple = -1000px
-            // [6] cherry = -1200px
-            // [7] strawberry = -1400px
-            // [8] pear = -1600px
+            //      [0] grape = 0
+            //      [1] watermelon = -200px
+            //      [2] orange = -400px
+            //      [3] peach = -600px
+            //      [4] lemon = -800px
+            //      [5] apple = -1000px
+            //      [6] cherry = -1200px
+            //      [7] strawberry = -1400px
+            //      [8] pear = -1600px
             var stopPointReel = -(fruitReel * FRUIT_DISTANCE);
 
             // how long to spin to land on right fruit at same speed as before,
@@ -246,17 +250,14 @@
             // target reel #'s fruit and div styles
             if (reelNumber == 1) {
                 reelID = displayFruitReel1;
-                fruitReel1 = fruitReel;
             }
             
             else if (reelNumber == 2) {
                 reelID = displayFruitReel2;
-                fruitReel2 = fruitReel;
             }
             
             else if (reelNumber == 3) {
                 reelID = displayFruitReel3;
-                fruitReel3 = fruitReel;
             }
 
             // remove animation to switch to transform/transition
@@ -269,9 +270,12 @@
         }
 
         function evaluateReels(endReel1, endReel2, endReel3) {
+            console.log("We have: " + endReel1, endReel2, endReel3)
             if (endReel1 == endReel2 && endReel1 == endReel3) {
                 winner.style.visibility = "visible";
+                console.log("Winner: " + endReel1, endReel2, endReel3)
             }
+            console.log("Not Winner: " + endReel1, endReel2, endReel3)
         }
 
     </script>
