@@ -93,9 +93,9 @@
 
     <div id="machine" style="overflow: hidden;">
         
-        <div id="reel1" class="reel"><div id="displayFruitReel1" class="innerReel">X</div></div>
-        <div id="reel2" class="reel"><div id="displayFruitReel2" class="innerReel">X</div></div>
-        <div id="reel3" class="reel"><div id="displayFruitReel3" class="innerReel">X</div></div>
+        <div id="reel1" class="reel"><div id="displayFruitReel1">X</div></div>
+        <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
+        <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
         <div id="winner">🌟 &nbsp;<span class="text">Winner, &nbsp;winner, &nbsp;chicken &nbsp;dinner!</span>&nbsp; 🌟</div>
         <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
     </div>
@@ -151,19 +151,14 @@
             fruitReel2 = "y";
             fruitReel3 = "z";
 
-            displayFruitReel1.className = "";
-            displayFruitReel2.className = "";
-            displayFruitReel3.className = "";
+            displayFruitReel1.removeAttribute('class');
+            displayFruitReel2.removeAttribute('class');
+            displayFruitReel3.removeAttribute('class');
 
-            displayFruitReel1.style.transform = "";
-            displayFruitReel1.style.transition = "";
+            displayFruitReel1.removeAttribute('style');
+            displayFruitReel2.removeAttribute('style');
+            displayFruitReel3.removeAttribute('style');
 
-            displayFruitReel2.style.transform = "";
-            displayFruitReel2.style.transition = "";
-
-            displayFruitReel3.style.transform =  "";
-            displayFruitReel3.style.transition = "";
-            
             setTimeout(spinReel, 300);
         }
 
