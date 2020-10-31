@@ -183,7 +183,7 @@
             timer = setTimeout(evaluateReels, SPIN_DURATION * (ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
         }
 
-        function pickStop() {
+        function pickFruit() {
             // choose a random fruit
             return Math.floor(Math.random() * fruitArray.length);
         }
@@ -195,7 +195,7 @@
             var reelID;
 
             // assign a random fruit result to each reel
-            var fruitReel = pickStop();
+            var fruitReel = pickFruit();
             
             // the stop point for each fruit is 200px apart:
             // [0] grape = 0
