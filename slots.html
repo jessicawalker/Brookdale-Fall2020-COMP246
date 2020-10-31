@@ -167,6 +167,30 @@
         }
 
         function spinReel() {
+
+            // target reel #'s fruit and div styles
+            var reelID;
+
+            if (reelNumber == 1) {
+                reelID = displayFruitReel1;
+            }
+            
+            else if (reelNumber == 2) {
+                reelID = displayFruitReel2;
+            }
+            
+            else if (reelNumber == 3) {
+                reelID = displayFruitReel3;
+            }
+
+            reelID.className = "animate";
+            reelID.style.animationDelay = "100ms"; // ms changes
+            reelID.style.animationDuration = SPIN_DURATION + "ms";
+            reelID.style.animationIterationCount = "3"; // iter changes
+            timer = setTimeout(stopSpin, SPIN_DURATION * ITERATIONS, reelNumber); // iter changes
+
+
+
             displayFruitReel1.className = "animate";
             displayFruitReel1.style.animationDelay = "100ms";
             displayFruitReel1.style.animationDuration = SPIN_DURATION + "ms";
