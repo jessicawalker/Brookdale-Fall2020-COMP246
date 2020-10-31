@@ -111,9 +111,9 @@
         var winner = document.getElementById("winner");
 
         var REELS = 3;
-        var SPIN_DURATION = 1250;
+        var SPIN_DURATION = 1300;
         var FRUIT_DISTANCE = 200;
-        var ITERATIONS = 3;
+        var MIN_ITERATIONS = 2;
 
         var fruitReel1, fruitReel2, fruitReel3
         var timer;
@@ -167,7 +167,7 @@
         }
 
         function spinReel() {
-
+/*
             // target reel #'s fruit and div styles
             var reelID;
 
@@ -186,31 +186,31 @@
             reelID.className = "animate";
             reelID.style.animationDelay = "100ms"; // ms changes
             reelID.style.animationDuration = SPIN_DURATION + "ms";
-            reelID.style.animationIterationCount = "3"; // iter changes
-            timer = setTimeout(stopSpin, SPIN_DURATION * ITERATIONS, reelNumber); // iter changes
+            reelID.style.animationIterationCount = MIN_ITERATIONS; // iter changes
+            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, reelNumber); // iter changes*/
 
 
 
             displayFruitReel1.className = "animate";
             displayFruitReel1.style.animationDelay = "100ms";
             displayFruitReel1.style.animationDuration = SPIN_DURATION + "ms";
-            displayFruitReel1.style.animationIterationCount = "3";
-            timer = setTimeout(stopSpin, SPIN_DURATION * ITERATIONS, 1);
+            displayFruitReel1.style.animationIterationCount = MIN_ITERATIONS;
+            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, 1);
 
             displayFruitReel2.className = "animate";
             displayFruitReel2.style.animationDelay = "300ms";
             displayFruitReel2.style.animationDuration = SPIN_DURATION + "ms";
-            displayFruitReel2.style.animationIterationCount = "4";
-            timer = setTimeout(stopSpin, SPIN_DURATION * (ITERATIONS + 1), 2);
+            displayFruitReel2.style.animationIterationCount = MIN_ITERATIONS + 1;
+            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 1), 2);
 
             displayFruitReel3.className = "animate";
             displayFruitReel3.style.animationDelay = "500ms";
             displayFruitReel3.style.animationDuration = SPIN_DURATION + "ms";
-            displayFruitReel3.style.animationIterationCount = "5";
-            timer = setTimeout(stopSpin, SPIN_DURATION * (ITERATIONS + 2), 3);
+            displayFruitReel3.style.animationIterationCount = MIN_ITERATIONS + 2;
+            timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 2), 3);
 
             // is it a winner? check after the reels stop
-            timer = setTimeout(evaluateReels, SPIN_DURATION * (ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
+            timer = setTimeout(evaluateReels, SPIN_DURATION * (MIN_ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
         }
 
         function pickFruit() {
