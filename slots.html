@@ -93,7 +93,7 @@
               
               .animate {
                  animation-name: mymove;
-                 animation-duration: 1250ms;
+                 /*animation-duration: 1250ms;*/
                  animation-iteration-count: 4;
                  animation-timing-function: linear;
               }
@@ -147,7 +147,7 @@
         <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
         <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
         <div id="winner">Winner, winner, chicken dinner!</div>
-        <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
+        <button id="playBtn" type="button" onclick="spinReel()">Spin!</button>
     </div>
 
     <script>
@@ -158,7 +158,10 @@
         var displayFruitReel1 = document.getElementById("displayFruitReel1");
         var displayFruitReel2 = document.getElementById("displayFruitReel2");
         var displayFruitReel3 = document.getElementById("displayFruitReel3");
+        var SPIN_DURATION = 1250;
+        var ITERATIONS = 4;
 
+        // populate reels with fruit emoji symbols
         displayFruit();
 
         function displayFruit() {
@@ -189,12 +192,19 @@
         }
 
         function spinReel() {
+            var duration1 = SPIN_DURATION + pickStop() + "ms";
+            var duration2 = SPIN_DURATION + pickStop() + "ms";
+            var duration3 = SPIN_DURATION + pickStop() + "ms";
             displayFruitReel1.className = "animate";
-            displayFruitReel1.style.animationDelay = "100ms"
+            displayFruitReel1.style.animationDelay = "100ms";
             displayFruitReel2.className = "animate";
-            displayFruitReel2.style.animationDelay = "300ms"
+            displayFruitReel2.style.animationDelay = "300ms";
             displayFruitReel3.className = "animate";
-            displayFruitReel3.style.animationDelay = "500ms"
+            displayFruitReel3.style.animationDelay = "500ms";
+
+            displayFruitReel1.style.animationDuration = duration1;
+            displayFruitReel2.style.animationDuration = duration2;
+            displayFruitReel3.style.animationDuration = duration3;
             //clearInterval(interval);
             // animation of icons moving upward, then stops
             // must work with three separate slots side-by-side
@@ -202,8 +212,18 @@
             //      can it have a delay between slots, like real life?
         }
 
+        // stop each reel
         function pickStop() {
-            // stop each reel
+            // how long is each fruit on the screen
+            var msPerFruit = Math.round(SPIN_DURATION / fruitArray.length);
+
+            // choose a random fruit
+            var stoppedFruit = Math.floor(Math.random() * fruitArray.length);
+
+            // how many ms to get to that fruit from the beginning
+            var stopAtMS = msPerFruit * stoppedFruit;
+
+            return stopAtMS;
 
         }
 
