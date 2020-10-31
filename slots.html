@@ -83,7 +83,6 @@
               
               .animate {
                  animation-name: reelSpin;
-                 /*animation-iteration-count: 3;*/
                  animation-timing-function: linear;
               }
 
@@ -92,7 +91,6 @@
     <body>
 
     <div id="machine" style="overflow: hidden;">
-        
         <div id="reel1" class="reel"><div id="displayFruitReel1">X</div></div>
         <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
         <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
@@ -114,6 +112,7 @@
 
         var REELS = 3;
         var SPIN_DURATION = 1250;
+        var FRUIT_DISTANCE = 200;
         var ITERATIONS = 3;
 
         var fruitReel1, fruitReel2, fruitReel3
@@ -160,6 +159,13 @@
             setTimeout(spinReel, 300);
         }
 
+        function startMachine() {
+            // can spinReel be refactored like stopSpin?
+            spinReel(1);
+            spinReel(2);
+            spinReel(3);
+        }
+
         function spinReel() {
             displayFruitReel1.className = "animate";
             displayFruitReel1.style.animationDelay = "100ms";
@@ -190,8 +196,7 @@
 
         // kicks in after timeout completes in spinReel
         function stopSpin(reelNumber) {
-
-            var FRUIT_DISTANCE = 200;
+            // placeholder for div ids
             var reelID;
 
             // assign a random fruit result to each reel
@@ -247,4 +252,4 @@
 
     </script>
     </body>
-    </html>
+</html>
