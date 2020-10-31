@@ -83,7 +83,7 @@
               
               .animate {
                  animation-name: reelSpin;
-                 animation-iteration-count: 3;
+                 /*animation-iteration-count: 3;*/
                  animation-timing-function: linear;
               }
 
@@ -93,9 +93,9 @@
 
     <div id="machine" style="overflow: hidden;">
         
-        <div id="reel1" class="reel"><div id="displayFruitReel1">X</div></div>
-        <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
-        <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
+        <div id="reel1" class="reel"><div id="displayFruitReel1" class="innerReel">X</div></div>
+        <div id="reel2" class="reel"><div id="displayFruitReel2" class="innerReel">X</div></div>
+        <div id="reel3" class="reel"><div id="displayFruitReel3" class="innerReel">X</div></div>
         <div id="winner">🌟 &nbsp;<span class="text">Winner, &nbsp;winner, &nbsp;chicken &nbsp;dinner!</span>&nbsp; 🌟</div>
         <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
     </div>
@@ -115,6 +115,8 @@
         var REELS = 3;
         var SPIN_DURATION = 1250;
         var ITERATIONS = 3;
+
+        var fruitReel1, fruitReel2, fruitReel3
 
         // populate reels with fruit emoji symbols
         displayFruit();
@@ -141,7 +143,13 @@
         }
 
         function playGame() {
+
+            // reset everything from any previous spins
             winner.style.visibility = "hidden";
+
+            fruitReel1 = "x";
+            fruitReel2 = "y";
+            fruitReel3 = "z";
 
             displayFruitReel1.className = "";
             displayFruitReel2.className = "";
@@ -155,6 +163,7 @@
 
             displayFruitReel3.style.transform =  "";
             displayFruitReel3.style.transition = "";
+            
             setTimeout(spinReel, 300);
         }
 
@@ -162,14 +171,23 @@
             displayFruitReel1.className = "animate";
             displayFruitReel1.style.animationDelay = "100ms";
             displayFruitReel1.style.animationDuration = SPIN_DURATION + "ms";
+            displayFruitReel1.style.animationIterationCount = "3";
+            setTimeout(stopSpin, SPIN_DURATION * ITERATIONS, 1);
+
             displayFruitReel2.className = "animate";
             displayFruitReel2.style.animationDelay = "300ms";
             displayFruitReel2.style.animationDuration = SPIN_DURATION + "ms";
+            displayFruitReel2.style.animationIterationCount = "4";
+            setTimeout(stopSpin, SPIN_DURATION * (ITERATIONS + 1, 2));
+
             displayFruitReel3.className = "animate";
             displayFruitReel3.style.animationDelay = "500ms";
             displayFruitReel3.style.animationDuration = SPIN_DURATION + "ms";
+            displayFruitReel3.style.animationIterationCount = "5";
+            setTimeout(stopSpin, SPIN_DURATION * (ITERATIONS + 2), 3);
 
-            setTimeout(stopSpin, SPIN_DURATION * ITERATIONS);
+            // is it a winner? check after the reels stop
+            setTimeout(evaluateReels, SPIN_DURATION * (ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
         }
 
         function pickStop() {
@@ -178,14 +196,15 @@
         }
 
         // kicks in after timeout completes in spinReel
-        function stopSpin() {
+        function stopSpin(reelNumber) {
 
             var FRUIT_DISTANCE = 200;
 
             // assign a random fruit result to each reel
-            var fruitReel1 = pickStop();
+            var fruitReel = pickStop();
+            /*var fruitReel1 = pickStop();
             var fruitReel2 = pickStop();
-            var fruitReel3 = pickStop();
+            var fruitReel3 = pickStop();*/
             
             // the stop point for each fruit is 200px apart:
             // [0] grape = 0
@@ -198,32 +217,50 @@
             // [7] strawberry = -1400px
             // [8] pear = -1600px
 
-            var stopPointReel1 = -(fruitReel1 * FRUIT_DISTANCE);
+            var stopPointReel = -(fruitReel * FRUIT_DISTANCE);
+            /*var stopPointReel1 = -(fruitReel1 * FRUIT_DISTANCE);
             var stopPointReel2 = -(fruitReel2 * FRUIT_DISTANCE);
-            var stopPointReel3 = -(fruitReel3 * FRUIT_DISTANCE);
+            var stopPointReel3 = -(fruitReel3 * FRUIT_DISTANCE);*/
 
             var speedPerFruit = SPIN_DURATION / fruitArray.length
-            var speedReel1 = speedPerFruit * fruitReel1 + FRUIT_DISTANCE;
+            var speedReel = speedPerFruit * fruitReel + FRUIT_DISTANCE;
+            /*var speedReel1 = speedPerFruit * fruitReel1 + FRUIT_DISTANCE;
             var speedReel2 = speedPerFruit * fruitReel2 + FRUIT_DISTANCE;
-            var speedReel3 = speedPerFruit * fruitReel3 + FRUIT_DISTANCE;
+            var speedReel3 = speedPerFruit * fruitReel3 + FRUIT_DISTANCE;*/
+
+            if (reelNumber == 1) {
+                reelID = displayFruitReel1;
+                fruitReel1 = fruitReel;
+            }
+            
+            else if (reelNumber == 2) {
+                reelID = displayFruitReel2;
+                fruitReel2 = fruitReel;
+            }
+            
+            else if (reelNumber == 3) {
+                reelID = displayFruitReel3;
+                fruitReel3 = fruitReel;
+            }
 
             // remove animation to switch to transform/transition
-            displayFruitReel1.className = "";
+            reelID.className = "";
+            /*displayFruitReel1.className = "";
             displayFruitReel2.className = "";
-            displayFruitReel3.className = "";
+            displayFruitReel3.className = "";*/
 
             // set CSS in each div to stop and display the chosen fruit in the middle of the reel
-            displayFruitReel1.style.transform = "translate(0," + stopPointReel1 + "px)";
+            reelID.style.transform = "translate(0," + stopPointReel + "px)";
+            reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
+
+            /*displayFruitReel1.style.transform = "translate(0," + stopPointReel1 + "px)";
             displayFruitReel1.style.transition = "all " + speedReel1 + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
 
             displayFruitReel2.style.transform = "translate(0," + stopPointReel2 + "px)";
             displayFruitReel2.style.transition = "all " + speedReel2 + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
 
             displayFruitReel3.style.transform = "translate(0," + stopPointReel3 + "px)";
-            displayFruitReel3.style.transition = "all " + speedReel3 + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
-
-            // is it a winner? check after the reels stop
-            setTimeout(evaluateReels, SPIN_DURATION, stopPointReel1, stopPointReel2, stopPointReel3);
+            displayFruitReel3.style.transition = "all " + speedReel3 + "ms cubic-bezier(0, 0, 0.5, 1) 0s";*/
         }
 
         function evaluateReels(endReel1, endReel2, endReel3) {
