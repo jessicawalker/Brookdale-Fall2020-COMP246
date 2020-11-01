@@ -5,15 +5,7 @@
         <meta charset="utf-8">
 
         <style>
-
-            @keyframes reelSpin {
-                from {margin-top: -100px;}
-                to {margin-top: -1900px;}
-              }
-
-            body {
-                overflow: hidden;
-            }
+            body { overflow: hidden; }
 
             #machine {
                 background-color: darksalmon;
@@ -25,21 +17,21 @@
                 width: 725px;
             }
 
-            #displayFruitReel1, #displayFruitReel2, #displayFruitReel3 {
-                font-size: 150px;
-                height: 260px;
-                margin-bottom: 100px;
-                margin-top: -100px;
-                text-align: center;
-                width: 200px;
-            }
-
             .reel {
                 background-color: white;
                 float: left;
                 margin: 0 20px;
                 height: 400px;
                 overflow: hidden;
+                width: 200px;
+            }
+
+            .reel div {
+                font-size: 150px;
+                height: 260px;
+                margin-bottom: 100px;
+                margin-top: -100px;
+                text-align: center;
                 width: 200px;
             }
 
@@ -80,20 +72,25 @@
                   -1px 1px 0 #000,
                    1px 1px 0 #000;
             }
+
+            @keyframes reelSpin {
+                from {margin-top: -100px;}
+                to {margin-top: -1900px;}
+            }
               
-              .animate {
-                 animation-name: reelSpin;
-                 animation-timing-function: linear;
-              }
+            .animate {
+                animation-name: reelSpin;
+                animation-timing-function: linear;
+            }
 
         </style>
     </head>
     <body>
 
     <div id="machine" style="overflow: hidden;">
-        <div id="reel1" class="reel"><div id="displayFruitReel1">X</div></div>
-        <div id="reel2" class="reel"><div id="displayFruitReel2">X</div></div>
-        <div id="reel3" class="reel"><div id="displayFruitReel3">X</div></div>
+        <div id="reel1" class="reel"><div id="displayFruitReel0">X</div></div>
+        <div id="reel2" class="reel"><div id="displayFruitReel1">X</div></div>
+        <div id="reel3" class="reel"><div id="displayFruitReel2">X</div></div>
         <div id="winner">🌟 &nbsp;<span class="text">Winner, &nbsp;winner, &nbsp;chicken &nbsp;dinner!</span>&nbsp; 🌟</div>
         <button id="playBtn" type="button" onclick="playGame()">Spin!</button>
     </div>
@@ -103,31 +100,26 @@
 
     <script>
         var fruitArray = ["🍇", "🍉", "🍊", "🍑", "🍋", "🍎", "🍒", "🍓", "🍐"];
-        //var fruitDisplay = fruitArray.toString().replace(/,/g, "\n") + "\n";
-        //var REPEAT_FRUIT = 2;
-        var displayFruitReel1 = document.getElementById("displayFruitReel1");
-        var displayFruitReel2 = document.getElementById("displayFruitReel2");
-        var displayFruitReel3 = document.getElementById("displayFruitReel3");
+        var winningFruitArray = [];
         var winner = document.getElementById("winner");
 
         var REELS = 3;
         var SPIN_DURATION = 1250;
         var FRUIT_DISTANCE = 200;
-        var MIN_ITERATIONS = 2;
+        var MIN_ITERATIONS = 1;
         var SPEED_PER_FRUIT = SPIN_DURATION / fruitArray.length;
 
-        var fruitReel1, fruitReel2, fruitReel3;
         var timer;
+        var reelID;
 
         // populate reels with fruit emoji symbols
         displayFruit();
 
         function displayFruit() {
-            var reelID;
 
             // populate each reel
-            for (var r = 1; r <= REELS; r++) {
-                reelID = document.getElementById("displayFruitReel" + r);
+            for (var r = 0; r < REELS; r++) {
+                reelID = setReelID(r);
 
                 // start with "for display only" fruit
                 reelID.innerText = "🍐";
@@ -147,44 +139,43 @@
             // reset everything from any previous spins
             clearTimeout(timer);
             winner.style.visibility = "hidden";
-            displayFruitReel1.removeAttribute('style');
-            displayFruitReel2.removeAttribute('style');
-            displayFruitReel3.removeAttribute('style');
+            winningFruitArray.splice(0, winningFruitArray.length);
 
-            // set new random fruit values to each reel
-            fruitReel1 = pickFruit();
-            fruitReel2 = pickFruit();
-            fruitReel3 = pickFruit();
+            for (var r = 0; r < REELS; r++) {
+                reelID = setReelID(r);
+                reelID.removeAttribute('style');
+                winningFruitArray.push(pickFruit());
+            }
 
             // give FRUIT_DISTANCE milliseconds so that resets have enough time to occur to fruit reels
             timer = setTimeout(startMachine, FRUIT_DISTANCE);
         }
 
         function startMachine() {
-            spinReel(1, fruitReel1);
-            spinReel(2, fruitReel2);
-            spinReel(3, fruitReel3);
+            for (var r = 0; r < REELS; r++) {
+                spinReel(r, winningFruitArray[r]);
+            }
 
-            var iterationsFinal = MIN_ITERATIONS + REELS;
-            var speedFinal = SPEED_PER_FRUIT * fruitReel3;  // any reel works, message only appears if all fruitReels match
-            var evalTimer = SPIN_DURATION * iterationsFinal + speedFinal + FRUIT_DISTANCE;  // eval after reels stop
+            var iterationsAll = MIN_ITERATIONS + REELS;
+            var speedFinal = SPEED_PER_FRUIT * winningFruitArray[0] + FRUIT_DISTANCE; // any reel works, only appears if all match
+            var evalTimer = SPIN_DURATION * iterationsAll + speedFinal;     // eval after reels stop
 
-            timer = setTimeout(evaluateReels, evalTimer, fruitReel1, fruitReel2, fruitReel3);
+            timer = setTimeout(evaluateReels, evalTimer, winningFruitArray);
         }
 
         // add class and styles for animation to occur to each reel
-        function spinReel(reelNumber, fruitReel) {
-
-            // target reel #'s fruit and div styles
-            var reelID = document.getElementById("displayFruitReel" + reelNumber);
+        function spinReel(reelNumber, winningFruit) {
             var delay = FRUIT_DISTANCE * reelNumber;
             var iterations = MIN_ITERATIONS + reelNumber;
+
+            // target reel #'s fruit and div styles
+            reelID = setReelID(reelNumber);
 
             reelID.className = "animate";
             reelID.style.animationDelay = delay + "ms";
             reelID.style.animationDuration = SPIN_DURATION + "ms";
             reelID.style.animationIterationCount = iterations;
-            timer = setTimeout(stopSpin, SPIN_DURATION * iterations, reelNumber, fruitReel);
+            timer = setTimeout(stopSpin, SPIN_DURATION * iterations, reelNumber, winningFruit);
         }
 
         // choose a random fruit
@@ -192,26 +183,25 @@
             return Math.floor(Math.random() * fruitArray.length);
         }
 
+        // set ID for each reel div
+        function setReelID(reelNumber) {
+            return document.getElementById("displayFruitReel" + reelNumber);
+        }
+
         // kicks in after timeout completes in spinReel
-        function stopSpin(reelNumber, fruitReel) {
-            // placeholder for div ids
-            var reelID = document.getElementById("displayFruitReel" + reelNumber);
-            
+        function stopSpin(reelNumber, winningFruit) {
             // the stop point for each fruit is 200px apart:
-            //      [0] grape = 0
-            //      [1] watermelon = -200px
-            //      [2] orange = -400px
-            //      [3] peach = -600px
-            //      [4] lemon = -800px
-            //      [5] apple = -1000px
-            //      [6] cherry = -1200px
-            //      [7] strawberry = -1400px
-            //      [8] pear = -1600px
-            var stopPointReel = -(fruitReel * FRUIT_DISTANCE);
+            //  [0] grape = 0           [3] peach = -600px     [6] cherry = -1200px
+            //  [1] watermelon = -200px [4] lemon = -800px     [7] strawberry = -1400px
+            //  [2] orange = -400px     [5] apple = -1000px    [8] pear = -1600px
+            var stopPointReel = -(winningFruit * FRUIT_DISTANCE);
 
             // how long to spin to land on right fruit at same speed as before,
             // otherwise it tries to "rush" and catch up to the final fruit
-            var speedReel = SPEED_PER_FRUIT * fruitReel + FRUIT_DISTANCE;
+            var speedReel = SPEED_PER_FRUIT * winningFruit + FRUIT_DISTANCE;
+
+            // placeholder for div ids
+            reelID = setReelID(reelNumber);
 
             // remove animation to switch to transform/transition
             reelID.removeAttribute('class');
@@ -222,8 +212,18 @@
             reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
         }
 
-        function evaluateReels(endReel1, endReel2, endReel3) {
-            if (endReel1 == endReel2 && endReel1 == endReel3) {
+        function evaluateReels(winningFruitArray) {
+
+            var update = true;
+            for (var r = 1; r < REELS; r++) {
+                // check if array values all match
+                if (winningFruitArray[r-1] != winningFruitArray[r]) {
+                    update = false;
+                    break;
+                }
+            }
+
+            if (update) {
                 winner.style.visibility = "visible";
             }
         }
