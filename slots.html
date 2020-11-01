@@ -154,32 +154,27 @@
             displayFruitReel3.removeAttribute('style');
 
             // set new random fruit values to each reel
-            /*fruitReel1 = 0;
-            fruitReel2 = 0;
-            fruitReel3 = 0;*/
             fruitReel1 = pickFruit();
             fruitReel2 = pickFruit();
             fruitReel3 = pickFruit();
 
-            // give a few milliseconds so that resets have enough time to occur
-            timer = setTimeout(startMachine, 300);
-            //timer = setTimeout(spinReel, 300);
+            // give FRUIT_DISTANCE milliseconds so that resets have enough time to occur to fruit reels
+            timer = setTimeout(startMachine, FRUIT_DISTANCE);
         }
 
         function startMachine() {
-            // can spinReel be refactored like stopSpin?
             spinReel(1, fruitReel1);
             spinReel(2, fruitReel2);
             spinReel(3, fruitReel3);
 
-            var evalTimer = SPIN_DURATION * (MIN_ITERATIONS + REELS) + (SPEED_PER_FRUIT * fruitReel3) + FRUIT_DISTANCE;
+            var iterationsFinal = MIN_ITERATIONS + REELS;
+            var speedFinal = SPEED_PER_FRUIT * fruitReel3;  // any reel works, message only appears if all fruitReels match
+            var evalTimer = SPIN_DURATION * iterationsFinal + speedFinal + FRUIT_DISTANCE;  // eval after reels stop
 
-            // is it a winner? check after the reels stop
-            // winner would have same SPEED_PER_FRUIT * fruitReel#
             timer = setTimeout(evaluateReels, evalTimer, fruitReel1, fruitReel2, fruitReel3);
-        
         }
 
+        // add class and styles for animation to occur to each reel
         function spinReel(reelNumber, fruitReel) {
 
             // target reel #'s fruit and div styles
@@ -194,13 +189,8 @@
             timer = setTimeout(stopSpin, SPIN_DURATION * iterations, reelNumber, fruitReel);
         }
 
-        function testOutput() {
-            console.log("Sent to evaluateReels, via testOutput: " + fruitReel1 + fruitReel2 + fruitReel3);
-
-        }
-
+        // choose a random fruit
         function pickFruit() {
-            // choose a random fruit
             return Math.floor(Math.random() * fruitArray.length);
         }
 
