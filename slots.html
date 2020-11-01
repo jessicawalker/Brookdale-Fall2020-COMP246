@@ -114,8 +114,9 @@
         var SPIN_DURATION = 1250;
         var FRUIT_DISTANCE = 200;
         var MIN_ITERATIONS = 2;
+        var SPEED_PER_FRUIT = SPIN_DURATION / fruitArray.length;
 
-        var fruitReel1, fruitReel2, fruitReel3
+        var fruitReel1, fruitReel2, fruitReel3;
         var timer;
 
         // populate reels with fruit emoji symbols
@@ -153,6 +154,9 @@
             displayFruitReel3.removeAttribute('style');
 
             // set new random fruit values to each reel
+            /*fruitReel1 = 0;
+            fruitReel2 = 0;
+            fruitReel3 = 0;*/
             fruitReel1 = pickFruit();
             fruitReel2 = pickFruit();
             fruitReel3 = pickFruit();
@@ -163,33 +167,22 @@
 
         function startMachine() {
             // can spinReel be refactored like stopSpin?
-            spinReel(1);
-            spinReel(2);
-            spinReel(3);
+            spinReel(1, fruitReel1);
+            spinReel(2, fruitReel2);
+            spinReel(3, fruitReel3);
         }
 
         function spinReel() {
 /*
+        function spinReel(reelNumber, fruitReel) {
             // target reel #'s fruit and div styles
-            var reelID;
-
-            if (reelNumber == 1) {
-                reelID = displayFruitReel1;
-            }
-            
-            else if (reelNumber == 2) {
-                reelID = displayFruitReel2;
-            }
-            
-            else if (reelNumber == 3) {
-                reelID = displayFruitReel3;
-            }
+            var reelID = document.getElementById("displayFruitReel" + reelNumber);
 
             reelID.className = "animate";
             reelID.style.animationDelay = "100ms"; // ms changes
             reelID.style.animationDuration = SPIN_DURATION + "ms";
             reelID.style.animationIterationCount = MIN_ITERATIONS; // iter changes
-            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, reelNumber); // iter changes*/
+            timer = setTimeout(stopSpin, SPIN_DURATION * MIN_ITERATIONS, reelNumber, fruitReel); // iter changes*/
 
 
 
@@ -212,7 +205,8 @@
             timer = setTimeout(stopSpin, SPIN_DURATION * (MIN_ITERATIONS + 2), 3, fruitReel3);
 
             // is it a winner? check after the reels stop
-            timer = setTimeout(evaluateReels, SPIN_DURATION * (MIN_ITERATIONS + 2), fruitReel1, fruitReel2, fruitReel3);
+            // winner would have same SPEED_PER_FRUIT * fruitReel#
+            timer = setTimeout(evaluateReels, SPIN_DURATION * (MIN_ITERATIONS + 2) + (SPEED_PER_FRUIT * fruitReel3) + 200, fruitReel1, fruitReel2, fruitReel3);
         }
 
         function testOutput() {
@@ -228,7 +222,7 @@
         // kicks in after timeout completes in spinReel
         function stopSpin(reelNumber, fruitReel) {
             // placeholder for div ids
-            var reelID;
+            var reelID = document.getElementById("displayFruitReel" + reelNumber);
             
             // the stop point for each fruit is 200px apart:
             //      [0] grape = 0
@@ -244,21 +238,7 @@
 
             // how long to spin to land on right fruit at same speed as before,
             // otherwise it tries to "rush" and catch up to the final fruit
-            var speedPerFruit = SPIN_DURATION / fruitArray.length
-            var speedReel = speedPerFruit * fruitReel + FRUIT_DISTANCE;
-
-            // target reel #'s fruit and div styles
-            if (reelNumber == 1) {
-                reelID = displayFruitReel1;
-            }
-            
-            else if (reelNumber == 2) {
-                reelID = displayFruitReel2;
-            }
-            
-            else if (reelNumber == 3) {
-                reelID = displayFruitReel3;
-            }
+            var speedReel = SPEED_PER_FRUIT * fruitReel + FRUIT_DISTANCE;
 
             // remove animation to switch to transform/transition
             reelID.removeAttribute('class');
@@ -270,12 +250,9 @@
         }
 
         function evaluateReels(endReel1, endReel2, endReel3) {
-            console.log("We have: " + endReel1, endReel2, endReel3)
             if (endReel1 == endReel2 && endReel1 == endReel3) {
                 winner.style.visibility = "visible";
-                console.log("Winner: " + endReel1, endReel2, endReel3)
             }
-            console.log("Not Winner: " + endReel1, endReel2, endReel3)
         }
 
     </script>
