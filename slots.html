@@ -83,6 +83,19 @@
                 animation-timing-function: linear;
             }
 
+            @keyframes reelFlip {
+                from {transform: rotateY(0); opacity: 1;}
+                to {transform: rotateY(360deg); opacity: 0;}
+            }
+
+            .reset {
+                animation-name: reelFlip;
+                animation-duration: 500ms;
+                animation-iteration-count: 1;
+            }
+
+
+
         </style>
     </head>
     <body>
@@ -102,6 +115,7 @@
         var fruitArray = ["🍇", "🍉", "🍊", "🍑", "🍋", "🍎", "🍒", "🍓", "🍐"];
         var winningFruitArray = [];
         var winner = document.getElementById("winner");
+        var notFirstPlay = false;   // skip the transition animation if first time
 
         var REELS = 3;
         var SPIN_DURATION = 1000;
@@ -143,6 +157,9 @@
 
             for (var r = 0; r < REELS; r++) {
                 reelID = setReelID(r);
+                if (notFirstPlay) {
+                    reelID.className = "reset";
+                }
                 reelID.removeAttribute('style');        // reset inline styles
                 winningFruitArray.push(pickFruit());    // create new winningFruit array values
             }
@@ -152,14 +169,17 @@
         }
 
         function startMachine() {
+
+            notFirstPlay = true;
             for (var r = 0; r < REELS; r++) {
                 spinReel(r, winningFruitArray[r]);
             }
 
             var iterationsAll = MIN_ITERATIONS + REELS;
-            var speedFinal = SPEED_PER_FRUIT * winningFruitArray[0] + FRUIT_DISTANCE; // any reel works, only appears if all match
-            var evalTimer = SPIN_DURATION * iterationsAll + speedFinal;     // eval after reels stop
 
+            // any reel works, since message only appears if all reels match
+            var speedFinal = SPEED_PER_FRUIT * winningFruitArray[0] + FRUIT_DISTANCE; 
+            var evalTimer = SPIN_DURATION * iterationsAll + speedFinal;     // do eval after reels stop
             timer = setTimeout(evaluateReels, evalTimer, winningFruitArray);
         }
 
@@ -196,7 +216,7 @@
             //  [2] orange = -400px     [5] apple = -1000px    [8] pear = -1600px
             var stopPointReel = -(winningFruit * FRUIT_DISTANCE);
 
-            // how long to spin to land on right fruit at same speed as before,
+            // how long until landing on right fruit while at consistent speed,
             // otherwise it tries to "rush" and catch up to the final fruit
             var speedReel = (SPEED_PER_FRUIT * winningFruit) + (FRUIT_DISTANCE * 3);
 
