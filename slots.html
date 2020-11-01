@@ -123,25 +123,23 @@
         displayFruit();
 
         function displayFruit() {
-            // UPDATE THIS TO TAKE IN REELS AND AUTO
+            var reelID;
 
-            // start with "for display only" fruit
-            displayFruitReel1.innerText = "🍐";
-            displayFruitReel2.innerText = "🍐";
-            displayFruitReel3.innerText = "🍐";
-            
-            // populate with actual fruit array
-            for (var i = 0; i < fruitArray.length; i++) {
-                displayFruitReel1.innerText += fruitArray[i];
-                displayFruitReel2.innerText += fruitArray[i];
-                displayFruitReel3.innerText += fruitArray[i];
+            // populate each reel
+            for (var r = 1; r <= REELS; r++) {
+                reelID = document.getElementById("displayFruitReel" + r);
+
+                // start with "for display only" fruit
+                reelID.innerText = "🍐";
+
+                // populate with actual fruit array
+                for (var i = 0; i < fruitArray.length; i++) {
+                    reelID.innerText += fruitArray[i];
+                }
+
+                // end with "for display only" fruit
+                reelID.innerText += "🍇";
             }
-
-            // end with "for display only" fruit
-            displayFruitReel1.innerText += "🍇";
-            displayFruitReel2.innerText += "🍇";
-            displayFruitReel3.innerText += "🍇";
-
         }
 
         function playGame() {
