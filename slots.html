@@ -198,14 +198,14 @@
 
             // how long to spin to land on right fruit at same speed as before,
             // otherwise it tries to "rush" and catch up to the final fruit
-            var speedReel = (SPEED_PER_FRUIT * winningFruit) + (FRUIT_DISTANCE * 2);
+            var speedReel = (SPEED_PER_FRUIT * winningFruit) + (FRUIT_DISTANCE * 3);
 
             // placeholder for div ids
             reelID = setReelID(reelNumber);
 
             // remove animation to switch to transform/transition
-            reelID.removeAttribute('class');
-            reelID.removeAttribute('style');
+            reelID.removeAttribute("class");
+            reelID.removeAttribute("style");
 
             // set CSS to stop and display the chosen fruit in the middle of the reel
             reelID.style.transform = "translate(0," + stopPointReel + "px)";
