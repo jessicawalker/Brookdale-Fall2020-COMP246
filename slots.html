@@ -156,9 +156,9 @@
             winningFruitArray.splice(0, winningFruitArray.length);
 
             for (var r = 0; r < REELS; r++) {
-                reelID = setReelID(r);
+                reelID = setReelID(r);                  // id for each reel
                 if (notFirstPlay) {
-                    reelID.className = "reset";
+                    reelID.className = "reset";         // transition animation to reset back to default fruits
                 }
                 reelID.removeAttribute('style');        // reset inline styles
                 winningFruitArray.push(pickFruit());    // create new winningFruit array values
@@ -170,7 +170,7 @@
 
         function startMachine() {
 
-            notFirstPlay = true;
+            notFirstPlay = true;    // after first play, transition animation will play when clicking spin button
             for (var r = 0; r < REELS; r++) {
                 spinReel(r, winningFruitArray[r]);
             }
@@ -179,7 +179,9 @@
 
             // any reel works, since message only appears if all reels match
             var speedFinal = SPEED_PER_FRUIT * winningFruitArray[0] + FRUIT_DISTANCE; 
-            var evalTimer = SPIN_DURATION * iterationsAll + speedFinal;     // do eval after reels stop
+
+            // do eval after reels stop
+            var evalTimer = SPIN_DURATION * iterationsAll + speedFinal;
             timer = setTimeout(evaluateReels, evalTimer, winningFruitArray);
         }
 
@@ -223,7 +225,7 @@
             // placeholder for div ids
             reelID = setReelID(reelNumber);
 
-            // remove animation to switch to transform/transition
+            // remove animation to change over to transform/transition
             reelID.removeAttribute("class");
             reelID.removeAttribute("style");
 
