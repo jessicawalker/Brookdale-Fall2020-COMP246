@@ -104,7 +104,7 @@
         var winner = document.getElementById("winner");
 
         var REELS = 3;
-        var SPIN_DURATION = 1350;
+        var SPIN_DURATION = 1000;
         var FRUIT_DISTANCE = 200;
         var MIN_ITERATIONS = 1;
         var SPEED_PER_FRUIT = SPIN_DURATION / fruitArray.length;
@@ -198,7 +198,7 @@
 
             // how long to spin to land on right fruit at same speed as before,
             // otherwise it tries to "rush" and catch up to the final fruit
-            var speedReel = SPEED_PER_FRUIT * winningFruit + FRUIT_DISTANCE;
+            var speedReel = (SPEED_PER_FRUIT * winningFruit) + (FRUIT_DISTANCE * 2);
 
             // placeholder for div ids
             reelID = setReelID(reelNumber);
@@ -209,7 +209,7 @@
 
             // set CSS to stop and display the chosen fruit in the middle of the reel
             reelID.style.transform = "translate(0," + stopPointReel + "px)";
-            reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1.1) 0s";
+            reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1.2) 0s";
         }
 
         function evaluateReels(winningFruitArray) {
