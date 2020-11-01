@@ -104,7 +104,7 @@
         var winner = document.getElementById("winner");
 
         var REELS = 3;
-        var SPIN_DURATION = 1250;
+        var SPIN_DURATION = 1350;
         var FRUIT_DISTANCE = 200;
         var MIN_ITERATIONS = 1;
         var SPEED_PER_FRUIT = SPIN_DURATION / fruitArray.length;
@@ -143,8 +143,8 @@
 
             for (var r = 0; r < REELS; r++) {
                 reelID = setReelID(r);
-                reelID.removeAttribute('style');
-                winningFruitArray.push(pickFruit());
+                reelID.removeAttribute('style');        // reset inline styles
+                winningFruitArray.push(pickFruit());    // create new winningFruit array values
             }
 
             // give FRUIT_DISTANCE milliseconds so that resets have enough time to occur to fruit reels
@@ -209,7 +209,7 @@
 
             // set CSS to stop and display the chosen fruit in the middle of the reel
             reelID.style.transform = "translate(0," + stopPointReel + "px)";
-            reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1) 0s";
+            reelID.style.transition = "all " + speedReel + "ms cubic-bezier(0, 0, 0.5, 1.1) 0s";
         }
 
         function evaluateReels(winningFruitArray) {
