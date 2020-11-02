@@ -172,7 +172,7 @@
         }
 
         // copy next day's grid to be today's grid
-        gridZombiesHumans = "";
+        gridZombiesHumans = gridZombiesHumans.splice(0, gridZombiesHumans.length);
         gridZombiesHumans = gridNextDay.concat();
     }
       
