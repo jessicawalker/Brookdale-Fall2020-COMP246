@@ -1,0 +1,17 @@
+{
+  "name": "quiz_pokemon",
+  "version": "1.0.0",
+  "description": "Pokemon catalog displayer",
+  "main": "pokemon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pokemon"
+  ],
+  "author": "Jessica Walker",
+  "license": "ISC",
+  "dependencies": {
+    "pokemon-picker": "^1.2.2"
+  }
+}
