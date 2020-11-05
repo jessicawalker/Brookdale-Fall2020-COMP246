@@ -1,0 +1,19 @@
+{
+  "name": "test_server",
+  "version": "1.0.0",
+  "description": "Testing how to use Express.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tester",
+    "server",
+    "express"
+  ],
+  "author": "Jessica Walker",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
