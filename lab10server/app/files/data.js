@@ -1,4 +1,4 @@
-// top 5 rated films on IMDb
+// top rated films on IMDb
 [
     {
         "rank":1, 
@@ -39,5 +39,45 @@
         "director":"Sidney Lumet", 
         "rating":8.9, 
         "users":676987 
+    },
+    {
+        "rank":6, 
+        "title":"Schindler's List", 
+        "year":1993, 
+        "director":"Steven Spielberg", 
+        "rating":8.9, 
+        "users":1195199 
+    },
+    {
+        "rank":7, 
+        "title":"The Lord of the Rings: The Return of the King", 
+        "year":2003, 
+        "director":"Peter Jackson", 
+        "rating":8.9, 
+        "users":1618473 
+    },
+    {
+        "rank":8, 
+        "title":"Pulp Fiction", 
+        "year":1994, 
+        "director":"Quentin Tarantino", 
+        "rating":8.8, 
+        "users":1798071 
+    },
+    {
+        "rank":9, 
+        "title":"The Good, the Bad and the Ugly", 
+        "year":1966, 
+        "director":"Sergio Leone", 
+        "rating":8.8, 
+        "users":678856 
+    },
+    {
+        "rank":10, 
+        "title":"The Lord of the Rings: The Fellowship of the Ring", 
+        "year":2001, 
+        "director":"Peter Jackson", 
+        "rating":8.8, 
+        "users":1634298 
     }
-  ];
+];
