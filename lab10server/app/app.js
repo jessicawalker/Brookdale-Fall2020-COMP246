@@ -40,7 +40,8 @@ app.get('/viewMovies', function(req, res) {
             str += "</tr>\n";
         }
 
-        str += "</table>\n";
+        str += "</table>\n\n";
+        str += "<p><a href=\"/addMovies\">Add Movies</a></p>";
         res.status(200).send(str);
     });
 });
