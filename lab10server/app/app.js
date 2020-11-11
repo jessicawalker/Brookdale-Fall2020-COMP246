@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+//var router = require(__dirname + '/router');
+//app.use(__dirname, router);
 
 var dirName = process.cwd() + '/client';
 //app.use(express.static(dirName));
@@ -20,7 +22,6 @@ app.get('/addMovies', function(req, res) {
 app.listen(5000);
 
 console.log('Server is running...');
-console.log(dirName);
 
 /*
 Has the following folder structure:
