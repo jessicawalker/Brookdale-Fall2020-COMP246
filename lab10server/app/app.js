@@ -2,13 +2,25 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
+var dirName = process.cwd() + '/client';
+//app.use(express.static(dirName));
+
 app.get('/', function(req, res) {
     res.send('Hello World');
+});
+
+app.get('/viewMovies', function(req, res) {
+    res.status(200).sendFile(dirName + '/viewMovies.html');
+});
+
+app.get('/addMovies', function(req, res) {
+    res.status(200).sendFile(dirName + '/addMovies.html');
 });
 
 app.listen(5000);
 
 console.log('Server is running...');
+console.log(dirName);
 
 /*
 Has the following folder structure:
