@@ -24,8 +24,26 @@ fs.readFile(__dirname + '/files/data.json', (err, data) => {
         console.error(err);
     }
     var movie = JSON.parse(data);
-    // console.log(movie);  // test
-    // console.log(movie[0].director);  // test
+    var str = "<tr id=\"headerRow\">\n";
+    str += "\t<th>Rank on IMDb</th>\n";
+    str += "\t<th>Movie Title</th>\n";
+    str += "\t<th>Year Released</th>\n";
+    str += "\t<th>Director</th>\n";
+    str += "\t<th>IMDb Rating</th>\n";
+    str += "\t<th>Number of Users</th>\n";
+    str += "</tr>\n";
+
+    for (var m in movie) {
+        str += "<tr id=\"item" + movie[m].rank + "\">\n";
+        str += "\t<td class=\"rank\">" + movie[m].rank + "</td>\n";
+        str += "\t<td class=\"title\">" + movie[m].title + "</td>\n";
+        str += "\t<td class=\"year\">" + movie[m].year + "</td>\n";
+        str += "\t<td class=\"director\">" + movie[m].director + "</td>\n";
+        str += "\t<td class=\"rating\">" + movie[m].rating + "</td>\n";
+        str += "\t<td class=\"users\">" + movie[m].users + "</td>\n";
+        str += "</tr>\n";
+    }
+    //console.log(str);
 });
 
 app.listen(5000);
