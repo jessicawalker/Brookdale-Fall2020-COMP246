@@ -24,7 +24,7 @@ app.get('/viewMovies', function(req, res) {
         }
 
         var str = "<table id=\"tableData\">";
-        var movie = JSON.parse(data);
+        var movie = JSON.parse("[" + data + "]");
         str += "<tr id=\"headerRow\">\n";
         str += "\t<th>Rank on IMDb</th>\n";
         str += "\t<th>Movie Title</th>\n";
@@ -55,21 +55,17 @@ app.get('/addMovies', function(req, res) {
     res.status(200).sendFile(dirName + '/addMovies.html');
 });
 
-// for POST, with writeFile, can I take out the last line (the ] to end the object),
-// and then append at the end the new data, plus a new ] to end the object?
-
 app.use(express.json());
-
 app.post('/addMovie', function(req, res){
 
-    var data = "{";
-    data += "\"rank\":" + req.body.rank;
-    data += ", \"title\":\"" + req.body.title + "\"";
-    data += ", \"year\":" + req.body.year;
-    data += ", \"director\":\"" + req.body.director + "\"";
-    data += ", \"rating\":" + req.body.rating;
-    data += ", \"users\":" + req.body.users;
-    data += "}";
+    var data = ", \n{";
+    data += "\n\t\"rank\":" + req.body.rank;
+    data += ",\n\t\"title\":\"" + req.body.title + "\"";
+    data += ",\n\t\"year\":" + req.body.year;
+    data += ",\n\t\"director\":\"" + req.body.director + "\"";
+    data += ",\n\t\"rating\":" + req.body.rating;
+    data += ",\n\t\"users\":" + req.body.users;
+    data += "\n}";
     fs.appendFile(__dirname + '/files/data.json', data, (err) => { 
         if (err) 
           console.log(err); 
@@ -84,37 +80,3 @@ app.post('/addMovie', function(req, res){
 app.listen(5000);
 
 console.log('Server is running...');
-
-/*
-Has the following folder structure:
-  root directory - contains package.json
-  src - contains app.js,  and router.js
-  src/files - contains data files
-  Client - where web pages (html files) are placed
-The server should be able to receive user entered data from the web page
-The server will add the new data to the data file (remember append) on in the src/files directory when a POST is made
--The server will send the data back to the web page when a GET call is made
--Two html files will be created.  One for entering the data into the "database", the second for retrieving and showing the data
--Each page will have a hyperlink to the other page.
-
-----------
-
-Some thoughts on building our web servers:
-
-Our toolbox has all we need to manage our database file.  Yesterday, we saw how to install 
-express and how the GET listener (method) works, the POST listener is similar.  So, once we 
-get them in place, we just need to:
-
- Add code to the POST listener to write our data to the file.  If you recall, we did 
- this (knock-knock).  The new thing is that we want to append our data to the file.  
- Do some research on how you can use writeFile() to append a file.
-
-Add code to the GET listener to retrieve the data from our file and return it to the client.  
-We've done this as well (again, knock-knock).  This time, however, we are not writing to the 
-terminal but sending to the client (similar to our hello world example).
-
-Note that the votes example you are reviewing uses another external package called body-parser.  
-This enables our server to break down the JSON text we receive from the client.  We will look 
-at this approach, but since we can store our data to our files as JSON formatted text, we don't 
-really need this (yet!) to get our two (read and write) database functions up and running.
-*/
