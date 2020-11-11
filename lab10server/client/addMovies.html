@@ -26,20 +26,30 @@
 </head>
 <body>
     <h1>Add a Movie</h1>
-    <label for="rank">Rank on IMDb:</label>
-    <input type="text" name="rank" id="rank">
-    <label for="title">Movie Title:</label>
-    <input type="text" name="title" id="title">
-    <label for="year">Year Released:</label>
-    <input type="text" name="year" id="year">
-    <label for="director">Director:</label>
-    <input type="text" name="director" id="director">
-    <label for="rating">IMDb Rating (format: 0.0):</label>
-    <input type="text" name="rating" id="rating">
-    <label for="users">Number of Users for Rating:</label>
-    <input type="text" name="users" id="users">
 
-    <input type="submit" value="Add Movie" name="submit" id="submit">
+    <form action="/addMovie" method="POST" id="addMovieForm">
+
+        <label for="rank">Rank on IMDb:</label>
+            <input type="text" name="rank" id="rank">
+
+        <label for="title">Movie Title:</label>
+            <input type="text" name="title" id="title">
+
+        <label for="year">Year Released:</label>
+            <input type="text" name="year" id="year">
+
+        <label for="director">Director:</label>
+            <input type="text" name="director" id="director">
+
+        <label for="rating">IMDb Rating (format: 0.0):</label>
+            <input type="text" name="rating" id="rating">
+
+        <label for="users">Number of Users for Rating:</label>
+            <input type="text" name="users" id="users">
+
+        <input type="submit" value="Add Movie" name="submit" id="submit">
+        
+    </form>
 
     <p><a href="/viewMovies">View Movies</a></p>
 </body>
