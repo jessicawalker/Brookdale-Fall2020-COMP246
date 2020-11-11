@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({type: 'application/vnd/api+json'}));
 //var router = require(__dirname + '/router');
 //app.use(__dirname, router);
 
@@ -50,6 +55,32 @@ app.get('/addMovies', function(req, res) {
     res.status(200).sendFile(dirName + '/addMovies.html');
 });
 
+// for POST, with writeFile, can I take out the last line (the ] to end the object),
+// and then append at the end the new data, plus a new ] to end the object?
+
+app.use(express.json());
+
+app.post('/addMovie', function(req, res){
+
+    var data = "{";
+    data += "\"rank\":" + req.body.rank;
+    data += ", \"title\":\"" + req.body.title + "\"";
+    data += ", \"year\":" + req.body.year;
+    data += ", \"director\":\"" + req.body.director + "\"";
+    data += ", \"rating\":" + req.body.rating;
+    data += ", \"users\":" + req.body.users;
+    data += "}";
+    fs.appendFile(__dirname + '/files/data.json', data, (err) => { 
+        if (err) 
+          console.log(err); 
+        else { 
+          console.log("File written successfully\n");
+        }
+    });
+    res.status(200).send("Thank you for adding a new movie to the list!");
+
+});
+
 app.listen(5000);
 
 console.log('Server is running...');
@@ -62,7 +93,7 @@ Has the following folder structure:
   Client - where web pages (html files) are placed
 The server should be able to receive user entered data from the web page
 The server will add the new data to the data file (remember append) on in the src/files directory when a POST is made
-The server will send the data back to the web page when a GET call is made
+-The server will send the data back to the web page when a GET call is made
 -Two html files will be created.  One for entering the data into the "database", the second for retrieving and showing the data
 -Each page will have a hyperlink to the other page.
 
