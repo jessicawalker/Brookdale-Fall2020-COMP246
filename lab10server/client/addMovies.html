@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title Goes Here</title>
+<title>Add a Movie</title>
 <meta charset="utf-8">
+<style>
+    label {
+        display: block;
+        float: left;
+        padding-right: 1em;
+        text-align: right;
+        width: 15em;
+    }
+    
+    input {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    #submit {
+        margin-left: 15em;
+    }
+
+</style>
 </head>
 <body>
+    <h1>Add a Movie</h1>
+    <label for="rank">Rank of IMDb:</label>
+    <input type="text" name="rank" id="rank">
+    <label for="title">Movie Title:</label>
+    <input type="text" name="title" id="title">
+    <label for="year">Year Released:</label>
+    <input type="text" name="year" id="year">
+    <label for="director">Director:</label>
+    <input type="text" name="director" id="director">
+    <label for="rating">IMDb Rating (format: 0.0):</label>
+    <input type="text" name="rating" id="rating">
+    <label for="users">Number of Users for Rating:</label>
+    <input type="text" name="users" id="users">
 
+    <input type="submit" value="Add Movie" name="submit" id="submit">
 </body>
 </html>
