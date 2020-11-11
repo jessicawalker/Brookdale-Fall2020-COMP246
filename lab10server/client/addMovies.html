@@ -5,6 +5,21 @@
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+    #wrapper {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    form {
+        background-color: lightyellow;
+        border: 1px solid darkgoldenrod;
+        margin: 30px;
+        padding: 2em;
+        width: 33%;
+    }
+
     label {
         display: block;
         float: left;
@@ -19,38 +34,44 @@
     }
 
     #submit {
-        margin-left: 15em;
+        font-size: 16px;
+        margin-left: 11em;
+        margin-top: 3em;
     }
 
 </style>
 </head>
 <body>
-    <h1>Add a Movie</h1>
+<div id="wrapper">
+    <h1>Add a Movie from IMDb</h1>
+
+    <p>Use the form below to add another movie from <a href="https://www.imdb.com/chart/top/" target="_blank">IMDb's movie rankings</a>. <strong>All fields are required.</strong></p>
 
     <form action="/addMovie" method="POST" id="addMovieForm">
 
         <label for="rank">Rank on IMDb:</label>
-            <input type="text" name="rank" id="rank">
+            <input type="text" name="rank" id="rank" required>
 
         <label for="title">Movie Title:</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" required>
 
         <label for="year">Year Released:</label>
-            <input type="text" name="year" id="year">
+            <input type="text" name="year" id="year" required>
 
         <label for="director">Director:</label>
-            <input type="text" name="director" id="director">
+            <input type="text" name="director" id="director" required>
 
         <label for="rating">IMDb Rating (format: 0.0):</label>
-            <input type="text" name="rating" id="rating">
+            <input type="text" name="rating" id="rating" required>
 
         <label for="users">Number of Users for Rating:</label>
-            <input type="text" name="users" id="users">
+            <input type="text" name="users" id="users" required>
 
         <input type="submit" value="Add Movie" name="submit" id="submit">
-        
+
     </form>
 
-    <p><a href="/viewMovies">View Movies</a></p>
+    <p><a href="/viewMovies">View Movies &gt;</a></p>
+</div>
 </body>
 </html>
