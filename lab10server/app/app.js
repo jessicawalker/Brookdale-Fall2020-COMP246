@@ -25,9 +25,9 @@ app.get('/viewMovies', function(req, res) {
             console.error(err);
         }
 
-        var str = "<table id=\"tableData\">";
+        var str = "<html><head><style>body {font-family: Arial, Helvetica, sans-serif; font-size: 14px;}\ntd, th {padding:8px; border-bottom:1px solid darkgoldenrod;}\n td.rank, td.year, td.rating, td.users {text-align:center;}</style></head><body><table id=\"tableData\" style=\"margin:20px; padding:20px; line-height:18px; border-collapse: collapse;\">";
         var movie = JSON.parse("[" + data + "]");
-        str += "<tr id=\"headerRow\">\n";
+        str += "<tr id=\"headerRow\" style=\"background-color:yellow;\">\n";
         str += "\t<th>Rank on IMDb</th>\n";
         str += "\t<th>Movie Title</th>\n";
         str += "\t<th>Year Released</th>\n";
@@ -49,6 +49,7 @@ app.get('/viewMovies', function(req, res) {
 
         str += "</table>\n\n";
         str += goToAdd;
+        str += "</body></html>"
         res.status(200).send(str);
     });
 });
