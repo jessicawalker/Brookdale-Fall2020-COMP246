@@ -19,6 +19,15 @@ app.get('/addMovies', function(req, res) {
     res.status(200).sendFile(dirName + '/addMovies.html');
 });
 
+fs.readFile(__dirname + '/files/data.json', (err, data) => {
+    if (err) {
+        console.error(err);
+    }
+    var movie = JSON.parse(data);
+    // console.log(movie);  // test
+    // console.log(movie[0].director);  // test
+});
+
 app.listen(5000);
 
 console.log('Server is running...');
