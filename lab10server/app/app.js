@@ -12,38 +12,41 @@ app.get('/', function(req, res) {
 });
 
 app.get('/viewMovies', function(req, res) {
-    res.status(200).sendFile(dirName + '/viewMovies.html');
+
+    fs.readFile(__dirname + '/files/data.json', (err, data) => {
+        if (err) {
+            console.error(err);
+        }
+
+        var str = "<table id=\"tableData\">";
+        var movie = JSON.parse(data);
+        str += "<tr id=\"headerRow\">\n";
+        str += "\t<th>Rank on IMDb</th>\n";
+        str += "\t<th>Movie Title</th>\n";
+        str += "\t<th>Year Released</th>\n";
+        str += "\t<th>Director</th>\n";
+        str += "\t<th>IMDb Rating</th>\n";
+        str += "\t<th>Number of Users</th>\n";
+        str += "</tr>\n";
+    
+        for (var m in movie) {
+            str += "<tr id=\"item" + movie[m].rank + "\">\n";
+            str += "\t<td class=\"rank\">" + movie[m].rank + "</td>\n";
+            str += "\t<td class=\"title\">" + movie[m].title + "</td>\n";
+            str += "\t<td class=\"year\">" + movie[m].year + "</td>\n";
+            str += "\t<td class=\"director\">" + movie[m].director + "</td>\n";
+            str += "\t<td class=\"rating\">" + movie[m].rating + "</td>\n";
+            str += "\t<td class=\"users\">" + movie[m].users + "</td>\n";
+            str += "</tr>\n";
+        }
+
+        str += "</table>\n";
+        res.status(200).send(str);
+    });
 });
 
 app.get('/addMovies', function(req, res) {
     res.status(200).sendFile(dirName + '/addMovies.html');
-});
-
-fs.readFile(__dirname + '/files/data.json', (err, data) => {
-    if (err) {
-        console.error(err);
-    }
-    var movie = JSON.parse(data);
-    var str = "<tr id=\"headerRow\">\n";
-    str += "\t<th>Rank on IMDb</th>\n";
-    str += "\t<th>Movie Title</th>\n";
-    str += "\t<th>Year Released</th>\n";
-    str += "\t<th>Director</th>\n";
-    str += "\t<th>IMDb Rating</th>\n";
-    str += "\t<th>Number of Users</th>\n";
-    str += "</tr>\n";
-
-    for (var m in movie) {
-        str += "<tr id=\"item" + movie[m].rank + "\">\n";
-        str += "\t<td class=\"rank\">" + movie[m].rank + "</td>\n";
-        str += "\t<td class=\"title\">" + movie[m].title + "</td>\n";
-        str += "\t<td class=\"year\">" + movie[m].year + "</td>\n";
-        str += "\t<td class=\"director\">" + movie[m].director + "</td>\n";
-        str += "\t<td class=\"rating\">" + movie[m].rating + "</td>\n";
-        str += "\t<td class=\"users\">" + movie[m].users + "</td>\n";
-        str += "</tr>\n";
-    }
-    //console.log(str);
 });
 
 app.listen(5000);
