@@ -10,6 +10,8 @@ app.use(bodyParser.json({type: 'application/vnd/api+json'}));
 //app.use(__dirname, router);
 
 var dirName = process.cwd() + '/client';
+var goToAdd = "<p><a href=\"/addMovies\">Add Movies</a></p>";
+var goToView = "<p><a href=\"/viewMovies\">View Movies</a></p>";
 //app.use(express.static(dirName));
 
 app.get('/', function(req, res) {
@@ -46,7 +48,7 @@ app.get('/viewMovies', function(req, res) {
         }
 
         str += "</table>\n\n";
-        str += "<p><a href=\"/addMovies\">Add Movies</a></p>";
+        str += goToAdd;
         res.status(200).send(str);
     });
 });
@@ -73,7 +75,8 @@ app.post('/addMovie', function(req, res){
           console.log("File written successfully\n");
         }
     });
-    res.status(200).send("Thank you for adding a new movie to the list!");
+    var thankYou = "<p>Thank you for adding a new movie to the list!</p>";
+    res.status(200).send(thankYou + goToView + goToAdd);
 
 });
 
