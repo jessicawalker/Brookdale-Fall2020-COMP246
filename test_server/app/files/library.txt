@@ -1,0 +1,1 @@
+{"ID":"lib1605146075848","bookTitle":"This is a Book","author":"A. Person","publisher":"Westingbrook","yearPublished":"1996","isbn":"56476854"},{"ID":"lib1605146380134","bookTitle":"Another Book","author":"This Is Someone","publisher":"Fancy Publishers Inc","yearPublished":"1988","isbn":"56735894532"}
