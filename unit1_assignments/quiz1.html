@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Quiz 1 | Jessica Walker</title>
+        <meta charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <style>
+
+            .inputNumber {
+                float: left;
+                clear: left;
+                margin-bottom: 10px;
+                margin-left: 20px;
+                color: green;
+                font-family: Arial,Helvetica,sans-serif;
+                font-size: 24px;
+            }
+
+            .buttonSection {
+                float; left;
+                clear: left;
+                margin: 20px;
+            }
+
+            .btn { float: left; font-size: 24px; }
+
+            #result {
+                float: left;
+                clear: left;
+                font-family: Arial,Helvetica,sans-serif;
+                font-size: 24px;
+                color: blue;
+                margin-top: 20px;
+                margin-left: 20px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="inputSection">
+            <div class="inputNumber">
+                <label for="numA">Enter Number A:</label>
+                <input id="numA" type="text">
+            </div>
+
+            <div class="inputNumber">
+                <label for="numB">Enter Number B:</label>
+                <input id="numB" type="text">
+            </div>
+        </div>
+
+        <div class="buttonSection">
+            <button id="submit" class="btn" type="button">Calculate the Average</button>
+        </div>
+
+        <div id="result"></div>
+
+        <script>
+
+            $('#submit').click(function () {
+                var numberA = Number($('#numA').val());
+                var numberB = Number($('#numB').val());
+                var numberC = (numberA + numberB) / 2;
+
+                $('#result').html("The average of " + numberA + " and " + numberB + " is " + numberC);
+                alert("The average of " + numberA + " and " + numberB + " is " + numberC);
+                console.log("The average of " + numberA + " and " + numberB + " is " + numberC);
+            });
+
+        </script>
+
+    </body>
+</html>
