@@ -54,7 +54,7 @@ function createMovieTable(movieData) {
         tableHTML += "<td>" + movieData[i].year + "</td>";
         tableHTML += "<td>" + movieData[i].director + "</td>";
         tableHTML += "<td>" + movieData[i].rating + "</td>";
-        tableHTML += "<td>" + movieData[i].users + "</td>";
+        tableHTML += "<td>" + movieData[i].users.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
         tableHTML += "</tr>";
     }
 

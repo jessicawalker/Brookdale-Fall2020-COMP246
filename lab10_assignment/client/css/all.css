@@ -19,7 +19,7 @@ thead {
 }
 
 td, th {
-    padding:8px; 
+    padding:8px 12px; 
     border-bottom:1px solid darkgoldenrod;
 }
 
@@ -27,7 +27,7 @@ tr:nth-of-type(even) {
     background-color:lightyellow;
 }
 
-td:nth-of-type(2), td:nth-of-type(4), td:nth-of-type(6), td:nth-of-type(7) {
+td:nth-of-type(2), td:nth-of-type(4), td:nth-of-type(6) {
     text-align:center;
 }
 
