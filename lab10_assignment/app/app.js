@@ -23,17 +23,9 @@ var outputFile = './app/files/movies.txt';
 app.post('/write-record', function(req, res) {
     var data = req.body.data;
 
-    // tester
-    console.log("First: " + data);
-    console.log("First: " + outputFile);
-
     if (fs.existsSync(outputFile)) {
         data = "," + data;
     };
-
-    // tester
-    console.log("Second: " + data);
-    console.log("Second: " + outputFile);
 
     fs.appendFile(outputFile, data, function(err) {
         if (err) {
