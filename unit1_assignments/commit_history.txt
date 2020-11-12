@@ -1,0 +1,173 @@
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 6e3a188d0aac50b01e27dfaec43e3f7efebb00d2
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 15:13:27 2020 -0400
+
+    Adds additonal lab 2a and updates titles.
+
+commit 5c7372b098605984df412499372d7872951e2385
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 15:09:44 2020 -0400
+
+    Adds name to canvas.
+
+commit 66fbd60de552f2bb745668571887e9bdbfcbfb60
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 14:58:18 2020 -0400
+
+    Adds four specified shapes.
+
+commit d087e9e7e3aa80932ed6644b37342169a5ddbff3
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 14:54:09 2020 -0400
+
+    Creates initial Lab 2 file.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit c6a462f692c8297227907595f574e9f02aa516b0
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 15:24:27 2020 -0400
+
+    Adds canvas rotation via animation CSS.
+
+commit 6e3a188d0aac50b01e27dfaec43e3f7efebb00d2
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 15:13:27 2020 -0400
+
+    Adds additonal lab 2a and updates titles.
+
+commit 5c7372b098605984df412499372d7872951e2385
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 15:09:44 2020 -0400
+
+    Adds name to canvas.
+
+commit 66fbd60de552f2bb745668571887e9bdbfcbfb60
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 14:58:18 2020 -0400
+
+    Adds four specified shapes.
+
+commit d087e9e7e3aa80932ed6644b37342169a5ddbff3
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 16 14:54:09 2020 -0400
+
+    Creates initial Lab 2 file.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 9c9d6c90ab75e06f1a51ecf812cecd4d9e31ee8b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:41:01 2020 -0400
+
+    Adds charset of utf-8 to all pages.
+
+commit 9fd683012c0f6d1fbbc4ed5a377ac60af6747527
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:37:49 2020 -0400
+
+    Completes E quarter-circle line.
+
+commit fc1fbdc5c225a3f3a81d5982f592313672913db2
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:30:37 2020 -0400
+
+    Completes all of "LOVE" but bottom E.
+
+commit 73da8a83f2ea59617fad1a3a71a83428c40402c1
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:00:26 2020 -0400
+
+    Outlines basic structure of canvases.
+
+commit a3efc7180f7a29cee997ceb3b54dc4b0fd6a8a5b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:39:16 2020 -0400
+
+    Sets up initial canvas.
+
+commit 89d36adc44ec97c59b697c3bbf22823b0c2443ca
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:36:04 2020 -0400
+
+    Updates headers.
+
+commit 9e665a0b28dfa24520ad091e81af4601b4a4bbfd
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:15:37 2020 -0400
+
+    first commit
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 3baa952d3e2763bfd2c9842020a142034be37dac
+Author: jessicawalker <contact.jessica.walker@gmail.com>
+Date:   Thu Oct 1 00:21:28 2020 -0400
+
+    Adds files from weeks 3 and 4.
+    
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 1980b0b2970a7ec91d2ed732b024d6a10f740947
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Sep 11 20:13:12 2020 -0400
+
+    Adds all example files.
+
+commit a773118009e3c18601f3341988725c41a8024903
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Sep 10 00:12:23 2020 -0400
+
+    Draws snowman body.
+
+commit 9c9d6c90ab75e06f1a51ecf812cecd4d9e31ee8b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:41:01 2020 -0400
+
+    Adds charset of utf-8 to all pages.
+
+commit 73da8a83f2ea59617fad1a3a71a83428c40402c1
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 23:00:26 2020 -0400
+
+    Outlines basic structure of canvases.
+
+commit a3efc7180f7a29cee997ceb3b54dc4b0fd6a8a5b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:39:16 2020 -0400
+
+    Sets up initial canvas.
+
+commit 89d36adc44ec97c59b697c3bbf22823b0c2443ca
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:36:04 2020 -0400
+
+    Updates headers.
+
+commit 9e665a0b28dfa24520ad091e81af4601b4a4bbfd
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Sep 9 22:15:37 2020 -0400
+
+    first commit

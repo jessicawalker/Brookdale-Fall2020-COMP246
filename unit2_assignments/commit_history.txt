@@ -1,0 +1,478 @@
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit ca7a529bec855288052e9a185cb35749495daeca
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 14 21:35:33 2020 -0400
+
+    Exam 1 files.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 3baa952d3e2763bfd2c9842020a142034be37dac
+Author: jessicawalker <contact.jessica.walker@gmail.com>
+Date:   Thu Oct 1 00:21:28 2020 -0400
+
+    Adds files from weeks 3 and 4.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 75de8ede90ce738253f9e5620faee3276fe85d09
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 1 11:21:27 2020 -0400
+
+    Completes lab 4.
+
+commit 3baa952d3e2763bfd2c9842020a142034be37dac
+Author: jessicawalker <contact.jessica.walker@gmail.com>
+Date:   Thu Oct 1 00:21:28 2020 -0400
+
+    Adds files from weeks 3 and 4.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit a9e88b09bbb8926a9a317bd0cecf18dc189d28ca
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 1 12:17:12 2020 -0400
+
+    Completes lab 5.
+
+commit 3baa952d3e2763bfd2c9842020a142034be37dac
+Author: jessicawalker <contact.jessica.walker@gmail.com>
+Date:   Thu Oct 1 00:21:28 2020 -0400
+
+    Adds files from weeks 3 and 4.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 9811f9da41c35a9db22f4bb38a66a5aa1017ce4c
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 7 13:34:31 2020 -0400
+
+    Completes (mostly) marbles display and count.
+
+commit 3baa952d3e2763bfd2c9842020a142034be37dac
+Author: jessicawalker <contact.jessica.walker@gmail.com>
+Date:   Thu Oct 1 00:21:28 2020 -0400
+
+    Adds files from weeks 3 and 4.
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 9811f9da41c35a9db22f4bb38a66a5aa1017ce4c
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 7 13:34:31 2020 -0400
+
+    Completes (mostly) marbles display and count.
+
+commit cad984577389c7795bc99de4cd6ec113b860aaa8
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 6 16:28:00 2020 -0400
+
+    Sets up marble counting,
+
+commit 57f41ec3fcff66bbe6cd905fa08f58ba9d9b9e51
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 6 01:52:39 2020 -0400
+
+    Parses example code.
+
+commit ad4c3e2adfea23e80bf3b4eb87d7215934bf77e7
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Oct 4 14:35:40 2020 -0400
+
+    Sets up basics for Marbles script.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit ca7a529bec855288052e9a185cb35749495daeca
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 14 21:35:33 2020 -0400
+
+    Exam 1 files.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 66d817ab4f3a95e845455afdf6e984ad00234a40
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Mon Nov 2 16:36:19 2020 -0500
+
+    Changes way gridZombiesHumans is cleared per day.
+
+commit cba6eef392232b61fc06deb251d0a7312b5d9ab9
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 28 02:58:39 2020 -0400
+
+    Updates copying of arrays.
+
+commit 3266dade121d89dfc8d3c3f3a139397496a13780
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Oct 11 04:26:23 2020 -0400
+
+    Adds results display.
+
+commit fa0c86fb963c0fd99531d98482e6c9cedc83e040
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Oct 11 03:35:10 2020 -0400
+
+    Completes Outbreak.
+
+commit 1a195d97c7c206298123ade7a5a4617b9f9ae645
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Oct 11 00:19:23 2020 -0400
+
+    Adds buttons for future play and pause fncs.
+
+commit d51ae7b0033e00383f63a2b6decaac37185647de
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 10 00:21:50 2020 -0400
+
+    Finalizes mechanism to update grid daily.
+
+commit aece969a078d33764c2b568091489b9bd772726f
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 9 23:57:48 2020 -0400
+
+    Cleans up old code and comments.
+
+commit d9911f97ee7b39f6a6e827aab5e05c5ed0716ff5
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 9 23:41:31 2020 -0400
+
+    Adds functions to evaluate and update grid.
+    
+    The three functions to evaluate the zombies, humans, and spaces are very
+    similar to each other. These will need to be broken out and condensed as
+    appropriate.
+    
+    Still need to fix the interval to work as needed.
+
+commit ff22a3fc166d47b17186ce53f2aae3a982368271
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 23:41:12 2020 -0400
+
+    Adjusts var and fnc placements.
+
+commit 43e136c81e8609acf72b105e745b9a7f829029a7
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:41:12 2020 -0400
+
+    Updates colors to be more creepy, wooOOooOOoo.
+
+commit 77bfc1d8f6f56ea89d035d3ffb6919f52b274a49
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:34:15 2020 -0400
+
+    Clarifies updateDay function with comments/code.
+
+commit 467f93547ae6d9014aae4090d47c9a2ec9a60ac1
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:31:16 2020 -0400
+
+    Adds initial code for updateDay function.
+
+commit bea96c26f8a61c207b39867c6fd424697f9252dc
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:24:29 2020 -0400
+
+    Adds code from Minesweeper project as reference.
+    
+    A previous project in Java for creating a Minesweeper grid has some
+    similarities with this project. The code that checks for mines and counts
+    them is similar to the count needed to determine "Z/H/." changes.
+
+commit 011beae16659c9aa2fdc8751b628172c61b8a1cb
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:11:04 2020 -0400
+
+    Clarifies counter variables in doesZDie function.
+    
+    Using generic i and j made visualizing grid more dificult than
+    necessary. i is now "row." j is now "col."
+
+commit 41ae2a40a42315ae999a031262940fab6bc8551a
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 02:04:50 2020 -0400
+
+    Starts initial version of zombie check function.
+
+commit c4dabce6dfc89d761b16b184a1e462c783739215
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 01:53:22 2020 -0400
+
+    Tightens up displayGrid function.
+    
+    The in-between variable (gridZombiesHumans) transferring array to grid is
+    eliminated. gridZH directly takes its value from arrayZH now. gridZH is now initialized
+    outside of the function to be global. Should make it easier to modify
+    down the road.
+
+commit 59985d249573c8f6fe28cd6d77bb750f1c136b4b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 01:39:47 2020 -0400
+
+    Completes displayGrid function.
+
+commit d6777756cd508b7256d2ed10a1de7cc05d812af8
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 8 00:58:51 2020 -0400
+
+    Fixes placeholder functions.
+
+commit e6eed7c87f202ab2bd7654dacb52e81c2e8e57d8
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 7 20:45:06 2020 -0400
+
+    Adds names of upcoming functions.
+
+commit a084d2a8bc604eaefacfea18ce3eef04d1d99a63
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 7 20:39:54 2020 -0400
+
+    Adds loops for grid with test code.
+
+commit 71a5d9d963fc2558d8315beb27ba452bfe40ce13
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 7 19:50:30 2020 -0400
+
+    Adds zombie value.
+
+commit 1f83983015164eb3b0081cb6684e971d2a1558cc
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 7 16:48:03 2020 -0400
+
+    Creates template for HW4, Outbreak.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit b382385385ec878392c0dad1bbbbaf75cfa0aa10
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 09:04:33 2020 -0500
+
+    Clarifies some comments.
+
+commit 9b7419156bbb3da235275ef118f45d466a6765e9
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 03:53:56 2020 -0500
+
+    Adds transition animation between rounds.
+
+commit 21721ea8a66879798c8991b0a7050a60dda65a7d
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 03:10:49 2020 -0500
+
+    Adjusts speed further for smoothness.
+
+commit 33c55e2a42ef10dd77ef9c7d36774b5d51846b8b
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 02:36:35 2020 -0500
+
+    Adjusts speed for smoother transition.
+
+commit 607d3c8c96749c231f3e2dd8cc3234c1a40ec2bf
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 01:30:20 2020 -0500
+
+    Slows down reels and adds slight bounce.
+
+commit a6e0e3cee3e0db6276e64399bbbdbf34b0fcf125
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sun Nov 1 01:28:50 2020 -0400
+
+    Refactors eval, random fruit vars to array values.
+
+commit d8faeba1798e5f9054eefd7cd69d2659443e15d0
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 22:55:52 2020 -0400
+
+    Refactors displayFruit to accom any num of reels.
+
+commit 29ed84b78c5ea3507c9f72e05a55f28ddbfa11ac
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 22:49:01 2020 -0400
+
+    Rms old code, adds comments and self-com'ing vars.
+
+commit fe5a01750e4bda5fab73a9c0370b9fdc26bc19e4
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 22:31:06 2020 -0400
+
+    Refactors spinReel to use per reel.
+
+commit fe8afe50198b80047a72634c93f2e50311a1fe16
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 20:00:48 2020 -0400
+
+    Updates stopSpin to use no decisions.
+
+commit cb7979619c9fbccb13bcb0b090959dc7d383fa06
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 18:10:49 2020 -0400
+
+    Moves fruit pick to playGame, from stopSpin.
+
+commit edd93a48d14a193f1c1d569672174f2414f609e2
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 16:18:15 2020 -0400
+
+    Updates ITERATIONS to MIN_ITERATIONS for accuracy.
+
+commit c038cbf08c2667d4d8bf254fd13cd09276b6cc77
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:52:54 2020 -0400
+
+    Sets up possible refactored code for spinReel fnc.
+
+commit 5eb70ba55a9f59c1d7c0848b0d331eb8193e7826
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:47:01 2020 -0400
+
+    Starts function startMachine.
+
+commit ed51c841b2810c309523d3345abcfcafe00f7f64
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:38:16 2020 -0400
+
+    Renames pickStop to pickFruit for accuracy.
+
+commit edabcf9624ad6169c1a686b189bfdde31cc51c78
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:34:59 2020 -0400
+
+    Cleans up obsolete code after refactoring.
+
+commit e11fd8c4704a606659af547271224a8b5d8a1790
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:12:41 2020 -0400
+
+    Switches from multi style updates to removeAttr.
+
+commit 9f48fa1693c41f25b2612e87ecfaace95ae49b0a
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 04:04:20 2020 -0400
+
+    Compresses stopSpin to remove redundant code.
+
+commit 96ccb4daee3121e868ba5de7cfb92454ae07d499
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 03:24:11 2020 -0400
+
+    Adjusts speed at end of each reel.
+
+commit 5e3af0b093a37edc75bd2e0678c155cd5ec97b87
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 02:58:57 2020 -0400
+
+    Styles winner text.
+
+commit a27e449308ec24ffb59ec807bacc75f3f5453a42
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 02:06:34 2020 -0400
+
+    Adds random chosen fruits and evaluation.
+
+commit 57ce73dff4bd75d65cb3dc898b8bdc295b69bcf8
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 00:27:17 2020 -0400
+
+    Adds timing to accomodate replays.
+
+commit 051bd2564941ae2cdb2c601361ade084d5ab6560
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Sat Oct 31 00:03:36 2020 -0400
+
+    Adds pickStop fnc to randomly choose fruit.
+
+commit 0cfb010c6d642cec06b5a1c3f02e11ed32f0f068
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 18:03:34 2020 -0400
+
+    Cleans up former tests to final versions.
+
+commit 5171a8b3970c0fc6a85eaa42b2759e0b6f313bba
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 17:22:16 2020 -0400
+
+    Adds feedback design to pressing spin button.
+
+commit 64d67636f60e8bbc414ab744730b42eeb85d726d
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 17:02:07 2020 -0400
+
+    Adds displayFruit fnc, using array instead of str.
+
+commit 5d199f65dcf9a0148c822ac8d86447a080bbf2af
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 04:39:55 2020 -0400
+
+    Syncs reel animation to be a seemless loop.
+
+commit 6eb6138182efdd4e7dad8c0f502d9a8ccf86ec43
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 04:30:04 2020 -0400
+
+    Updates appearance and placement of divs.
+
+commit 1235f743ff61b755921e75b67d4b2060d175f2db
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Fri Oct 30 02:09:25 2020 -0400
+
+    Adds initial CSS, JS to move reel upward.
+
+commit 4b482218439fcbc4fe53439ae3fbcc6ea56d00a0
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Thu Oct 29 02:03:24 2020 -0400
+
+    Adds fnc outline and basic values.
+
+commit d4403d37d4d4973c87e8c752cff5ef1bf85f6edf
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 28 02:50:23 2020 -0400
+
+    Begins Jackpot! assignment with basic HTML code.
+    
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit ca7a529bec855288052e9a185cb35749495daeca
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 14 21:35:33 2020 -0400
+
+    Exam 1 files.
