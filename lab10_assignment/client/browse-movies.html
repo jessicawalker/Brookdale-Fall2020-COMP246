@@ -6,27 +6,31 @@
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="/js/movies.js"></script>
+        <link rel="stylesheet" href="css/all.css">
     </head>
     <body>
-        <header><h1>IMDb Top Rated Movies</h1></header>
-        <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Rank</th>
-                        <th>Movie Title</th>
-                        <th>Year</th>
-                        <th>Director</th>
-                        <th>Rating</th>
-                        <th>Users</th>
-                    </tr>
-                </thead>
-                <tbody id='movieTable'>
-                
-                </tbody>
-            </table>
-        </main>
+        <div id="wrapper">
+            <header><h1>IMDb Top Rated Movies</h1></header>
+            <main>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Rank</th>
+                            <th>Movie Title</th>
+                            <th>Year</th>
+                            <th>Director</th>
+                            <th>Rating</th>
+                            <th>Users</th>
+                        </tr>
+                    </thead>
+                    <tbody id='movieTable'>
+                    
+                    </tbody>
+                </table>
+                <p><a href="/write-movies">&lt; Add movies</a></p>
+            </main>
+        </div>
 
         <script>
         getMovieData();
