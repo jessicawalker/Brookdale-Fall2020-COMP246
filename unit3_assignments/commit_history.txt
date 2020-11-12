@@ -1,0 +1,71 @@
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 1273a99737e0612d88f9facb72b3bf1ec0751447
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 21 20:48:47 2020 -0400
+
+    Adds new week 7 files.
+
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit 1273a99737e0612d88f9facb72b3bf1ec0751447
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 21 20:48:47 2020 -0400
+
+    Adds new week 7 files.
+
+commit e7a87b8833c8291ccda27a3d492877fd316bce99
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 20 02:59:28 2020 -0400
+
+    Completes lab 6 with quad formula solved.
+
+commit cebd90bb0c9b2d4a78550a1d9f4b691c13d5ea94
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 20 00:39:02 2020 -0400
+
+    Adds initial files for labs 6 and 7.
+    
+commit 21ddd9b86d948824380898ac67fffeb9df8f8cf5
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Thu Nov 12 11:44:28 2020 -0500
+
+    Organizes loose files into unit-appropriate dirs.
+
+commit c54daeb34a21ae4aa44a193634faaab02eda6c52
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Wed Oct 21 23:55:48 2020 -0400
+
+    Updates lab 7 to include user input.
+
+commit cb3b25624f1b247eeced1703a2931fbcf7fd8329
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 21 20:50:39 2020 -0400
+
+    Adds stub for where to add input code.
+
+commit 1273a99737e0612d88f9facb72b3bf1ec0751447
+Author: Jessica Walker <contact.jessica.walker@gmail.com>
+Date:   Wed Oct 21 20:48:47 2020 -0400
+
+    Adds new week 7 files.
+
+commit 692e6f4d96703d042755dbcecb822c0ab9218988
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 20 01:58:00 2020 -0400
+
+    Completes lab with ran# & loops to create square.
+
+commit cebd90bb0c9b2d4a78550a1d9f4b691c13d5ea94
+Author: Jessica Walker <jessicacrotty@gmail.com>
+Date:   Tue Oct 20 00:39:02 2020 -0400
+
+    Adds initial files for labs 6 and 7.
