@@ -29,23 +29,32 @@ Unit 6: MongoDB
 * [MDN Web Docs](https://developer.mozilla.org/en-US/)
   * [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
   * [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+  
+* [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
 
 * [Udemy](https://www.udemy.com)
   * [Learn and Understand NodeJS](https://www.udemy.com/course/understand-nodejs)
 
-* [Envato Tuts+](https://tutsplus.com)
-  * [Web Design Tutorials > CSS](https://webdesign.tutsplus.com/categories/css)
-
 * [Introduction to Node.js](https://nodejs.dev/learn)
 
+* [Express](http://expressjs.com)
+  * [Express Guide](http://expressjs.com/en/guide/routing.html)
+  * [Express API Reference](https://expressjs.com/en/4x/api.html)
+
 * [Stack Overflow](https://stackoverflow.com/tags)
+
+* [Stack Abuse](https://stackabuse.com/tag/javascript/)
 
 * [Smashing Magazine](https://www.smashingmagazine.com)
   * [Understanding And Using REST APIs](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/)
   * [Get Started With Node: An Introduction To APIs, HTTP And ES6+ JavaScript](https://www.smashingmagazine.com/2019/02/node-api-http-es6-javascript/)
   * [Building A Node.js Express API To Convert Markdown To HTML](https://www.smashingmagazine.com/2019/04/nodejs-express-api-markdown-html/)
 
-* [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
+* [Medium](https://medium.com)
+  * [How to refactor your huge Node file](https://medium.com/@HarridiseLost/how-to-refactor-a-huge-node-file-16ba5588021e)
+
+* [GeeksforGeeks](https://www.geeksforgeeks.org/javascript-tutorial/)
+  * [Articles Tagged Node.js](https://www.geeksforgeeks.org/category/web-technologies/node-js/)
 
 ## Projects
 
