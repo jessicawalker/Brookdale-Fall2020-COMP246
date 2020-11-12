@@ -1,31 +1,24 @@
 const express = require('express');
 const app = express();
-const path = require("path");
-const bodyParser = require("body-parser");
+const path = require('path');
+const bodyParser = require('body-parser');
 const fs = require('fs');
+const router = require('./router.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname + "/../client")));
-
-// Router listeners
-app.get('/write-movies', function(req, res) {
-    res.status(200).sendFile(path.join(__dirname + '/../client/write-movies.html'));
-});
-
-app.get('/browse-movies', function(req, res) {
-    res.status(200).sendFile(path.join(__dirname + '/../client/browse-movies.html'));
-});
+router(app);
 
 // Service listeners
-var outputFile = './app/files/movies.txt';
+var outputFile = './files/movies.txt';
 
 app.post('/write-record', function(req, res) {
     var data = req.body.data;
 
     if (fs.existsSync(outputFile)) {
-        data = "," + data;
-    };
+        data = ",\n" + data;
+    }
 
     fs.appendFile(outputFile, data, function(err) {
         if (err) {
@@ -33,7 +26,7 @@ app.post('/write-record', function(req, res) {
         } else {
             res.send("SUCCESS");
         }
-    })
+    });
 });
 
 app.get('/read-records', function(req, res) {

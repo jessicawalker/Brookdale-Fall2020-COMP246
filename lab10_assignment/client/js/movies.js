@@ -24,8 +24,8 @@ function activateSubmitButton() {
             error: function(err) {
                 alert(err);
             }
-        })
-    })
+        });
+    });
 }
 
 // Retrieve the movie data and populate on page load
