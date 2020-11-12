@@ -18,7 +18,7 @@ app.get('/browse-movies', function(req, res) {
 });
 
 // Service listeners
-var outputFile = './files/movies.txt';
+var outputFile = './app/files/movies.txt';
 
 app.post('/write-record', function(req, res) {
     var data = req.body.data;
@@ -42,6 +42,17 @@ app.post('/write-record', function(req, res) {
             res.send("SUCCESS");
         }
     })
+});
+
+app.get('/read-records', function(req, res) {
+    fs.readFile(outputFile, "utf8", function(err, data) {
+        if (err) {
+            res.send(err);
+        } else {
+            data = "[" + data + "]";
+            res.send(data);
+        }
+    });
 });
 
 app.listen(5500);

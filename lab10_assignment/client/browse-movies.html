@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Browse Library</title>
+        <title>Browse Movies</title>
+
         <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/js/movies.js"></script>
     </head>
     <body>
-        <div>This is the browse library placeholder.</div>
+        <header><h1>IMDb Top Rated Movies</h1></header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Rank</th>
+                        <th>Movie Title</th>
+                        <th>Year</th>
+                        <th>Director</th>
+                        <th>Rating</th>
+                        <th>Users</th>
+                    </tr>
+                </thead>
+                <tbody id='movieTable'>
+                
+                </tbody>
+            </table>
+        </main>
+
+        <script>
+        getMovieData();
+        </script>
+
     </body>
 </html>
