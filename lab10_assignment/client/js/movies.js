@@ -1,19 +1,25 @@
 //Create a jQuery listener that waits for the user to enter submit
 
+// function called from write-movies page, script near bottom
 function activateSubmitButton() {
-    $('#data-submit').click(function() {
-        var rank = $('#rank').val();
-        var movieTitle = $('#movieTitle').val();
-        var year = $('#year').val();
-        var director = $('#director').val();
-        var rating = $('#rating').val();
-        var users = $('#users').val();
+    $("#data-submit").click(function() {
 
+        // gets value from form fields
+        var rank = $("#rank").val();
+        var movieTitle = $("#movieTitle").val();
+        var year = $("#year").val();
+        var director = $("#director").val();
+        var rating = $("#rating").val();
+        var users = $("#users").val();
+
+        // generates unique ID number
         var d = new Date();
         var ID = "mov" + d.getTime();
 
+        // formats data as JSON
         var jsonString = JSON.stringify({ ID: ID, rank: rank, movieTitle: movieTitle, year: year, director: director, rating: rating, users: users });
 
+        // POST method passes "data" value to req.body.data, sent to app.post("/write-record")
         $.ajax({
             url: "http://localhost:5500/write-record",
             type: "post",
@@ -28,7 +34,7 @@ function activateSubmitButton() {
     });
 }
 
-// Retrieve the movie data and populate on page load
+// retrieve the movie data and populate on page load, sent by app.get("/read-records")
 function getMovieData() {
     $.ajax({
         url: "http://localhost:5500/read-records",
@@ -40,9 +46,10 @@ function getMovieData() {
         error: function(err) {
             alert(err);
         }
-    })
+    });
 }
 
+// inserts table row of data inside display table
 function createMovieTable(movieData) {
     var tableHTML;
 
@@ -58,5 +65,6 @@ function createMovieTable(movieData) {
         tableHTML += "</tr>";
     }
 
-    $('#movieTable').html(tableHTML);
+    // id of tbody in browse-movies page's display table
+    $("#movieTable").html(tableHTML);
 }
