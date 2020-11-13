@@ -3,12 +3,21 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const router = require('./router.js');
+//const router = require('./router.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname + "/../client")));
-router(app);
+//router(app);
+
+// Router listeners
+app.get('/write-movies', function(req, res) {
+    res.status(200).sendFile(path.join(__dirname + '/../client/write-movies.html'));
+});
+
+app.get('/browse-movies', function(req, res) {
+    res.status(200).sendFile(path.join(__dirname + '/../client/browse-movies.html'));
+});
 
 // Service listeners
 var outputFile = './files/movies.txt';
