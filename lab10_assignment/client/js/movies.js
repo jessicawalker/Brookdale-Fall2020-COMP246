@@ -17,13 +17,23 @@ function activateSubmitButton() {
         var ID = "mov" + d.getTime();
 
         // formats data as JSON
-        var jsonString = JSON.stringify({ ID: ID, rank: rank, movieTitle: movieTitle, year: year, director: director, rating: rating, users: users });
+        var jsonString = JSON.stringify({
+            ID: ID,
+            rank: rank,
+            movieTitle: movieTitle,
+            year: year,
+            director: director,
+            rating: rating,
+            users: users
+        });
 
         // POST method passes "data" value to req.body.data, sent to app.post("/write-record")
         $.ajax({
             url: "http://localhost:5500/write-record",
             type: "post",
-            data: { data: jsonString },
+            data: {
+                data: jsonString
+            },
             success: function(response) {
                 alert(response);
             },
