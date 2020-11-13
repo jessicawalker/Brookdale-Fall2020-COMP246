@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Write Movies</title>
 
-        <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="/js/movies.js"></script>
-        <link rel="stylesheet" href="css/all.css">
-    </head>
-    <body>
-        <div id="wrapper">
-            <header><h1>Enter Movie Data</h1></header>
+<head>
+    <title>Write Movies</title>
 
-            <main>
-                <section>
-                    <form>
-                        <div>
-                            <label for="rank">Rank</label>
-                            <input type="text" id="rank" name="rank" size="30">
-                        </div>
-                        <div>
-                            <label for="movieTitle">Movie Title</label>
-                            <input type="text" id="movieTitle" name="movieTitle" size="30">
-                        </div>
-                        <div>
-                            <label for="year">Year</label>
-                            <input type="text" id="year" name="year" size="30">
-                        </div>
-                        <div>
-                            <label for="director">Director</label>
-                            <input type="text" id="director" name="director" size="30">
-                        </div>
-                        <div>
-                            <label for="rating">Rating</label>
-                            <input type="text" id="rating" name="rating" size="30">
-                        </div>
-                        <div>
-                            <label for="users">Users</label>
-                            <input type="text" id="users" name="users" size="30">
-                        </div>
-                        <div id="save_button">
-                            <button id="data-submit">Submit</button>
-                        </div>
-                    </form>
-                    <p><a href="/browse-movies">&lt; Browse movies</a></p>
-                </section>
-            </main>
-        </div>
-        <script>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/movies.js"></script>
+    <link rel="stylesheet" href="css/all.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Enter Movie Data</h1>
+        </header>
+
+        <main>
+            <section>
+                <form>
+                    <div>
+                        <label for="rank">Rank</label>
+                        <input type="text" id="rank" name="rank" size="30">
+                    </div>
+                    <div>
+                        <label for="movieTitle">Movie Title</label>
+                        <input type="text" id="movieTitle" name="movieTitle" size="30">
+                    </div>
+                    <div>
+                        <label for="year">Year</label>
+                        <input type="text" id="year" name="year" size="30">
+                    </div>
+                    <div>
+                        <label for="director">Director</label>
+                        <input type="text" id="director" name="director" size="30">
+                    </div>
+                    <div>
+                        <label for="rating">Rating</label>
+                        <input type="text" id="rating" name="rating" size="30">
+                    </div>
+                    <div>
+                        <label for="users">Users</label>
+                        <input type="text" id="users" name="users" size="30">
+                    </div>
+                    <div id="save_button">
+                        <button id="data-submit">Submit</button>
+                    </div>
+                </form>
+                <p><a href="/browse-movies">&lt; Browse movies</a></p>
+            </section>
+        </main>
+    </div>
+    <script>
         activateSubmitButton();
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
