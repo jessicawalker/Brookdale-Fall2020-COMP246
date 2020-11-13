@@ -1,6 +1,6 @@
 //Create a jQuery listener that waits for the user to enter submit
 
-// function called from write-movies page, script near bottom
+// function called from write-movies page, script near bottom on page
 function activateSubmitButton() {
     $("#data-submit").click(function() {
 
@@ -12,28 +12,21 @@ function activateSubmitButton() {
         var rating = $("#rating").val();
         var users = $("#users").val();
 
-        // generates unique ID number
-        var d = new Date();
-        var ID = "mov" + d.getTime();
-
         // formats data as JSON
-        var jsonString = JSON.stringify({
-            ID: ID,
+        var jsonString = {
             rank: rank,
             movieTitle: movieTitle,
             year: year,
             director: director,
             rating: rating,
             users: users
-        });
+        };
 
         // POST method passes "data" value to req.body.data, sent to app.post("/write-record")
         $.ajax({
             url: "http://localhost:5500/write-record",
             type: "post",
-            data: {
-                data: jsonString
-            },
+            data: jsonString,
             success: function(response) {
                 alert(response);
             },

@@ -22,9 +22,25 @@ app.get("/browse-movies", function(req, res) {
 // Service listeners
 var outputFile = path.join(__dirname + "/files/movies.txt");
 
-// takes in data put together as JSON object from activateSubmitButton() in movies.js
+// takes in data from activateSubmitButton() in movies.js
 app.post("/write-record", function(req, res) {
-    var data = req.body.data;
+
+    // generates unique ID number
+    var d = new Date();
+    var ID = "mov" + d.getTime();
+
+    // creates JSON object for movie entry 
+    var data = {
+        ID: ID,
+        rank: req.body.rank,
+        movieTitle: req.body.movieTitle,
+        year: req.body.year,
+        director: req.body.director,
+        rating: req.body.rating,
+        users: req.body.users
+    };
+
+    data = JSON.stringify(data);
 
     // makes sure each movie entry/JSON object is delineated from each other
     if (fs.existsSync(outputFile)) {
