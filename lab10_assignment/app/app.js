@@ -20,7 +20,8 @@ app.get('/browse-movies', function(req, res) {
 });
 
 // Service listeners
-var outputFile = './files/movies.txt';
+//var outputFile = './app/files/movies.txt';
+var outputFile = path.join(__dirname + '/files/movies.txt');
 
 app.post('/write-record', function(req, res) {
     var data = req.body.data;
