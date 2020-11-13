@@ -1,51 +1,90 @@
 body {
-    font-family: Arial, Helvetica, sans-serif; 
+    background-color: #444;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
+
 #wrapper {
-    margin: 0 auto;
-    width: 90%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 60%, rgba(85, 85, 85, 1) 100%);
+    border-bottom: 3em dashed #000;
+    border-top: 3em dashed #000;
+    margin: 3em auto;
+    padding: 2em 3em 4em 3em;
+    width: 80%;
 }
 
+h1 {
+    font-family: Amaranth, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+a {
+    color: darkgoldenrod;
+}
+
+a:visited {
+    color: #829100;
+}
+
+a:hover {
+    color: #f66;
+}
+
+
+/* Primarily used on: /browse-movies */
+
 table {
-    margin:20px; 
-    padding:20px; 
-    line-height:18px; 
+    background-color: #fff;
     border-collapse: collapse;
+    margin: 20px 20px 20px 0;
+    padding: 20px;
+    line-height: 18px;
 }
 
 thead {
-    background-color:yellow;
+    background-color: yellow;
 }
 
-td, th {
-    padding:8px 12px; 
-    border-bottom:1px solid darkgoldenrod;
+td,
+th {
+    padding: 8px 12px;
+    border-bottom: 1px solid darkgoldenrod;
 }
 
 tr:nth-of-type(even) {
-    background-color:lightyellow;
+    background-color: lightyellow;
 }
 
-td:nth-of-type(2), td:nth-of-type(4), td:nth-of-type(6) {
-    text-align:center;
+td:nth-of-type(2),
+td:nth-of-type(4),
+td:nth-of-type(6) {
+    text-align: center;
 }
 
+th:nth-of-type(7),
+td:nth-of-type(7) {
+    padding-right: 30px;
+}
+
+
+/* Primarily used on: /write-movies */
 
 form {
     background-color: lightyellow;
     border: 1px solid darkgoldenrod;
-    margin: 30px;
+    margin: 30px 0;
     padding: 2em;
-    width: 33%;
+    width: 30em;
 }
 
 label {
     display: block;
     float: left;
+    font-weight: bold;
     padding-right: 1em;
     text-align: right;
-    width: 10em;
+    width: 7em;
 }
 
 input {
@@ -53,8 +92,8 @@ input {
     margin-bottom: 1em;
 }
 
-#save_button {
+#data-submit {
     font-size: 16px;
-    margin-left: 11em;
-    margin-top: 3em;
+    margin-left: 9em;
+    margin-top: 1.5em;
 }
