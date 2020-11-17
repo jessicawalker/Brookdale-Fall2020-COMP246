@@ -2,6 +2,28 @@ const express = require("express");
 const app = express();
 const harryPotterSpells = require("harry-potter-spells");
 
+
+app.get("/getSpells", function(req, res) {
+    res.status(200).send(harryPotterSpells.all);
+});
+
+app.get("/getSpell", function(req, res) {
+    var q = req.query.name;
+    if (harryPotterSpells.spell(q) == null) {
+        var notFound = `{\"msg\":\"spell not found: ${q}\"}`;
+        res.status(200).send(notFound);
+    } else {
+        res.status(200).send(harryPotterSpells.spell(q));
+    }
+});
+
+app.post("/addSpell", function(req, res) {});
+
+app.listen(1234);
+
+console.log("Server is running...");
+
+
 /*  DIRECTIONS:
 
 getSpells - A GET request that returns all the Harry Potter spells in JSON format.
