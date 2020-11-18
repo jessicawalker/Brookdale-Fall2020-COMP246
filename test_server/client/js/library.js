@@ -23,8 +23,8 @@ function activateSubmitButton() {
             error: function(err) {
                 alert(err);
             }
-        })
-    })
+        });
+    });
 }
 
 // Retrieve the library data and populate on page load
