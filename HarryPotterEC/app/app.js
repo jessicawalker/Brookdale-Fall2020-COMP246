@@ -1,22 +1,35 @@
 const express = require("express");
 const app = express();
-const harryPotterSpells = require("harry-potter-spells");
-
+const harryPotterSpells = require("harry-potter-spells"); // provides list of all spells in json format via harryPotterSpells.all
+var spells = harryPotterSpells.all;
 
 app.get("/getSpells", function(req, res) {
-    res.status(200).send(harryPotterSpells.all);
+    res.status(200).send(spells);
 });
 
+// returns json object for spell passed as query in url
 app.get("/getSpell", function(req, res) {
     var q = req.query.name;
-    if (harryPotterSpells.spell(q) == null) {
+    var names = spells.map(el => el.name);
+    if (names.includes(q)) {
+        var i = names.indexOf(q);
+        res.status(200).send(spells[i]);
+    } else {
         var notFound = `{\"msg\":\"spell not found: ${q}\"}`;
         res.status(200).send(notFound);
-    } else {
-        res.status(200).send(harryPotterSpells.spell(q));
     }
 });
 
+//  # add a new spell
+//  curl --header "Content-Type: application/json" --request POST -sS --data '{ \"name\":\"Zap\",\"type\":\"spell\",\"effect\":\"Shocks victim.\" }' http://localhost:1234/addSpell
+// {"msg":"spell added."}
+/*
+var newSpell = {
+    "name": name,
+    "type": type,
+    "effect": effect
+};
+*/
 app.post("/addSpell", function(req, res) {});
 
 app.listen(1234);
