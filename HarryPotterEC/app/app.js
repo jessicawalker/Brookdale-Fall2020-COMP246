@@ -9,10 +9,10 @@ app.get("/getSpells", function(req, res) {
 
 // returns json object for spell passed as query in url
 app.get("/getSpell", function(req, res) {
-    var q = req.query.name;
-    var names = spells.map(el => el.name);
+    var q = req.query.name; // ?name=value_of_q
+    var names = spells.map(el => el.name); // make a new array of elements with just spell names
     if (names.includes(q)) {
-        var i = names.indexOf(q);
+        var i = names.indexOf(q); // index of name will be same as index of entire spell
         res.status(200).send(spells[i]);
     } else {
         var notFound = `{\"msg\":\"spell not found: ${q}\"}`;
