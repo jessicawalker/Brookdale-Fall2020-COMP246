@@ -8,16 +8,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/movies.js"></script>
     <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
 </head>
 
 <body>
     <div id="wrapper">
+
+        <nav id="router_button">
+            <a href="/client/" id="home-router">Home</a>
+            <a href="/client/browse-movies.html" id="browse-router">Browse Movies</a>
+            <a href="/client/write-movies.html" id="write-router">Add a Movie</a>
+        </nav>
+
         <header>
             <h1>IMDb Top Rated Films</h1>
         </header>
         <main>
-
+            <section id="filmStills"><img src="img/citizen_kane.jpg"></section>
         </main>
     </div>
 </body>

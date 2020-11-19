@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Browse Library</title>
-        <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="/js/library.js"></script>
-    </head>
-    <body>
-        <header><h1>Library Book Repository</h1></header>
-        <main>
+
+<head>
+    <title>Browse Library</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/client/js/config.js"></script>
+    <script src="/client/js/browse-library.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Library Book Repository</h1>
+    </header>
+
+    <div id="router_button">
+        <a href="/client/write-library.html" id="browse-router">Add Record</a>
+    </div>
+
+    <main>
         <table>
             <thead>
                 <tr>
@@ -21,14 +31,11 @@
                 </tr>
             </thead>
             <tbody id='libraryTable'>
-            
+
             </tbody>
         </table>
-        </main>
+    </main>
 
-        <script>
-        getLibraryData();
-        </script>
+</body>
 
-    </body>
 </html>
