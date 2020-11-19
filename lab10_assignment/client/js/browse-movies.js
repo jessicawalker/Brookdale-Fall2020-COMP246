@@ -26,7 +26,7 @@ function createMovieTable(movieData) {
         tableHTML += "<td>" + movieData[i].director + "</td>";
         tableHTML += "<td>" + movieData[i].rating + "</td>";
         tableHTML += "<td>" + movieData[i].users.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</td>";
-        tableHTML += "<td class=\"delete_button\"> <button data-id=\"" + libraryData[i].ID + "\">DELETE</button></td>";
+        tableHTML += "<td class=\"delete_button\"> <button data-id=\"" + movieData[i].ID + "\">DELETE</button></td>";
         tableHTML += "</tr>";
     }
 

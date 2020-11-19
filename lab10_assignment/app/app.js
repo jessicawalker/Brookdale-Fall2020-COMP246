@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const clientPath = path.resolve(__dirname + "/../client");
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-//app.use(express.static(clientPath));
-app.use("/client", express.static(path.resolve(__dirname + "/../client")));
+app.use("/client", express.static(clientPath));
 
 // Make the server
 var server;
