@@ -37,14 +37,15 @@ function createMovieTable(movieData) {
 
     $(".delete_button button").click(function() {
         var itemID = this.getAttribute("data-id");
+        var timeout = setTimeout(function() {
+            location.reload();
+        }, 500);
 
         $.ajax({
             url: moviesURL + "/delete-record",
             type: "delete",
             data: { data: itemID },
-            success: setInterval(function() {
-                location.reload();
-            }, 500),
+            success: $(this).closest("tr").animate({ opacity: '0' }, timeout),
             error: function(err) {
                 alert(err);
             }
