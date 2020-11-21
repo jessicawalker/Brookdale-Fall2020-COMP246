@@ -33,6 +33,10 @@ td:nth-of-type(7) {
     padding-right: 30px;
 }
 
+tr:hover {
+    background-color: yellow;
+}
+
 .delete_button button {
     background-color: #c00;
     border: 1px solid #555;

@@ -10,55 +10,68 @@
     <script src="/client/js/write-movies.js" defer></script>
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/write-movies.css">
-    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amaranth&family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
     <div id="wrapper">
 
-        <nav id="router_button">
-            <a href="/client/" id="home-router">Home</a>
-            <a href="/client/browse-movies.html" id="browse-router">Browse Movies</a>
-            <a href="/client/write-movies.html" id="write-router">Add a Movie</a>
-        </nav>
-        <header>
-            <h1>Enter Movie Data from IMDb</h1>
-        </header>
+        <div id="bg">
 
-        <main>
-            <section>
-                <p>Reference <a href="https://www.imdb.com/chart/top/" target="_blank">IMDb's Top 250 Movies</a> to add movie data.</p>
-                <form>
-                    <div>
-                        <label for="rank">Rank</label>
-                        <input type="text" id="rank" name="rank" size="30">
+            <nav id="router_button">
+                <ul>
+                    <li><a href="/client/" id="home-router">Home</a></li>
+                    <li><a href="/client/browse-movies.html" id="browse-router">Browse Movies</a></li>
+                    <li><a href="/client/write-movies.html" id="write-router">Add a Movie</a></li>
+                </ul>
+            </nav>
+
+            <header>
+
+                <div id="logo">The <span style="color: darkgoldenrod;">(</span>IMDb<span style="color: darkgoldenrod;">)</span> Db</div>
+                <h1>Enter Movie Data from IMDb</h1>
+            </header>
+
+            <main>
+                <section>
+                    <p>Reference <a href="https://www.imdb.com/chart/top/" target="_blank">IMDb's Top 250 Movies</a> to
+                        add movie data.</p>
+                    <form>
+                        <div>
+                            <label for="rank">Rank</label>
+                            <input type="text" id="rank" name="rank" size="30">
+                        </div>
+                        <div>
+                            <label for="movieTitle">Movie Title</label>
+                            <input type="text" id="movieTitle" name="movieTitle" size="30">
+                        </div>
+                        <div>
+                            <label for="year">Year</label>
+                            <input type="text" id="year" name="year" size="30">
+                        </div>
+                        <div>
+                            <label for="director">Director</label>
+                            <input type="text" id="director" name="director" size="30">
+                        </div>
+                        <div>
+                            <label for="rating">Rating</label>
+                            <input type="text" id="rating" name="rating" size="30">
+                        </div>
+                        <div>
+                            <label for="users">Users</label>
+                            <input type="text" id="users" name="users" size="30">
+                        </div>
+                        <div id="save_button">
+                            <button id="data-submit">Submit Movie</button>
+                        </div>
+                    </form>
+
+                    <div id="success-added">
+                        <p>Movie record successfully added.</p>
                     </div>
-                    <div>
-                        <label for="movieTitle">Movie Title</label>
-                        <input type="text" id="movieTitle" name="movieTitle" size="30">
-                    </div>
-                    <div>
-                        <label for="year">Year</label>
-                        <input type="text" id="year" name="year" size="30">
-                    </div>
-                    <div>
-                        <label for="director">Director</label>
-                        <input type="text" id="director" name="director" size="30">
-                    </div>
-                    <div>
-                        <label for="rating">Rating</label>
-                        <input type="text" id="rating" name="rating" size="30">
-                    </div>
-                    <div>
-                        <label for="users">Users</label>
-                        <input type="text" id="users" name="users" size="30">
-                    </div>
-                    <div id="save_button">
-                        <button id="data-submit">Submit Movie</button>
-                    </div>
-                </form>
-            </section>
-        </main>
+                </section>
+            </main>
+        </div>
     </div>
 </body>
 

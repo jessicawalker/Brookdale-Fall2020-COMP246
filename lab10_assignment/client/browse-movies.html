@@ -10,40 +10,48 @@
     <script src="/client/js/browse-movies.js" defer></script>
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/browse-movies.css">
-    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amaranth&family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
     <div id="wrapper">
 
-        <nav id="router_button">
-            <a href="/client/" id="home-router">Home</a>
-            <a href="/client/browse-movies.html" id="browse-router">Browse Movies</a>
-            <a href="/client/write-movies.html" id="write-router">Add a Movie</a>
-        </nav>
-        <header>
-            <h1>IMDb Top Rated Movies</h1>
-        </header>
+        <div id="bg">
 
-        <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Rank</th>
-                        <th>Movie Title</th>
-                        <th>Year</th>
-                        <th>Director</th>
-                        <th>Rating</th>
-                        <th>Users</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="movieTable">
+            <nav id="router_button">
+                <ul>
+                    <li><a href="/client/" id="home-router">Home</a></li>
+                    <li><a href="/client/browse-movies.html" id="browse-router">Browse Movies</a></li>
+                    <li><a href="/client/write-movies.html" id="write-router">Add a Movie</a></li>
+                </ul>
+            </nav>
 
-                </tbody>
-            </table>
-        </main>
+            <header>
+
+                <div id="logo">The <span style="color: darkgoldenrod;">(</span>IMDb<span style="color: darkgoldenrod;">)</span> Db</div>
+                <h1>IMDb Top Rated Movies</h1>
+            </header>
+
+            <main>
+                <table id="movieTableFrame">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Rank</th>
+                            <th>Movie Title</th>
+                            <th>Year</th>
+                            <th>Director</th>
+                            <th>Rating</th>
+                            <th>Users</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="movieTable">
+
+                    </tbody>
+                </table>
+            </main>
+        </div>
     </div>
 
 </body>

@@ -8,24 +8,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/home.css">
-    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amaranth&family=Open+Sans" rel="stylesheet">
 </head>
 
 <body>
     <div id="wrapper">
 
-        <nav id="router_button">
-            <a href="/client/" id="home-router">Home</a>
-            <a href="/client/browse-movies.html" id="browse-router">Browse Movies</a>
-            <a href="/client/write-movies.html" id="write-router">Add a Movie</a>
-        </nav>
+        <div id="bg">
 
-        <header>
-            <h1>IMDb Top Rated Films</h1>
-        </header>
-        <main>
-            <!--<section id="filmStills"><img src="img/citizen_kane.jpg"></section>-->
-        </main>
+            <nav id="router_button">
+                <ul>
+                    <li><a href="/client/" id="home-router">Home</a></li>
+                    <li><a href="/client/browse-movies.html" id="browse-router">Browse Movies</a></li>
+                    <li><a href="/client/write-movies.html" id="write-router">Add a Movie</a></li>
+                </ul>
+            </nav>
+
+            <header>
+
+                <div id="logo">The <span style="color: darkgoldenrod;">(</span>IMDb<span style="color: darkgoldenrod;">)</span> Db</div>
+                <h1>IMDb Top Rated Films</h1>
+            </header>
+            <main>
+                <!--<section id="filmStills"><img src="img/citizen_kane.jpg"></section>-->
+            </main>
+        </div>
     </div>
 </body>
 
@@ -36,12 +43,6 @@
         It should have links (or buttons) to the other pages on the website.
         A landing page URL would end at the domain (.com. localhost:4500, etc) without need for a / after.  The app.get would then have "/" as its listener.  For example: app.get('/', function(req, res) {...});
 
-    Add the ability to delete a record (50 points)
-        An option:
-            Add buttons (or links) to the "browse-library" table (one for each row) that will call a delete function (feeding it the ID of the record). 
-                Hint: we (will have) covered a way to put "data-" fields in a page element (in this case a button).  This can also be done when creating the table dynamically.  That field can contain the ID of the record for that row.
-        The AJAX call to the server will need to include the ID the record being deleted.
-        This will require a new DELETE service to be created on the server.
 
     Extra Credit (30 Points): 
     Change your "browse-library" page to give the user the ability to sort the records by ID, and at least 2 other fields (that make sense).  For example:  sort by Book Title, sort by Author, sort by Publisher, etc.
