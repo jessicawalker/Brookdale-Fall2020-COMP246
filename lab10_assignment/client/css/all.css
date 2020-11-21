@@ -29,6 +29,12 @@ body {
     white-space: nowrap;
 }
 
+a #logo,
+a:visited #logo,
+a:hover #logo {
+    color: #000;
+}
+
 h1 {
     font-family: Amaranth, Helvetica, Arial, sans-serif;
     font-weight: bold;
