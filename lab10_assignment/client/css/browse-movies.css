@@ -37,6 +37,10 @@ tr:hover {
     background-color: yellow;
 }
 
+th:hover {
+    cursor: pointer;
+}
+
 .delete_button button {
     background-color: #c00;
     border: 1px solid #555;

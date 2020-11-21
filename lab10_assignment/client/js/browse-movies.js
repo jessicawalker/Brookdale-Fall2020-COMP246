@@ -1,16 +1,35 @@
 // retrieve the movie data and populate on page load, sent by app.get("/read-records")
 
+var data;
+var keyName; // default view
+
 $.ajax({
     url: moviesURL + "/read-records",
     type: "get",
     success: function(response) {
-        var data = JSON.parse(response);
-        createMovieTable(data);
+        data = JSON.parse(response);
+        createMovieTable(data.sort(sortByKey(keyName)));
     },
     error: function(err) {
         alert(err);
     }
 });
+
+function sortByKey(key) {
+    return function(a, b) {
+        if (a[key] > b[key])
+            return 1;
+        else if (a[key] < b[key])
+            return -1;
+
+        return 0;
+    };
+}
+
+function reload_js(src) {
+    $('script[src="' + src + '"]').remove();
+    $('<script>').attr('src', src).appendTo('head');
+};
 
 // inserts table row of data inside display table
 function createMovieTable(movieData) {
