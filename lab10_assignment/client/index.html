@@ -26,26 +26,19 @@
 
             <header>
                 <a href="/client/">
-                    <div id="logo">The <span style="color: darkgoldenrod;">(</span>IMDb<span
-                            style="color: darkgoldenrod;">)</span> Db</div>
+                    <div id="logo">The <span style="color: darkgoldenrod;">(</span>IMDb<span style="color: darkgoldenrod;">)</span> Db</div>
                 </a>
             </header>
 
             <main>
                 <div id="intro">
-                <h1><span>IMDb Top Rated Films</span></h1>
+                    <h1><span>IMDb Top Rated Films</span></h1>
                     <p><strong>The list of <a href="https://www.imdb.com/chart/top/" target="_blank">Top 250 films on IMDb</a> is an assortment of popular films which are ranked based on their average rating.</strong></p>
                     <p><strong>The display of the Top 250 on IMDb as-is is fun to skim through, but not so easy to sort through.</strong></p>
                     <p><strong>This website aims to make IMDb's information quicker to digest when wanting to quickly pick a new movie to watch.</strong></p>
                 </div>
-                
+
                 <div class="crossfade">
-                    <figure></figure>
-                    <figure></figure>
-                    <figure></figure>
-                    <figure></figure>
-                    <figure></figure>
-                    <figure></figure>
                     <figure></figure>
                     <figure></figure>
                     <figure></figure>
@@ -61,20 +54,5 @@
         </div>
     </div>
 </body>
-
-<!--
-    Create a landing (home) page (25 points)
-        It should fit the theme of your application
-        Pictures are always nice
-        It should have links (or buttons) to the other pages on the website.
-        A landing page URL would end at the domain (.com. localhost:4500, etc) without need for a / after.  The app.get would then have "/" as its listener.  For example: app.get('/', function(req, res) {...});
-
-
-    Extra Credit (30 Points): 
-    Change your "browse-library" page to give the user the ability to sort the records by ID, and at least 2 other fields (that make sense).  For example:  sort by Book Title, sort by Author, sort by Publisher, etc.
-        Some Options (there probably are others):
-            There are jQuery functions/stylings (but not in the default jQuery I think) that allow you to create the sort fields on the header and take care of things for you with no other effort.  You would have to do some research on this.
-            Create a dropdown box or set of option buttons for the user to select the sort type.  Then include a refresh button that calls to the server and feeds the sort option.  Sort the data on the server and return to the client already sorted (the table will need to be redrawn upon AJAX success).
--->
 
 </html>
