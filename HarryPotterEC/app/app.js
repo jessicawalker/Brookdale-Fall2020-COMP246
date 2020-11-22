@@ -1,16 +1,33 @@
+/*  Jessica Walker
+    EC: Harry Potter Cloud Migration
+*/
+
 const express = require("express");
 const app = express();
-const harryPotterSpells = require("harry-potter-spells"); // provides list of all spells in json format via harryPotterSpells.all
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+// provides list of all spells in json format via harryPotterSpells.all
+const harryPotterSpells = require("harry-potter-spells");
 var spells = harryPotterSpells.all;
 
+// variables to make the server
+var server;
+var port = 1234;
+
+// retrieve all spells via var with spells array from HPS.all
 app.get("/getSpells", function(req, res) {
     res.status(200).send(spells);
 });
 
 // returns json object for spell passed as query in url
 app.get("/getSpell", function(req, res) {
-    var q = req.query.name; // ?name=value_of_q
-    var names = spells.map(el => el.name); // make a new array of elements with just spell names
+    var q = req.query.name; // equals ?name=value_of_q
+    var names = spells.map(el => el.name); // make a new array of elements with just spell names for simpler search
     if (names.includes(q)) {
         var i = names.indexOf(q); // index of name will be same as index of entire spell
         res.status(200).send(spells[i]);
@@ -20,57 +37,23 @@ app.get("/getSpell", function(req, res) {
     }
 });
 
-//  # add a new spell
-//  curl --header "Content-Type: application/json" --request POST -sS --data '{ \"name\":\"Zap\",\"type\":\"spell\",\"effect\":\"Shocks victim.\" }' http://localhost:1234/addSpell
-// {"msg":"spell added."}
-/*
-var newSpell = {
-    "name": name,
-    "type": type,
-    "effect": effect
-};
-*/
-app.post("/addSpell", function(req, res) {});
+// accept json object, add to spells if not in spells array already
+app.post("/addSpell", function(req, res) {
+    var newSpell = req.body;
+    var names = spells.map(el => el.name); // make a new array of elements with just spell names for simpler search
 
-app.listen(1234);
+    if (names.includes(newSpell.name)) {
+        res.send(`{"msg":"error - spell already exists!"}`);
+    } else {
+        spells.push(newSpell);
+        res.send(`{"msg":"spell added."}`);
+    }
+});
 
-console.log("Server is running...");
-
-
-/*  DIRECTIONS:
-
-getSpells - A GET request that returns all the Harry Potter spells in JSON format.
-getSpell - A GET request that returns a single spell in JSON format.
-            Accept a name parameter and return the spell with that name. 
-            If the spell does not exist, return a JSON message stating so.
-addSpell - A POST request that adds a spell to the server. 
-            This request should accept three form fields: name, type, and effect. 
-            Return a JSON message indicating the status of the add request.
-
-Example:    {"name":"Silencio","type":"spell","effect":"Silences victim"}
-
-cURL Examples:
-
-$  # retrieve all spells
-$  curl -X GET -sS http://localhost:1234/getSpells  
-
-$  # retrieve only the Silencio spell
-$  curl -X GET -sS http://localhost:1234/getSpell?name=Silencio
-{"name":"Silencio","type":"spell","effect":"Silences victim"}
-
-$  # get a spell that does not exist
-$  curl -X GET -sS http://localhost:1234/getSpell?name=xyzxyz
-{"msg":"spell not found: xyzxyz"}
-
-$  # add a new spell
-$  curl --header "Content-Type: application/json" --request POST -sS --data '{ \"name\":\"Zap\",\"type\":\"spell\",\"effect\":\"Shocks victim.\" }' http://localhost:1234/addSpell
-{"msg":"spell added."}
-
-$  # get the spell that was just added
-$  curl -X GET -sS http://localhost:1234/getSpell?name=Zap
-{"name":"Zap","type":"spell","effect":"Shocks victim."}
-
-$  # try to add the same spell
-$  curl --header "Content-Type: application/json" --request POST -sS --data '{ \"name\":\"Zap\",\"type\":\"spell\",\"effect\":\"Shocks victim.\" }' http://localhost:1234/addSpell
-{"msg":"error - spell already exists!"}
-*/
+// app listener
+server = app.listen(port, function(err) {
+    if (err) {
+        throw err;
+    }
+    console.log("Listening on port " + port);
+});
