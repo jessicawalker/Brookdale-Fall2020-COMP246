@@ -61,10 +61,9 @@ var services = function(app) {
                         console.log(err);
                     } else {
                         console.log("Record " + itemID + " deleted successfully");
+                        res.status(204);
                     }
                 });
-
-                res.status(204);
             }
         });
     });
