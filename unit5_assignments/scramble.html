@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lab 13 - Scrambling | Jessica Walker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div data-ng-app="myApp" data-ng-controller="myctrl">
+
+        Type a word: <input type="text" data-ng-model="unscrambled"><br>  
+        <button data-ng-click="scramble()">Scramble</button>
+
+        <div data-ng-repeat="s in arr">{{s}}</div>
+
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        /*app.controller('myctrl', function ($scope) {
+            $scope.unscrambled = "scramble";
+            $scope.arr = [];
+            $scope.scramble = function() {
+                var unscrambledArray = $scope.unscrambled.split("");
+            }
+
+            for (var i = 0; i>5; i++) {
+                $scope.arr.push(unscrambledArray.sort(() => Math.random() - 0.5));
+            }
+
+            $scope.scramble();
+            
+        });*/
+
+        app.controller('myctrl', function ($scope) {
+            $scope.arr = [];
+            var unscrambledArray = $scope.unscrambled.split("");
+            for (var i=0; i < 5; i++) { 
+                $scope.arr.push(unscrambledArray.sort(() => Math.random() - 0.5)); 
+            }
+        });
+
+    </script>
+</body>
+
+<!--
+    Write an AngularJS web page to scramble a word five times.  Add an <input> element to accept 
+    a string from the user.  Add five <div> elements to out the scrambled words.  Add a button to 
+    perform the scramble process.
+
+    Use AngularJS to bind the button action to an AngularJS function that scrambles the input string 
+    five times and outputs the scrambled words to the page. 
+-->
+
+</html>

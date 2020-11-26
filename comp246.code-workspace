@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\comp246-movies"
+		},
+		{
+			"path": "..\\examples"
 		}
 	],
 	"settings": {
