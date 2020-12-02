@@ -17,6 +17,7 @@
     <h1>Homework 9: 50 Times Table</h1>
     <div data-ng-app="myapp" data-ng-controller="myctrl">
         <div data-ng-repeat="n in arr">(50 * {{ n }}) = {{ 50 * n }}</div>
+        <!--<div data-ng-repeat="s in arr">{{ s }}</div>-->
     </div>
 
     <script>
@@ -25,8 +26,11 @@
             $scope.arr = [];
 
             // 50 times table, from 1 to 49
+            // var result;
             for (var i = 1; i < 50; i++) {
                 $scope.arr.push(i);
+                // result = 50 * i;
+                // $scope.arr[i] = "(50 * " + i + ") = " + result;
             }
         });
     </script>
