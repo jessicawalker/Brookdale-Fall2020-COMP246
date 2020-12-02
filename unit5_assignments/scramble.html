@@ -1,57 +1,71 @@
+
+<!-- directive1.html -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <title>Lab 13 - Scrambling | Jessica Walker</title>
+    <head>
+    <title>Lab 13 - Scramble</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-</head>
+    </head>
 
-<body>
-    <div data-ng-app="myApp" data-ng-controller="myctrl">
+    <body>
+        <div data-ng-app="myApp"  data-ng-controller="myctrl">
+            <input type="text" ng-model="unscrambled">
 
-        Type a word: <input type="text" data-ng-model="unscrambled"><br>  
-        <button data-ng-click="scramble()">Scramble</button>
+            <div data-ng-repeat="s in arr">{{s}}</div>
+            <button data-ng-click="scramble()">Scramble</button>
+        </div>
 
-        <div data-ng-repeat="s in arr">{{s}}</div>
+        <script>
 
-    </div>
+            //The [] parameter in the module definition can be used to define dependent modules.
+            //Without the [] parameter, you are not creating a new module, but retrieving an existing one.
+            var app = angular.module("myApp", []);
 
-    <script>
-        var app = angular.module("myApp", []);
+            app.controller('myctrl', function ($scope) {
+                $scope.unscrambled = "scramble";  //Initialize the input box
+                $scope.arr = []; //Array to hold our 5 scrambled words
+                $scope.scramble = function() {  //Our function executed when button is clicked
+                    $scope.arr = scramble($scope.unscrambled);  //Populate the array through this function
+                };
 
-        /*app.controller('myctrl', function ($scope) {
-            $scope.unscrambled = "scramble";
-            $scope.arr = [];
-            $scope.scramble = function() {
-                var unscrambledArray = $scope.unscrambled.split("");
+                $scope.scramble();  //To initialize on load
+            });
+
+            //This function scrambles the unscrambled word 5 times
+            //And returns an array with the 5 scrambled words
+            function scramble(unscrambled) {                
+                var i, j;
+                var randomIndex, temp;
+                var scrambled = [];  //Inititalize
+
+                //Take the original word and put letters into an array
+                var unscrambledArray = unscrambled.split("");
+
+                //We need to scramble 5 times
+                for(var i=0; i<5; i++){
+
+                    //To scramble the word, loop through the array we created
+                    for(j=unscrambledArray.length-1; j>0; j--) {
+
+                        //Select a random index
+                        randomIndex = Math.floor(Math.random() * (j+1));
+
+                        //Swap the letter at index j with 
+                        //the letter at the random index
+                        temp = unscrambledArray[j];
+                        unscrambledArray[j] = unscrambledArray[randomIndex];
+                        unscrambledArray[randomIndex] = temp;
+
+                    }  //Scramble is done
+
+                    //Return the array back to a single string and add to 
+                    //the array which will be returned to the controller
+                    scrambled[i] = unscrambledArray.join('');
+
+                } //We have 5 scrambled words in our array
+
+                return scrambled;  //Send the array back to the controller
             }
-
-            for (var i = 0; i>5; i++) {
-                $scope.arr.push(unscrambledArray.sort(() => Math.random() - 0.5));
-            }
-
-            $scope.scramble();
-            
-        });*/
-
-        app.controller('myctrl', function ($scope) {
-            $scope.arr = [];
-            var unscrambledArray = $scope.unscrambled.split("");
-            for (var i=0; i < 5; i++) { 
-                $scope.arr.push(unscrambledArray.sort(() => Math.random() - 0.5)); 
-            }
-        });
-
-    </script>
-</body>
-
-<!--
-    Write an AngularJS web page to scramble a word five times.  Add an <input> element to accept 
-    a string from the user.  Add five <div> elements to out the scrambled words.  Add a button to 
-    perform the scramble process.
-
-    Use AngularJS to bind the button action to an AngularJS function that scrambles the input string 
-    five times and outputs the scrambled words to the page. 
--->
-
+        </script>
+    </body>
 </html>
