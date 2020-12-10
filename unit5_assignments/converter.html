@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quiz 5 | Jessica Walker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style>
+
+    body {font-family: Arial, sans-serif; font-size:1.4em; line-height: 1.8em; padding:20px 40px;}
+    h1 {font-family: Georgia, serif; font-size:1.5em; margin-bottom:1.75em;}
+    div {padding: 1.5em; width: 50%;}
+    input {font-family: Georgia, serif; font-size:1.5em; padding:0.2em 0.5em;}
+    label {padding-right:0.5em; font-weight:bold;}
+    #us_dollars {border: 1px solid green; background-color: lightgreen;}
+    #peso {border: 1px solid red; background-color: pink;}
+    #lira {border: 1px solid orange; background-color: peachpuff;}
+    #euro {border: 1px solid blue; background-color: lightblue;}
+
+    </style>
+</head>
+
+<body>
+<h1>U.S. dollars to peso (Mexico), lira (Turkey), and euro</h1>
+    <section data-ng-app="" data-ng-init="dollars=1.00">
+
+        <div id="us_dollars">
+            <label for="dollars">US Dollar Amount: &nbsp;&nbsp; $</label>
+            <input id="dollars" type="text" data-ng-model="dollars">
+        </div>
+        <br>
+
+        <!--  United States Dollar equals 19.88 Mexican Peso -->
+        
+        <div id="peso"><label for="dollars">USD => Peso Amount: </label> &#8369;{{ dollars * 19.98 }} </div>
+        <br>
+
+        <!--  United States Dollar equals 7.82 Turkish lira -->
+        
+        <div id="lira"><label for="dollars">USD => Lira Amount: </label> &#8378;{{ dollars * 7.82 }} </div>
+        <br>
+
+        <!--  United States Dollar equals 0.83 Euro -->
+        
+        <div id="euro"><label for="dollars">USD => Euro Amount: </label> &euro;{{ dollars * 0.83 }} </div>
+        
+    </section>
+
+</body>
+</html>
+
+<!--
+
+    Write code for the output label and amount for peso (Mexico)
+
+    Write code for the output label and amount for lira (Turkey)
+
+    Write code for the output label and amount for euro (Europe)
+
+    Format the page any way you like
+
+    Output amounts should change as the user enters U.S. dollars
+-->
